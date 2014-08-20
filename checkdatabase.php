@@ -20,7 +20,7 @@ while($row = mysqli_fetch_assoc($transres))
    
    $Tprice = queryAssoc($cxn, $sql);
    extract($Tprice);
-   if($totalPrice != $Tprice)
+   if(money($totalPrice) > money($Tprice) + money(.02) || money($totalPrice) < money($Tprice) - money(.02))
    {
       echo "ERROR on TID: $ID, Transaction Price: $totalPrice, Item Price: $Tprice<p>";
    }
