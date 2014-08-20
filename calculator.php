@@ -23,9 +23,18 @@
  * Nothing!
  */
 $title = "Calculator";
-require 'header.php';
+require_once 'header.php';
 
-if ($_POST['submit'] == 'submit') {
+/**
+ * Possible Arguments:
+ * POST:
+ *   submit - When this variable = 'Submit', the button has been pressed, so
+ *     we should attend to the data, and ship some store credit.
+ *   base - This is the original price of the item/order that we're trying
+ *     to discount.
+ *   target - This is the price we want to discount the item/order to.
+ */
+if ($_POST['submit'] == 'Submit') {
     $base = $_POST['base'];
     $target = $_POST['target'];
     $discount = ($base - $target) / $base;
@@ -44,5 +53,5 @@ Base Price: <input name='base' type='text' size=8 maxlength=8><br>
 Target Price: <input name='target' type='text' size=8 maxlength=8><br>
 <input type=submit name='submit' value='submit'></form>";
 
-require 'footer.php';
+require_once 'footer.php';
 ?>

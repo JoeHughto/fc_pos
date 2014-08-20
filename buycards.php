@@ -31,9 +31,22 @@
  *   selectMember()
  */
 $title = "Buy Cards";
-require 'funcs.inc';
-require 'header.php';
+require_once 'funcs.inc';
+require_once 'header.php';
 
+/**
+ * Possible Arguments:
+ * SESSION:
+ *   ID - Used to add the volunteer's ID to the transaction, as the member who
+ *     authorized the transaction.
+ * POST:
+ *   submit - When this variable = 'Submit', the button has been pressed, so
+ *     we should attend to the data, and ship some store credit.
+ *   member - The integer Member ID number, to whose account store credit
+ *     should be applied.
+ *   price - The amount of money that should be deducted from card sales,
+ *     and put into the account of the member selling the cards to the store.
+ */
 $cxn = open_stream();
 
 if ($_SESSION['inv'] != 1) {
@@ -43,7 +56,7 @@ if ($_SESSION['inv'] != 1) {
 }
 
 // check to see if data has been submitted
-if ($_POST['dominate'] == 'dominate') {
+if ($_POST['submit'] == 'Submit') {
     extract($_POST);
     if (($member > 0) && ($price > 0)) {
         echo "<font size=+3>Processing Transaction</font><p>";
@@ -88,7 +101,7 @@ Member who will receive credit to account for this transaction.<br>
 You must select a member or the transaction will not go through.<br><form action='buycards.php' method='post'>\n";
 selectMember('member', 0);
 echo "<br>Amount of purchase: \$<input name='price' size=8 maxlength=8><br>
-<input name='dominate' type='submit' value='dominate'></form>\n";
+<input name='submit' type='submit' value='Submit'></form>\n";
 
-require 'footer.php';
+require_once 'footer.php';
 ?>

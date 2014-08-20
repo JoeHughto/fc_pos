@@ -26,8 +26,8 @@
  *   claimBounty()
  */
 $title = "Unclaimed Bounties";
-require 'funcs.inc' ;
-require 'credits.inc';
+require_once 'funcs.inc' ;
+require_once 'credits.inc';
 
 /**
  * Possible Arguments:
@@ -63,7 +63,7 @@ if (isset($_POST['submit'])) {
         }
     }
 }
-require 'header.php';
+require_once 'header.php';
 
 $cxn = open_stream();
 $message .= '';
@@ -84,5 +84,5 @@ if ($_SESSION['mem'] == 1) {
 
     echo "<button name='submit' value='submit claim'>Claim</button><p></form>";
 
-require 'footer.php';
+require_once 'footer.php';
 ?>

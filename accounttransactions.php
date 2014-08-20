@@ -28,12 +28,21 @@
  *   getAccountBalance()
  *   getAvailableBalance()
  *   displayAccount()
- * header.php for the top bar and menu.
  */
 $title = "Account Transactions";
-require 'funcs.inc';
-require 'header.php';
+require_once 'funcs.inc';
+require_once 'header.php';
 
+/**
+ * Possible Arguments:
+ * GET:
+ *   ID - If an ID is specified, the page will display that member's
+ *     store credit ledger, not the active user's.
+ *   qty - If a qty is specified, only the most block of that many 
+ *     transactions will be shown.
+ *   start - If a date is specified, only transactions and referals after that
+ *     date will be included in the list.
+ */
 if ($_GET['ID'] > 0) {
     $ID = $_GET['ID'];
 } else {
@@ -60,5 +69,5 @@ Total Account: " . money($total) . "<br>
 Total Available: " . money($avail) . "<hr>";
 displayAccount($qty, $ID);
 
-require 'footer.php';
+require_once 'footer.php';
 ?>

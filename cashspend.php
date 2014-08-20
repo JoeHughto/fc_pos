@@ -25,9 +25,18 @@
  *   printMemberString()
  */
 $title = "Cash Spend Report";
-require 'funcs.inc';
-require 'header.php';
+require_once 'funcs.inc';
+require_once 'header.php';
 
+/**
+ * Possible Arguments:
+ * SESSION:
+ *   ID - Used to add the volunteer's ID to the transaction, as the member who
+ *     authorized the transaction.
+ * POST:
+ *   amount - The total amount that was taken from the register.
+ *   reason - An explanation for why that money was taken.
+ */
 $cxn = open_stream();
 
 if ($_POST['amount'] > 0) {
@@ -61,5 +70,5 @@ while ($row = mysqli_fetch_assoc($result)) {
         "</td><td>" . money($amount) . "</td><td>$reason</td></tr>\n";
 }
 echo "</table>";
-require 'footer.php';
+require_once 'footer.php';
 ?>

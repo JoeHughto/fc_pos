@@ -23,8 +23,8 @@
 
    $securePage = FALSE;
    $title = "FriendComputer Master Page - Worlds Apart Games";
-   include('funcs.inc');
-   include('friendcomputer.inc');
+   require_once 'funcs.inc';
+   require_once 'friendcomputer.inc';
    include('member.inc');
    include('credits.inc');
    //include('medals.inc');

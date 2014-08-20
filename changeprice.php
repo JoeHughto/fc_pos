@@ -1,6 +1,6 @@
 <?php
 /**
- * Changeprice.inc is a page that was used to change the prices of existing
+ * Changeprice.php is a page that was used to change the prices of existing
  * items in the system. If it is not provided with some GET arguments, it
  * does nothing.
  *
@@ -27,11 +27,26 @@
  *   Used for the config.inc include
  */
 $title = "Change Price";
-require 'funcs.inc';
-require 'header.php';
+require_once 'funcs.inc';
+require_once 'header.php';
 
 $cxn = open_stream();
 
+/**
+ * Possible Arguments:
+ * SESSION:
+ *   inv - Used to determine whether the current user has inventory
+ *     privledges.
+ * POST:
+ *   ID - The ID of the item we're attempting to change the price of.
+ *   price - The price we want to assign the item.
+ *   cost - The value we want to assign to the item's cost.
+ *   desc - This is a hidden description from the database to ensure the
+ *     correct description gets included in the SQL query.
+ * GET:
+ *   ID - If ID is set, the page will display the UI to change the price of
+ *     the given item.
+ */
 if ($_SESSION['inv'] != 1) {
     echo "You must have Inventory Priviledges to adjust prices and costs<p>";
     include 'footer.php';
@@ -77,5 +92,5 @@ if ($ID > 0) {
          <input name='dominate' type='submit' value='dominate'></form>\n";
 }
 
-require 'footer.php';
+require_once 'footer.php';
 ?>
