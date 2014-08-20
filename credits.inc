@@ -352,11 +352,11 @@ function renewMembership($ID, $months)
  * 3 - intermember transfer
  * 4 - transfer caused by Admin
  * 
- * @param int    $sender is the member from whom Hedons will be taken.
- * @param int    $recep  is the member to whom Hedons will be given.
- * @param float  $amt    is the amount of Hedons being transferred.
- * @param string $note   is a note that can be appended to the transfer.
- * @param int    $reason is a Reason Code for the transfer.
+ * @param  int    $sender is the member from whom Hedons will be taken.
+ * @param  int    $recep  is the member to whom Hedons will be given.
+ * @param  float  $amt    is the amount of Hedons being transferred.
+ * @param  string $note   is a note that can be appended to the transfer.
+ * @param  int    $reason is a Reason Code for the transfer.
  * @return boolean Returns a boolean representing whether the transfer was
  *   successful.
  */
@@ -391,9 +391,9 @@ function transferCredits($sender, $recep, $amt, $note, $reason)
 /**
  * RequestCredits adds a Hedon Request to the database, to be approved or
  *   denied at a later point.
- * @param int $memID is the member ID of the member requesting Hedons.
- * @param float $amt   is the number of Hedons being requested.
- * @param string $note  is a reason for the request.
+ * @param  int    $memID is the member ID of the member requesting Hedons.
+ * @param  float  $amt   is the number of Hedons being requested.
+ * @param  string $note  is a reason for the request.
  * @return boolean Returns a boolean representing whether the Hedon Request
  *   was successfully created.
  */

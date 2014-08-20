@@ -30,8 +30,6 @@ $title = "Change Price";
 require_once 'funcs.inc';
 require_once 'header.php';
 
-$cxn = open_stream();
-
 /**
  * Possible Arguments:
  * SESSION:
@@ -47,6 +45,7 @@ $cxn = open_stream();
  *   ID - If ID is set, the page will display the UI to change the price of
  *     the given item.
  */
+$cxn = open_stream();
 if ($_SESSION['inv'] != 1) {
     echo "You must have Inventory Priviledges to adjust prices and costs<p>";
     include 'footer.php';
