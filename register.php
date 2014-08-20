@@ -49,7 +49,6 @@
    include ('member.inc');
    include ('inventory.inc');
    include ('credits.inc');
-   include ('medals.inc');
    include ('giftcert.inc');
    include ('friendcomputer.inc');
    $title = 'In Store Sales';
@@ -683,10 +682,6 @@
          }
 
          echo "<br>Hedon Balance: " . getCreditTotal($_POST['member']);
-
-	 // show medals
-         echo "<hr>\n";
-         displayMedals($member, 5);	 
 
 	 // Frequent Gamer Rewards
          echo "</td><td>\n";
