@@ -91,7 +91,7 @@ if (($_POST['count'] > 0 || $_POST['deposit'] > 0) && $_POST['confirmed'] == "Co
         $sql = "SELECT sum(count) FROM cashCounts WHERE deposit=1 AND countTime >= '$countTime'";
         $depositCount = queryOnce($cxn, $sql);
 
-        $difference = round(($countCount + $transCount - $spendCount - $depositCount - $count) ,2);
+        $difference = round(($countCount + $transCount - $spendCount - $depositCount - $count), 2);
         // Compare, Display, Email results
         echo "<h2>Count Results</h2>
             <table border><tr><td>Count:</td><td>" . money($count) . "</td></tr>
@@ -107,7 +107,7 @@ if (($_POST['count'] > 0 || $_POST['deposit'] > 0) && $_POST['confirmed'] == "Co
         $datestamp = date("Y-M-j g:i A");
 
         $emessage = "Count Result
-            Counter: " . printMemberString($_SESSION['ID'],1) ."
+            Counter: " . printMemberString($_SESSION['ID'], 1) ."
             $datestamp
 
             Previous Count: $countCount
@@ -124,7 +124,7 @@ if (($_POST['count'] > 0 || $_POST['deposit'] > 0) && $_POST['confirmed'] == "Co
         mail("gm@pvgaming.org, mc@pvgaming.org", "FC Deposit Count", $emessage); 
 
         $sql = "INSERT INTO cashCounts (countTime, count, deposit, staffID) VALUES (NOW(), $count, 0, '$ID')";
-        if (query ($cxn, $sql)) {
+        if (query($cxn, $sql)) {
             $message .= "Count of $count deposited correctly.<br>";
         } else {
             $message .= "Count not submitted due to error.<br>";
@@ -152,7 +152,7 @@ if (($_POST['count'] > 0 || $_POST['deposit'] > 0) && $_POST['confirmed'] == "Co
         $sql = "SELECT sum(count) FROM cashCounts WHERE deposit=1 AND countTime >= '$countTime'";
         $depositCount = queryOnce($cxn, $sql);
 
-        $difference = round(($countCount + $transCount - $spendCount - $depositCount - $count) ,2);
+        $difference = round(($countCount + $transCount - $spendCount - $depositCount - $count), 2);
         // Compare, Display, Email results
         echo "<h2>Count Results</h2>
             <table border><tr><td>Count:</td><td>" . money($count) . "</td></tr>
@@ -190,13 +190,13 @@ if (($_POST['count'] > 0 || $_POST['deposit'] > 0) && $_POST['confirmed'] == "Co
     if ($deposit > 0) {
         $sql = "INSERT INTO cashCounts (countTime, count, deposit, staffID) VALUES (NOW(), $deposit, 1, '$ID')";
 
-        if (query ($cxn, $sql)) {
+        if (query($cxn, $sql)) {
             $message .= "Deposit of $deposit deposited correctly.<br>";
 
             $datestamp = date("Y-M-j g:i A");
 
             $emessage = "A deposit was logged.
-                Depositor: " . printMemberString($_SESSION['ID'],1) ."
+                Depositor: " . printMemberString($_SESSION['ID'], 1) ."
                 $datestamp
 
                 Today's Depost: $deposit";
@@ -240,13 +240,13 @@ if ($_SESSION['adm'] == 1 || $_SESSION['mem'] == 1) {
             echo "<tr><td>";
             printMember($staffID, 1);
             echo "</td><td>$countTime</td><td><font color=GREEN>\$";
-            printf("%0.2f",$count);
+            printf("%0.2f", $count);
             echo "</font></td><td>Count</td></tr>";
         } else {
             echo "<tr><td>";
             printMember($staffID, 1);
             echo "</td><td>$countTime</td><td><font color=BLUE>\$";
-            printf("%0.2f",$count);
+            printf("%0.2f", $count);
             echo "</font></td><td>Deposit</td></tr>";
         }
     }
