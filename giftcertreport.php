@@ -3,14 +3,14 @@
 
 // shows all gift certificates
 
-   include ('funcs.inc');
-   include ('giftcert.inc');
-   $title = 'Gift Certificate Report';
-   include ('header.php');
-   $giftCert = new giftCert;
+require_once 'funcs.inc';
+require_once 'giftcert.inc';
+$title = 'Gift Certificate Report';
+require 'header.php';
+$giftCert = new giftCert;
 
-   echo "<p>";
-   showAllGiftCerts();
-   
-   include ('footer.php');
+echo "<p>";
+showAllGiftCerts();
+
+require 'footer.php';
 ?>
