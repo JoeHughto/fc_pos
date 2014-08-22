@@ -16,7 +16,7 @@
 // 1.1 added ability to set shift as blank even if there is a recurring staff member
 // 1.11 added dis=no to produce block format
 
-   $securePage = TRUE;
+   $securePage = true;
    include('funcs.inc');
 
 // Check permissions and set mem to indicate if user can make changes

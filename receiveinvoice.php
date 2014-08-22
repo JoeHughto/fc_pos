@@ -127,14 +127,14 @@
       // they are already existing items, we ask for price, quantity and cost
       if(is_array($skuList))
       {
-         $first = TRUE; // if this is true and affected is >0, then it will display the header
+         $first = true; // if this is true and affected is >0, then it will display the header
 
          $newItems = array();
          foreach($skuList as $s)
          {
             // comma separated data
             // Format: UPC, qty, price, totalcost, description, tax, inv, dept, manu
-            $firstComma = TRUE; // true if we haven't deal with a CSV yet.
+            $firstComma = true; // true if we haven't deal with a CSV yet.
             if(strpos($s, ','))
             {
                if($firstComma)
@@ -144,7 +144,7 @@
                                                ? ($endK + 1)
                                                : 1000000)
                                             : $count;
-                  $firstComma = FALSE;
+                  $firstComma = false;
                }
                $cv = explode(",", $s);
                
@@ -193,7 +193,7 @@
                if($first)
                {
                   echo "<h2>Items just entered as skus that need your loving attention</h2><hr>\n";
-                  $first = FALSE;
+                  $first = false;
                }
                $_POST['ID'][$row['ID']] = $_POST['ID']; // set the POST so that it can't come up again
                if(!displayExistingItem($row, '', '', ''))
@@ -209,7 +209,7 @@
                if($first)
                {
                   echo "<h2>Items just entered as skus that need your loving attention</h2><hr>\n";
-                  $first = FALSE;
+                  $first = false;
                }
 
                echo "<b>You have $some items with the same sku of $s</b><br>
@@ -294,20 +294,20 @@
          else $cost[$icount] = $totalcost[$icount] / $qty[$icount];
 
          // check to see if that description already exists, if so, it's no good
-         if($bad['description'] != TRUE)
+         if($bad['description'] != true)
          {
             $sql = "SELECT ID FROM items WHERE description='" . $description[$icount] . "'";
             if(!$result = mysqli_query($cxn, $sql)) displayErrorDie("Error #5: Unable to check description for dups<br>Query: $sql<br>Error: " . mysqli_error($cxn));
             if(mysqli_affected_rows($cxn) > 0)
             {
-               $bad['description'] = TRUE;
+               $bad['description'] = true;
                $description[$icount] = '%DUPLICATE: ' . $description[$icount];
             } // end if
          } // end if
 
-         if(!in_array(TRUE, $bad)) // if nothing is bad then we can submit the info
+         if(!in_array(true, $bad)) // if nothing is bad then we can submit the info
          {
-            $inv[$icount] = ($inv[$icount]) ? 1 : 0; // SQL doesn't like 'TRUE'
+            $inv[$icount] = ($inv[$icount]) ? 1 : 0; // SQL doesn't like 'true'
             $tax[$icount] = ($tax[$icount]) ? 1 : 0;
 
             $sql = "INSERT INTO items
@@ -410,13 +410,13 @@
                   This will overwrite any other cost put in for this item and will make the cost this percentage of the price.</td></tr></table><hr>\n";
 
             unset($bad); // so that subsequent items don't show up as bad
-            $entryError = TRUE; // this will be checked later to see if the invoice can be closed
+            $entryError = true; // this will be checked later to see if the invoice can be closed
          } // end else - what we do if it's bad
       } // end for - dealing with new stuff entered
    
       // This section looks at items which are not new but which may have had quantity, price, or cost changed.
       // if quantity is not positive, the item is disgarded from the list
-      $first = TRUE;
+      $first = true;
       if(is_array($newqty)) foreach($newqty as $thisID => $q)
       {
          if($bomb[$thisID] == "somebody")
@@ -438,7 +438,7 @@
          if($first)
          {
             echo "<h2>Items for which you may have edited price, quantity and/or cost</h2>";
-            $first = FALSE;
+            $first = false;
          }
       
          // look at new DEPARTMENTS and MANUFACTURERS for EXISTING items
@@ -446,20 +446,20 @@
          if((checkName($manufacturer[$thisID]) && checkName($department[$thisID]))
          && (isset($manufacturer[$thisID])     && isset($department[$thisID])))
          {
-            $diffman = FALSE;
-            $diffdep = FALSE;
+            $diffman = false;
+            $diffdep = false;
             $sql = "SELECT manufacturer, department FROM items WHERE ID='$thisID'";
             $result = query($cxn, $sql);
             $row = mysqli_fetch_assoc($result);
             $sql = "UPDATE items SET ";
             if($manufacturer[$thisID] != $row['manufacturer'])
             {
-               $diffman = TRUE;
+               $diffman = true;
                $sql .= "manufacturer = '" . $manufacturer[$thisID] . "'";
             }
             if($department[$thisID] != $row['department'])
             {
-               $diffdep = TRUE;
+               $diffdep = true;
                if($diffman) $sql .= ',';
                $sql .= "department = '" . $department[$thisID] . "'";
             }
@@ -561,7 +561,7 @@
    }
    else
    {
-      $first = TRUE;
+      $first = true;
       while($row = mysqli_fetch_assoc($result))
       {
          if(($_POST['submit'] != 'submit' // this prevents the warning of an empty array if there is no POST
@@ -571,10 +571,10 @@
             $sql = "SELECT * FROM items WHERE ID='" . $row['itemID'] . "'";
             if($itemResult = query($cxn, $sql))
             {
-               if($first == TRUE)
+               if($first == true)
                {
                   echo "<h2>Items which are recorded in the pending order</h2><p>\n";
-                  $first = FALSE;
+                  $first = false;
                }
                displayExistingItem($itemResult, $row['qty'], $row['cost'], $row['price']);
             }
@@ -597,7 +597,7 @@
          // get all inventory changes
          $sql = "SELECT * FROM itemChange WHERE invEventID='$IEID'";
          $result = query($cxn, $sql);
-         $goodquery = TRUE; // this becomes false if a query fails
+         $goodquery = true; // this becomes false if a query fails
          while(($row = mysqli_fetch_assoc($result)) && $goodquery)
          {
             extract($row);

@@ -11,7 +11,7 @@
 // 20 - lifetime
 // 21 - eternal
 
-   $securePage = TRUE;
+   $securePage = true;
    include('funcs.inc');
    include('header.php');
    $cxn = open_stream();

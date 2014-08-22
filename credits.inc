@@ -552,7 +552,7 @@ class creditSpending
     public $creditTotal = 0; // total credits to be spent
     private $checked; // array of checked off boxes
     public $creditBalance; // member's credit balance
-    private $insufficientCredits = false; // TRUE if member has insufficient credits
+    private $insufficientCredits = false; // true if member has insufficient credits
    
     /**
      * Constructor for objects of class CreditSpending.

@@ -35,13 +35,13 @@
          {
             $renew = $credits / $WORKINGMEMBERCREDITS;
             $renew = floor($renew);
-            $reduction = TRUE; // a flag so we know it was changed
+            $reduction = true; // a flag so we know it was changed
          }
          
          if($renew > 0)
          {
             renewMembership($SID, $renew);
-            if($reduction == TRUE)
+            if($reduction == true)
             {
                $message .= "Due to lack of credits, Friend Computer has reduced the number of months you will renew for.<br>";
             }

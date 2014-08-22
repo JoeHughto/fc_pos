@@ -6,7 +6,7 @@
  *
  * LICENSE: TBD
  *
- * @category  Inventory_Modifier
+ * @category  Inventory_Mutator
  * @package   FriendComputer
  * @author    Michael Whitehouse 
  * @author    Crideke Crouch 

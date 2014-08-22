@@ -54,19 +54,19 @@
          {
             $message .= $notes . " for $a put in Member's account<br>";
             $stmt->close();
-            $accountFail = FALSE;
+            $accountFail = false;
          }
          else
          {
             $message .= "Failed to submit account for ". $notes . "<br>";
             $stmt->close();
-            $accountFail = TRUE;
+            $accountFail = true;
          }
       } // end if a > 0
 
       
       // submit special order/requests
-      if($accountFail != TRUE)
+      if($accountFail != true)
       {
          foreach($item as $num => $it)
          {

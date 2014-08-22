@@ -54,14 +54,14 @@
    $title = 'In Store Sales';
    include ('header.php');
    $noRefresh = noRefreshCheck(); // to bypass this, uncomment next line
-   $noRefresh = TRUE;
+   $noRefresh = true;
    $specOrder = new specialOrder;
    $newMember = new newMember;
    $giftCert = new giftCert;
    $creditSpending = new creditSpending;
 
    $taxdate = date("ynj");
-   if($taxdate == '14816' || $taxdate == '14817') $salesTaxHoliday = TRUE;
+   if($taxdate == '14816' || $taxdate == '14817') $salesTaxHoliday = true;
    
    if($salesTaxHoliday) echo "<table border cellpadding=3><tr><td><font size=+3>ZOMG! It's a sales tax holiday!!!</font></td></tr></table>\n";
 
@@ -197,8 +197,8 @@
    {
       print_r($row);
       extract($row);
-      $post = var_export($_POST, TRUE);
-      $session = var_export($_SESSION, TRUE);
+      $post = var_export($_POST, true);
+      $session = var_export($_SESSION, true);
       $body = "Register did that weird thing!
                Date: " . date('l dS \of F Y h:i:s A') . "
                POST data: $post
@@ -291,7 +291,7 @@
       // they are already existing items, we ask for price, quantity and cost
       if(is_array($skuList))
       {
-         $first = TRUE; // if this is true and affected is >0, then it will display the header
+         $first = true; // if this is true and affected is >0, then it will display the header
 
          $newItems = array();
          foreach($skuList as $s)
@@ -363,7 +363,7 @@
       }
 
       // This section looks at items which have had the chance to have qty change
-      $first = TRUE;
+      $first = true;
       $qty = $_POST['qty'];
       if(is_array($qty))
       {
@@ -434,7 +434,7 @@
                   else if ($q >= 36)
                   {
                      $p = 3.05555555555555555;
-                     $magicbox = TRUE;
+                     $magicbox = true;
                      
                      $noMagicCap = $_POST['noMagicCap'];
                      if($noMagicCap != 1)
@@ -707,7 +707,7 @@
                   $creditCost = $creditSpending->conclude();
                   if(strcmp($creditCost,"insuf") == 0)
                   {
-                     $fail = TRUE;
+                     $fail = true;
                      echo "<font color=white>Error: Failure to deduct Hedons for Hedon changes.</font><br>";
                   }
                   else // if CreditCost is valid
@@ -750,7 +750,7 @@ p.nopay {position: absolute;
          font-weight: bold;}
 </style>
                <p class=nopay><br><br>You must select a payment type</p>";
-               $fail = TRUE;
+               $fail = true;
          }         
          
          // if there is a discount we need to apply it to the item soldItems
@@ -762,7 +762,7 @@ p.nopay {position: absolute;
       
          // PAYMENTS
          // set all the payment variables
-         $pay = round((($specOrder->pickUp == TRUE) ? 4 : $_POST['pay']), 2);
+         $pay = round((($specOrder->pickUp == true) ? 4 : $_POST['pay']), 2);
          $cashpay = round(((($_POST['cashpay'] <> 0) || ($_POST['cashpay'] < 0)) ? $_POST['cashpay'] : 0),2);
          $ccpay = round((($_POST['ccpay'] > 0) ? $_POST['ccpay'] : 0),2);
          $checkpay = round(((($_POST['checkpay'] > 0) || ($_POST['checkpay'] < 0)) ? $_POST['checkpay'] : 0),2);
@@ -778,7 +778,7 @@ p.nopay {position: absolute;
             $payment = round($payment, 2);
             if($paysum != $payment)
             {
-               $fail = TRUE;
+               $fail = true;
                Echo "<font color=RED>Payments must add up to total.</font><br>
                      Transaction Total: " . money($payment) . "<br>
                      Payment Total: " . money($paysum) . "<p>";
@@ -791,7 +791,7 @@ p.nopay {position: absolute;
             $total = ($giftpay > 0) ? $giftpay : $payment;
             if(!$giftCert->redeem($total))
             {
-               $fail = TRUE;
+               $fail = true;
                echo "Error: Failure to redeem gift certificate<br>";
             }
          }
@@ -811,7 +811,7 @@ p.nopay {position: absolute;
             }
             else
             {
-               $fail = TRUE;
+               $fail = true;
                echo "<font color=RED>Error posting Gift Certificate</font>";
             }
          }
@@ -836,25 +836,25 @@ p.nopay {position: absolute;
                                             VALUES ('$member', '$TID', NOW(), '-$total')";
                   if(!query($cxn, $sql)) 
                   {
-                     $fail = TRUE;
+                     $fail = true;
                      echo "Failure to insert store account transaction<br>";
                   }
                   else 
                   {
-                     $fail = FALSE;
+                     $fail = false;
                   }
                }
                else
                {
                   echo "<table border><tr><td><font color=RED>Insufficent money available in account.<br>
                         Total: $total, Avail: $avail</font></td></tr></table>\n";
-                  $fail = TRUE;
+                  $fail = true;
                }
             }
             else
             {
                echo "<table border><tr><td><font color=RED>Member must be selected to pay with account</font></td></tr></table>\n";
-               $fail = TRUE;
+               $fail = true;
             }
          }
 

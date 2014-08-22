@@ -13,7 +13,7 @@
 
 // version 1.0 - made it show only future events by default. Added copying capability.
 
-   $securePage = TRUE;
+   $securePage = true;
    include('funcs.inc');
    include('header.php');
    $cxn = open_stream();
@@ -51,7 +51,7 @@
          $eminute = substr($end, 3, 2);
          if($_GET['copee'] == 1) 
          {
-            $copy = TRUE;
+            $copy = true;
             unset($ID); // no ID, then it will make a new one
          }
       }
@@ -88,7 +88,7 @@
          if($bad['sponsor'] = !(checkMember($sponsor))) $sponsor = 0;
       
          // if everything is good, then good
-         if(!in_array(TRUE, $bad))
+         if(!in_array(true, $bad))
          {
             // set up variables
             $date = ($month > 0) ? $year . '-' . $month . '-' . $day : NULL;

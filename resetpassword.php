@@ -12,7 +12,7 @@
 	   if(!$result = mysqli_query($cxn, $sql))
 	   {
 		  echo "Query Error!<br>Query: $sql<br>SQL Error: " . mysqli_error($cxn) . "<br>";
-		  return (FALSE);
+		  return (false);
 	   }
 	   else return ($result);
 	}
@@ -26,7 +26,7 @@
 	   $cxn = open_stream();
 	   $sql = "SELECT fname, lname FROM members WHERE ID='$num'";
 	   $result = query($cxn, $sql);
-	   if(!$row = mysqli_fetch_assoc($result)) return FALSE;
+	   if(!$row = mysqli_fetch_assoc($result)) return false;
 	   extract($row);
 	   switch($order)
 	   {

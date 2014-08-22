@@ -35,11 +35,11 @@ if($_POST['submit'] == 'submit')
       else
       {
          echo "<font color=RED>" . printMemberString($player, 1) . " has insufficient account for this transaction. Attempted to withdraw " . money($amount) . ", but only " . money($avail) . " available.</font><p>\n";
-         $fail = TRUE;
+         $fail = true;
       }
    }
       
-   if($fail != TRUE)
+   if($fail != true)
    {
       $stmt = $cxn->prepare('INSERT INTO prizePool (amount, whenplay, event, player) VALUES (?, NOW(), ?, ?)')
             or displayErrorDie("Unable to insert cash.<p>Error: " . mysqli_error($cxn));
@@ -83,7 +83,7 @@ else if($_POST['submit'] == 'prize')
 echo "People in event<p>";
 $sql = "SELECT * FROM prizePool WHERE (amount > 0) ORDER BY ID DESC limit 20";
 $result=query($cxn, $sql);
-$first = TRUE;
+$first = true;
 while($row = mysqli_fetch_assoc($result))
 {
    extract($row);
@@ -91,7 +91,7 @@ while($row = mysqli_fetch_assoc($result))
    {
       $eventNow = $event;
       echo "Event Name: $event<p>";
-      $first = FALSE;
+      $first = false;
    }
    if($event == $eventNow)
    {

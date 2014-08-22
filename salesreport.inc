@@ -58,12 +58,12 @@ function displayList($start, $end, $order, $staff, $cust)
          ORDER BY $sorder, T.whensale";
    $result = query($cxn, $sql);
 
-   $onesale = FALSE;
+   $onesale = false;
    $totalTax = 0;
 
    while($row = mysqli_fetch_assoc($result))
    {
-      $onesale = TRUE;
+      $onesale = true;
       extract($row);
       $thisPrice = round(($price * $qty), 2);
       $Tprice[$ID] += $thisPrice;

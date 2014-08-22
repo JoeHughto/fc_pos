@@ -15,7 +15,7 @@
          <select name='pay'>\n";
 
    // sets to account if a pickup is being made.
-   $payment = ($specOrder->pickUp == TRUE) ? 4 : $_POST['pay'];
+   $payment = ($specOrder->pickUp == true) ? 4 : $_POST['pay'];
    
    echo "<option value=0>Select Payment Type</option>\n";
    echo ($payment == 1) ? "<option value=1 selected>Cash</option>\n" : "<option value=1>Cash</option>\n";

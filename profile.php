@@ -55,7 +55,7 @@
          else $DOB=$DOBYear . '-' . $DOBMonth . '-' . $DOBDay;
 
          // if its all good, ram it in there
-         if(!in_array(TRUE, $bad))
+         if(!in_array(true, $bad))
          {
             if(strlen($password) > 0) // password is checked above and only set if valid
             {
