@@ -25,6 +25,7 @@
  * funcs.inc:
  *   Used for the config.inc include
  */
+$title = "Popular Sale Report";
 require_once 'funcs.inc';
 require_once 'header.php';
 
