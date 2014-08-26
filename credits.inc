@@ -9,7 +9,7 @@
  * @category  Library
  * @package   FriendComputer
  * @author    Michael Whitehouse 
- * @author    Crideke Crouch 
+ * @author    Creidieki Crouch 
  * @author    Desmond Duval 
  * @copyright 2009-2014 Pioneer Valley Gaming Collective
  * @license   TBD
@@ -493,7 +493,7 @@ function denyHedonRequest($daytime)
  * @category  Library
  * @package   FriendComputer
  * @author    Michael Whitehouse 
- * @author    Crideke Crouch 
+ * @author    Creidieki Crouch 
  * @author    Desmond Duval 
  * @copyright 2009-2014 Pioneer Valley Gaming Collective
  * @license   TBD
