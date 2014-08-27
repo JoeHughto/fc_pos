@@ -37,6 +37,8 @@
  * credits.inc:
  *   transferCredits()
  */
+$title = "Monthly Upkeep";
+$version = "1.8d";
 require_once 'funcs.inc';
 require_once 'member.inc';
 require_once 'credits.inc';

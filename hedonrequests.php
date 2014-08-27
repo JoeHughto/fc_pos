@@ -27,6 +27,7 @@
  *   displayAllHedonRequests()
  */
 $title = "Pending Hedon Requests";
+$version = "1.8d";
 require_once 'funcs.inc';
 require_once 'credits.inc';
 

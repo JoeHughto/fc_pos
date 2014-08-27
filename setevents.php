@@ -201,6 +201,5 @@
       echo "<br>Type: $type<p>$description<hr>";
    }
    
-   $version='1.0';
    include('footer.php');
 ?>

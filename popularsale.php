@@ -26,6 +26,7 @@
  *   Used for the config.inc include
  */
 $title = "Popular Sale Report";
+$version = "1.8d";
 require_once 'funcs.inc';
 require_once 'header.php';
 
@@ -51,8 +52,8 @@ while ($row = mysqli_fetch_assoc($result)) {
         AND s.onSale = 0
         ORDER BY t.whensale DESC
         LIMIT 0,1";
-    $result = query($cxn, $sql);
-    if ($row = mysqli_fetch_assoc($result)) {
+    $transactionresult = query($cxn, $sql);
+    if ($row = mysqli_fetch_assoc($transactionresult)) {
         $rawdate = $row['rawdate'];
         $TID = $row['TID'];
 
@@ -100,8 +101,8 @@ while ($row = mysqli_fetch_assoc($result)) {
         WHERE s.itemID = $ID
         ORDER BY t.whensale DESC
         LIMIT 0,1";
-    $result = query($cxn, $sql);
-    if ($row = mysqli_fetch_assoc($result)) {
+    $transactionresult = query($cxn, $sql);
+    if ($row = mysqli_fetch_assoc($transactionresult)) {
         $rawdate = $row['rawdate'];
         $TID = $row['TID'];
 

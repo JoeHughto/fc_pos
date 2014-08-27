@@ -47,7 +47,8 @@
  *   displayMembershipStatus()
  */
 $securePage = false;
-$title = "FriendComputer Master Page - Worlds Apart Games";
+$title = "Worlds Apart Games - Master Page";
+$version = "1.8d";
 require_once 'funcs.inc';
 require_once 'friendcomputer.inc';
 require_once 'member.inc';
@@ -522,6 +523,5 @@ if ($_SESSION['reg'] == 1) {
 
 
 echo "</td></tr></table>";
-$version="1.7";
 require 'footer.php';
 ?>

@@ -28,6 +28,7 @@
  *   transferCredits()
  */
 $title = "Other People's Hedons";
+$version = "1.8d";
 require_once 'funcs.inc';
 require_once 'credits.inc';
 require_once 'header.php';

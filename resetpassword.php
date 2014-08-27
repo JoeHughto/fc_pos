@@ -28,6 +28,7 @@
  *   Access to the db.
  */
 $title = "Forgotten Password Reset";
+$version = "1.8d";
 require 'config.inc';
 
 /**

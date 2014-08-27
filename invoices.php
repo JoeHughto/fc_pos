@@ -25,6 +25,7 @@
  *   Used for the config.inc include
  */
 $title = "Invoice Record";
+$version = "1.8d";
 require 'funcs.inc';
 require 'header.php';
 

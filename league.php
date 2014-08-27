@@ -29,6 +29,7 @@
  *   selectLeagueMember()
  */
 $title = "League Standings";
+$version = "1.8d";
 require_once 'funcs.inc';
 require_once 'header.php';
 

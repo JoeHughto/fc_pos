@@ -27,6 +27,7 @@
  *   Used for the config.inc include
  */
 $title = "Change Price";
+$version = "1.8d";
 require_once 'funcs.inc';
 require_once 'header.php';
 

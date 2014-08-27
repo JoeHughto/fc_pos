@@ -23,6 +23,7 @@
  * Nothing!
  */
 $title = "Calculator";
+$version = "1.8d";
 require_once 'header.php';
 
 /**

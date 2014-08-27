@@ -74,6 +74,7 @@
  *   GiftCert::displaySelectForm()
  */
 $title = 'Sales Register';
+$version = "1.8d";
 require_once 'funcs.inc';
 require_once 'member.inc';
 require_once 'inventory.inc';
@@ -1191,6 +1192,5 @@ if (isset($specDate)) {
 }
 echo "</form><p>";
 
-$version = '1.4';
 require 'footer.php';
 ?>

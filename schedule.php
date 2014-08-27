@@ -318,6 +318,5 @@
             </form>";
    }
    
-   $version = '1.1';
    include('footer.php');
 ?>

@@ -29,6 +29,7 @@
  *   displayCreditTransactions()
  */
 $title = "Hedon Transactions";
+$version = "1.8d";
 require_once 'funcs.inc';
 require_once 'credits.inc';
 require_once 'header.php';
@@ -56,7 +57,5 @@ if (($ID > 0) && ($_SESSION['mem'] == 1)) {
     echo "Your Hedon Total: " . getCreditTotal($_SESSION['ID']) . " H<hr>";
     displayCreditTransactions($_SESSION['ID'], $qty);
 }
-
-$version=1.7;
-require_once 'footer.php';
+require 'footer.php';
 ?>

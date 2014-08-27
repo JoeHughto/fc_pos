@@ -28,6 +28,7 @@
  *   funcs.check_email_address()
  */
 $title = "Forgotten Password Reset";
+$version = "1.8d";
 require_once 'config.inc';
 
 //Certain functions need to be included without including funcs.inc,

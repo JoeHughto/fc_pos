@@ -69,6 +69,5 @@
          Renew Membership for <input type='text' name='renew' size=3 maxlength=3> months for 15 Credits per month.<p>
          <input type='submit' name='submit' value='submit'>
          <input type='submit' name='submit' value='dominate'></form><p>";
-   $version = '1.0';
    include('footer.php');
 ?>

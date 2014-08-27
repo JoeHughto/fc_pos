@@ -26,6 +26,8 @@
  *   displayDepartmentListScalar()
  *   displayManufacturerListScalar()
  */
+$title = 'Edit Item';
+$version = '1.8d';
 require_once 'funcs.inc';
 require_once 'inventory.inc';
 require_once 'header.php';

@@ -31,6 +31,8 @@
  *   displayError()
  *   selectInputDate()
  */
+$title = "Member Profile";
+$version = "1.8d";
 require_once 'funcs.inc';
 require_once 'header.php';
 
@@ -189,6 +191,5 @@ echo "<tr><td>New Password:</td><td><input type='password' name='newpwd1' size=2
 selectInputDate('DOBMonth', 'DOBDay', 'DOBYear', 1910, 2004, $DOBMonth, $DOBDay, $DOBYear);
 echo "<br><input type='submit' name='submit' value='submit'>
     </td></tr></table></form>\n";
-$version = 1.8;
 require 'footer.php';
 ?>

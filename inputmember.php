@@ -36,6 +36,7 @@
  *   selectInputDate()
  */
 $title = 'Input Member Information';
+$version = "1.8d";
 $securePage = true;
 require_once 'funcs.inc';
 require_once'header.php';
@@ -427,6 +428,5 @@ if (!($ID > 0)) {
 }
 echo "</table>
     <input type='submit' name='submit' value='submit'>\n";
-$version='1.1';
 require 'footer.php';
 ?>

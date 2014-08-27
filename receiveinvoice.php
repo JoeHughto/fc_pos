@@ -34,6 +34,7 @@
  *   displayManufacturerList()
  */
 $title='Recieve Invoice';
+$version = "1.8d";
 require_once 'funcs.inc';
 require_once 'inventory.inc';
 require_once 'header.php';
