@@ -2,8 +2,6 @@
 /**
  * AccountTransactions.php shows users their ledger of store credit transactions.
  *
- * Long description for file (if any)...
- *
  * PHP version 5.4
  *
  * LICENSE: TBD
