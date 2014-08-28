@@ -7,8 +7,7 @@
  *
  * LICENSE: TBD
  *
- * @category  Report_Form
- * @package   FriendComputer
+ * @package   FriendComputer\Build\Report\Inventory
  * @author    Michael Whitehouse 
  * @author    Creidieki Crouch 
  * @author    Desmond Duval 
@@ -627,7 +626,7 @@ if (($_POST['submit'] == 'submit') || ($_POST['submit'] == 'close')
                             (itemID, invEventID, qty, cost, price)
                             VALUES
                             ('$thisID', '$IEID', '$q', '$c', '$p')";
-                        if (mysqli_query($cxn, $sql)) {
+                        if (!mysqli_query($cxn, $sql)) {
                             displayError(
                                 "Error #5, Query Error<br>"
                                 . "Query: $sql<br>Error: " . mysqli_error($cxn)
@@ -640,7 +639,7 @@ if (($_POST['submit'] == 'submit') || ($_POST['submit'] == 'close')
                             price='$p'
                             WHERE itemID='$thisID'
                             AND invEventID='$IEID'";
-                        if (mysqli_query($cxn, $sql)) {
+                        if (!mysqli_query($cxn, $sql)) {
                             displayError(
                                 "Error #5, Query Error<br>"
                                 . "Query: $sql<br>Error: " . mysqli_error($cxn)
@@ -666,7 +665,7 @@ if (($_POST['submit'] == 'submit') || ($_POST['submit'] == 'close')
                 }
             } else {
                 // if qty = 0, cancel the changes for this item
-                $sql = "DELETE FROM itemChange WHERE ID='$thisID' "
+                $sql = "DELETE FROM itemChange WHERE itemID='$thisID' "
                     . "AND InvEventID='$IEID'";
                 if (query($cxn, $sql)) {
                     echo "<b>Item #$thisID removed from invoice</b><p>";
