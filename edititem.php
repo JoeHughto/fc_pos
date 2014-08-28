@@ -1,13 +1,12 @@
 <?php
 /**
- * EditItem.php is a page for modifying any of the information on a given item.
+ * @file EditItem.php is a page for modifying any of the information on a given item.
  *
  * PHP version 5.4
  *
  * LICENSE: TBD
  *
- * @category  Inventory_Mutator
- * @package   FriendComputer
+ * @package   FriendComputer\Mutator\Inventory
  * @author    Michael Whitehouse 
  * @author    Creidieki Crouch 
  * @author    Desmond Duval 

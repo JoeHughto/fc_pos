@@ -1,14 +1,13 @@
 <?php
 /**
- * League.php is used for reporting league match results, and viewing the
+ * @file League.php is used for reporting league match results, and viewing the
  *   current league standings.
  *
  * PHP version 5.4
  *
  * LICENSE: TBD
  *
- * @category  Report_Form
- * @package   FriendComputer
+ * @package   FriendComputer\Build\Report\League
  * @author    Michael Whitehouse 
  * @author    Creidieki Crouch 
  * @author    Desmond Duval 
@@ -64,7 +63,7 @@ require_once 'header.php';
  * @param int $memberID is the selected memberID.
  * @param int $type     is the type of league we're looking at. If this is anything
  *   but 1, the function will return false.
- * @return int Returns DCL rating, or false if there is no record found.
+ * @retval int Returns DCL rating, or false if there is no record found.
  */
 function getMagicDCL($memberID, $type)
 {
@@ -80,7 +79,6 @@ function getMagicDCL($memberID, $type)
  * @param int $memberID is the ID of the selected member.
  * @param int $type     is the league type code. The only currently 
  *   supported code is 1.
- * @return void
  */
 function initMagicDCL($memberID, $type)
 {
@@ -92,7 +90,7 @@ function initMagicDCL($memberID, $type)
 
 /**
  * LowestDCI returns the lowest ranking DCL in the ratings table.
- * @return int Returns the minimum DCL rating in the ratings table.
+ * @retval int Returns the minimum DCL rating in the ratings table.
  */
 function lowestDCL()
 {
@@ -110,7 +108,7 @@ function lowestDCL()
  * @param int $memberID is the ID of the selected member.
  * @param int $newDCL   is the new DCL rating we are assigning.
  * @param int $type     is the league type code. The only current legal value is 1.
- * @return boolean Returns true if the update is successful, and false otherwise.
+ * @retval boolean Returns true if the update is successful, and false otherwise.
  */
 function setMagicDCL($memberID, $newDCL, $type)
 {

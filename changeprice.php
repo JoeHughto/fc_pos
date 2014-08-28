@@ -1,15 +1,14 @@
 <?php
 /**
- * Changeprice.php is a page that was used to change the prices of existing
- * items in the system. If it is not provided with some GET arguments, it
- * does nothing.
+ * @file Changeprice.php is a page that was used to change the prices of existing
+ *   items in the system. If it is not provided with some GET arguments, it
+ *   does nothing.
  *
  * PHP version 5.4
  *
  * LICENSE: TBD
  *
- * @category   Inventory_Modifier
- * @package    FriendComputer
+ * @package    FriendComputer\Mutator\Inventory
  * @author     Michael Whitehouse 
  * @author     Creidieki Crouch 
  * @author     Desmond Duval 

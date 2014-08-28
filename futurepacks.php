@@ -1,13 +1,12 @@
 <?php
 /**
- * FuturePacks.php is a page for making use of future packs on members' accounts.
+ * @file FuturePacks.php is a page for making use of future packs on members' accounts.
  *
  * PHP version 5.4
  *
  * LICENSE: TBD
  *
- * @category  Transfer_Form
- * @package   FriendComputer
+ * @package   FriendComputer\Transfer\FuturePacks
  * @author    Michael Whitehouse 
  * @author    Creidieki Crouch 
  * @author    Desmond Duval 

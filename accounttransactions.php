@@ -1,13 +1,12 @@
 <?php
 /**
- * AccountTransactions.php shows users their ledger of store credit transactions.
+ * @file AccountTransactions.php shows users their ledger of store credit transactions.
  *
  * PHP version 5.4
  *
  * LICENSE: TBD
  *
- * @category  Ledger_View
- * @package   FriendComputer
+ * @package   FriendComputer\View\Ledger\Account
  * @author    Michael Whitehouse 
  * @author    Creidieki Crouch 
  * @author    Desmond Duval 

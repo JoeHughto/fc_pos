@@ -1,14 +1,13 @@
 <?php
 /**
- * Buycards.php is used to give account balance to members who sell cards
- * to the store for store credit.
+ * @file Buycards.php is used to give account balance to members who sell cards
+ *   to the store for store credit.
  *
  * PHP version 5.4
  *
  * LICENSE: TBD
  *
- * @category  Transfer_Form
- * @package   FriendComputer
+ * @package   FriendComputer\Transfer\Account
  * @author    Michael Whitehouse 
  * @author    Creidieki Crouch 
  * @author    Desmond Duval 

@@ -1,13 +1,12 @@
 <?php
 /**
- * Bounties.php is a page for posting and claiming Hedon Bounties
+ * @file Bounties.php is a page for posting and claiming Hedon Bounties
  *
  * PHP version 5.4
  *
  * LICENSE: TBD
  *
- * @category  Request_Form
- * @package   FriendComputer
+ * @package   FriendComputer\Request\Hedons
  * @author    Desmond Duval 
  * @copyright 2009-2014 Pioneer Valley Gaming Collective
  * @license   TBD

@@ -1,14 +1,13 @@
 <?php
 /**
- * ManDepInv.php allows the addition of new manufacturers and departments,
+ * @file ManDepInv.php allows the addition of new manufacturers and departments,
  *   as well as showing the first 10 items with no manufacturer or department.
  *
  * PHP version 5.4
  *
  * LICENSE: TBD
  *
- * @category  Inventory_Mutator
- * @package   FriendComputer
+ * @package   FriendComputer\Mutator\Inventory
  * @author    Michael Whitehouse 
  * @author    Creidieki Crouch 
  * @author    Desmond Duval 

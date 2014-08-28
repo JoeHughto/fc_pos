@@ -1,6 +1,6 @@
 <?php
 /**
- * PopularSale.php is a page which displays two lists, one list of items which
+ * @file PopularSale.php is a page which displays two lists, one list of items which
  *   are out of stock, and have sold in the last 3 months, and one list of items
  *   which are in stock, but haven't sold in at least 6 months.
  * 
@@ -8,8 +8,7 @@
  *
  * LICENSE: TBD
  *
- * @category  Report_View
- * @package   FriendComputer
+ * @package   FriendComputer\View\Report
  * @author    Michael Whitehouse 
  * @author    Creidieki Crouch 
  * @author    Desmond Duval 

@@ -1,6 +1,6 @@
 <?php
 /**
- * ResetPassword.php resets a user's password for them.
+ * @file ResetPassword.php resets a user's password for them.
  * 
  * It requires a hashcode that is randomly generated when a user reports that 
  *   they've lost their password. That hashcode can only be found in the email 
@@ -10,8 +10,7 @@
  *
  * LICENSE: TBD
  *
- * @category  Account_Mutator
- * @package   FriendComputer
+ * @package   FriendComputer\Mutator\MemberInfo
  * @author    Michael Whitehouse 
  * @author    Creidieki Crouch 
  * @author    Desmond Duval 
@@ -51,7 +50,7 @@ require 'config.inc';
  *   a MySQL Result.
  * @param connection $cxn Connection to the database
  * @param string $sql Submitted SQL Query
- * @return mixed MySQL Result
+ * @retval mixed MySQL Result
  */
 function query($cxn, $sql)
 {
@@ -73,7 +72,7 @@ function query($cxn, $sql)
  *   2 - lname
  *   3 - fname
  *   4 - lname, F
- * @return string|boolean Returns a string containing a member's name, or false
+ * @retval string|boolean Returns a string containing a member's name, or false
  */
 function printMemberString($num, $order)
 {

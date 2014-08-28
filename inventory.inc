@@ -1,14 +1,13 @@
 <?php
 /**
- * Inventory.inc is the primary library for inventory related functions.
+ * @file Inventory.inc is the primary library for inventory related functions.
  *   It also contains two classes, specialOrder and viewreceipt.
  *
  * PHP version 5.4
  *
  * LICENSE: TBD
  *
- * @category  Library
- * @package   FriendComputer
+ * @package   FriendComputer\Library\Inventory
  * @author    Michael Whitehouse
  * @author    Creidieki Crouch
  * @author    Desmond Duval
@@ -29,7 +28,6 @@ $TAXRATE = .0625;
  * DisplayBlankItem displays a blank item with set values.
  * @param int $count  is the ID of the item.
  * @param int $newsku is the sku of the item.
- * @return void
  */
 function displayBlankItem($count, $newsku)
 {
@@ -61,7 +59,6 @@ function displayBlankItem($count, $newsku)
  * @param int    $count   is the key of the POST variable you want your
  *   <select> list to push to.
  * @param string $default is the name of the desired default department.
- * @return void
  */
 function displayDepartmentList($count, $default)
 {
@@ -88,7 +85,6 @@ function displayDepartmentList($count, $default)
  * @param string $default is the name of the desired default department.
  * @param string $name    is the chosen name of the <select> list. This defaults
  *   to 'department' for legacy reasons.
- * @return void
  */
 function displayDepartmentListScalar($default, $name='department')
 {
@@ -116,7 +112,7 @@ function displayDepartmentListScalar($default, $name='department')
  * @param int    $newqty   is the number of that item that are being received.
  * @param float  $newcost  is the cost of the items, as of the most recent invoice.
  * @param float  $newprice is the price we are setting for the item.
- * @return boolean Returns false if no item found, and true if an item was found.
+ * @retval boolean Returns false if no item found, and true if an item was found.
  */
 function displayExistingItem($result, $newqty, $newcost, $newprice)
 {
@@ -179,7 +175,6 @@ function displayExistingItem($result, $newqty, $newcost, $newprice)
  * @param int    $count   is the key of the POST variable you want your
  *   <select> list to push to.
  * @param string $default is the name of the desired default manufacturer.
- * @return void
  */
 function displayManufacturerList($count, $default)
 {
@@ -206,7 +201,6 @@ function displayManufacturerList($count, $default)
  * @param string $default is the name of the desired default manufacturer.
  * @param string $name    is the chosen name of the <select> list. This defaults
  *   to 'manufacturer' for legacy reasons.
- * @return void
  */
 function displayManufacturerListScalar($default, $name='manufacturer')
 {
@@ -230,7 +224,6 @@ function displayManufacturerListScalar($default, $name='manufacturer')
 /**
  * DisplayPreorderSelect prints a <select> list of all preorders.
  * @param string $name is the chosen name for the <select> list.
- * @return void
  */
 function displayPreorderSelect($name)
 {
@@ -254,7 +247,6 @@ function displayPreorderSelect($name)
  *   as a blank and includes a hidden called preorder with the preorderID
  *   so the preorder can be linked with the form's data.
  * @param int $ID is the ID of the chosen preorder, to be pre-filled in the form.
- * @return void
  */
 function displayPreorderForm($ID)
 {
@@ -306,7 +298,7 @@ function displayPreorderForm($ID)
  *   for that item's quantity.
  * @param object $result is the query result containing the item.
  * @param int    $qty    is the initial value of the qty input box.
- * @return boolean Returns false if unsuccessful, and true if successful.
+ * @retval boolean Returns false if unsuccessful, and true if successful.
  */
 function displaySaleItem($result, $qty)
 {
@@ -322,7 +314,6 @@ function displaySaleItem($result, $qty)
 /**
  * DisplaySpecialOrders prints a list of all special orders for a given member.
  * @param int $member is the ID of the chosen member.
- * @return void
  */
 function displaySpecialOrders($member)
 {
@@ -354,7 +345,6 @@ function displaySpecialOrders($member)
  * @param int    $qty         is the qty of the item being purchased.
  * @param float  $price       is the current price of that item.
  * @param string $description is a brief description of the item.
- * @return void
  */
 function displayRegisterItem($ID, $qty, $price, $description)
 {
@@ -370,7 +360,6 @@ function displayRegisterItem($ID, $qty, $price, $description)
  * @param int    $qty         is the qty of the item being purchased.
  * @param float  $price       is the current price of that item.
  * @param string $description is a brief description of the item.
- * @return void
  */
 function displayRegisterItemPrice($ID, $qty, $price, $description)
 {
@@ -383,7 +372,7 @@ function displayRegisterItemPrice($ID, $qty, $price, $description)
 /**
  * GetItemQuantity returns the current inventory quantity of a given item.
  * @param int $item is the ID of the chosen item.
- * @return int Returns the qty of the given item as it is in the system.
+ * @retval int Returns the qty of the given item as it is in the system.
  */
 function getItemQuantity($item)
 {
@@ -399,7 +388,7 @@ function getItemQuantity($item)
  * GetPreorderAssociated returns an itemID for the item associated with
  *   a given preorderID
  * @param int $ID is the chosen preorderID.
- * @return int Returns an itemID corresponding to the given preorder.
+ * @retval int Returns an itemID corresponding to the given preorder.
  */
 function getPreorderAssociate($ID)
 {
@@ -417,7 +406,7 @@ function getPreorderAssociate($ID)
  * GetPreorderSpec returns a preorderID for the preorder associated with
  *   a given special order ID.
  * @param int $ID is the ID of the chosen special order.
- * @return int Returns a preorderID for the corresponding special order.
+ * @retval int Returns a preorderID for the corresponding special order.
  */
 function getPreorderSpec($ID)
 {
@@ -434,7 +423,7 @@ function getPreorderSpec($ID)
  * GetPreorderName returns the name for the preorder associated with a
  *   given preorderID.
  * @param int $ID is the chosen preorderID.
- * @return string Returns the name of the chosen preorder.
+ * @retval string Returns the name of the chosen preorder.
  */
 function getPreorderName($ID)
 {
@@ -454,7 +443,7 @@ function getPreorderName($ID)
  * @param int   $ID           is the chosen preorderID.
  * @param float $addlDiscount is an optional additional discount that can be
  *   applied after the standard 15%.
- * @return float Returns the price after discount of the given preorder.
+ * @retval float Returns the price after discount of the given preorder.
  */
 function getPreorderPrice($ID, $addlDiscount=0)
 {
@@ -475,7 +464,7 @@ function getPreorderPrice($ID, $addlDiscount=0)
  * @param int     $member is the chosen memberID.
  * @param boolean $print  determines whether anything is printed to the
  *   page. This variable defaults to true.
- * @return float Returns the given member's discount
+ * @retval float Returns the given member's discount
  */
 function memberDiscount($member, $print=true)
 {
@@ -519,7 +508,7 @@ function memberDiscount($member, $print=true)
  *   given case.
  * @param float $price     is the original price.
  * @param float $salePrice is the sale price.
- * @return float Returns whichever price is lower, and still above 0.
+ * @retval float Returns whichever price is lower, and still above 0.
  */
 function rightPrice($price, $salePrice)
 {
@@ -531,7 +520,7 @@ function rightPrice($price, $salePrice)
  * SalePrice returns true or false depending o whether the tested value
  *   is equal to 0.
  * @param float $salePrice is the price being tested.
- * @return boolean Returns true if saleprice != 0, false if saleprice == 0.
+ * @retval boolean Returns true if saleprice != 0, false if saleprice == 0.
  */
 function salePrice($salePrice)
 {
@@ -686,7 +675,7 @@ class specialOrder
      * Process takes all field information about the current object, and
      *   attempts to submit it to the database. First the store credit is added,
      *   and if that is successful, the special order is added to the table.
-     * @return boolean Returns true if successful, false if not.
+     * @retval boolean Returns true if successful, false if not.
      */
     function process()
     {
@@ -803,7 +792,7 @@ class specialOrder
      *   Sets date taken to current time, but will not allow process to occur if 
      *   more items are being picked up than are being paid for in account.
      * @param float $totalPrice is the total amount being paid.
-     * @return boolean Returns true if the items are successfully marked
+     * @retval boolean Returns true if the items are successfully marked
      *   picked up, false if unsuccessful.
      */
     function deliver($totalPrice)
@@ -841,7 +830,7 @@ class specialOrder
      * DeliverSum returns sum of items being picked up.
      *   intrans is an array of prices of special orders being picked up.
      *   preintrans is an array of specialOrderIDs of preorders being picked up
-     * @return float Returns the total sum of all special orders and preorders
+     * @retval float Returns the total sum of all special orders and preorders
      *   getting picked up.
      */
     function deliverSum()
@@ -852,7 +841,6 @@ class specialOrder
     /**
      * DisplayForm displays the special order form with defaults set to 
      *   existing values.
-     * @return void
      */
     function displayForm()
     {
@@ -873,7 +861,6 @@ class specialOrder
     /**
      * DisplayOrderable displays a select element of all preorder 
      *   items which are still available
-     * @return void
      */
     function displayOrderable()
     {
@@ -913,7 +900,6 @@ class specialOrder
 
     /**
      * ShowOrders shows outstanding orders/requests for member
-     * @return void
      */
     function showOrders()
     {
@@ -1093,7 +1079,6 @@ class viewreceipt
 
     /**
      * ShowList prints the current object's current list.
-     * @return void
      */
     function showList()
     {
@@ -1167,7 +1152,6 @@ class viewreceipt
  * DisplayReceipt displays a receipt for a given transactionID.
  * @global real $TAXRATE is the current tax rate, set at the top of this library.
  * @param int $recID is the ID of the chosen transaction.
- * @return void
  */
 function displayReceipt($recID)
 {

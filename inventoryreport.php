@@ -1,13 +1,12 @@
 <?php
 /**
- * InventoryReport.php is a page for reporting on the state of inventory.
+ * @file InventoryReport.php is a page for reporting on the state of inventory.
  *
  * PHP version 5.4
  *
  * LICENSE: TBD
  *
- * @category  Report_View
- * @package   FriendComputer
+ * @package   FriendComputer\View\Report\Inventory
  * @author    Michael Whitehouse 
  * @author    Creidieki Crouch 
  * @author    Desmond Duval 

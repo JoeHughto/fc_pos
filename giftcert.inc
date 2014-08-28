@@ -1,13 +1,12 @@
 <?php
 /**
- * GiftCert.inc is a library used for selling and converting gift certificates.
+ * @file GiftCert.inc is a library used for selling and converting gift certificates.
  *
  * PHP version 5.4
  *
  * LICENSE: TBD
  *
- * @category  Library
- * @package   FriendComputer
+ * @package   FriendComputer\Library\GiftCert
  * @author    Michael Whitehouse 
  * @author    Creidieki Crouch 
  * @author    Desmond Duval 
@@ -23,7 +22,7 @@
  *   remaining on that gift certificate. If there is no cert with that ID,
  *   it will return false.
  * @param int $ID is the ID of the gift certificate to be tested.
- * @return float Returns the balance on the certificate, or false, if there
+ * @retval float Returns the balance on the certificate, or false, if there
  *   is no certificate at that ID, returns false instead.
  */
 function giftCertBalance($ID)
@@ -41,7 +40,7 @@ function giftCertBalance($ID)
  *   balance directly into their store credit balance.
  * @param int $giftCert is the ID of the gift certificate.
  * @param int $member   in the selected member's ID.
- * @return boolean Returns true if the gift certificate is successfully
+ * @retval boolean Returns true if the gift certificate is successfully
  *   converted to the member's store credit, and false otherwise.
  */
 function giftCertToAccount($giftCert, $member)
@@ -77,7 +76,6 @@ function giftCertToAccount($giftCert, $member)
 /**
  * ShowAllGiftCerts prints a list of all gift certificates in the system, and
  *   all relavent information for each.
- * @return void
  */
 function showAllGiftCerts()
 {
@@ -124,7 +122,6 @@ class giftCert
     /**
      * DisplayForm prints a form which is compatible with the
      *   constructor giftCert(). Designed for register.php
-     * @return void
      */
     function displayForm()
     {
@@ -136,7 +133,7 @@ class giftCert
     /**
      * DisplayInfo prints all relavent information for a given gift
      *   certificate to the page on which it is called.
-     * @return boolean Returns true if successful, false otherwise.
+     * @retval boolean Returns true if successful, false otherwise.
      */
     function displayInfo()
     {
@@ -188,7 +185,6 @@ class giftCert
 
     /**
      * DisplaySelectForm prints a form for use in redeeming gift certificates.
-     * @return void
      */
     function displaySelectForm()
     {
@@ -199,7 +195,7 @@ class giftCert
      * Redeem takes an amount, and reduces the gift certificate's balance
      *   by that amount.
      * @param float $amount is the amount being deducted from the balance.
-     * @return boolean Returns true if amount is deducted, false otherwise.
+     * @retval boolean Returns true if amount is deducted, false otherwise.
      */
     function redeem($amount)
     {
@@ -237,7 +233,7 @@ class giftCert
     /**
      * Sell is called to create new gift certificates in the database. This
      * function should not be called until after payment is concluded.
-     * @return int Returns the gift certificate ID that has been created, or
+     * @retval int Returns the gift certificate ID that has been created, or
      *   false if the creation failed.
      */
     function sell()

@@ -1,6 +1,6 @@
 <?php
 /**
- * ReceiveInvoice.php is a page used to receive orders into the system, adding
+ * @file ReceiveInvoice.php is a page used to receive orders into the system, adding
  *   them to the inventory, and changing prices and costs as needed.
  * 
  * PHP version 5.4

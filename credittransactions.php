@@ -1,14 +1,13 @@
 <?php
 /**
- * CreditTransactions.php is a page used to check on a given member's
+ * @file CreditTransactions.php is a page used to check on a given member's
  *   Hedon transactions.
  *
  * PHP version 5.4
  *
  * LICENSE: TBD
  *
- * @category  Ledger_View
- * @package   FriendComputer
+ * @package   FriendComputer\View\Ledger\Hedons
  * @author    Michael Whitehouse 
  * @author    Creidieki Crouch 
  * @author    Desmond Duval 

@@ -1,21 +1,13 @@
 <?php
-// inputmember.php
-// This application is for entering and editing member information
-// with GET ID displays a member for editing
-// with POST sub>0, attepts to submit data, sub==1 for new, sub==2 for edit
-
-// Versions
-// 1.1 Emails passwords when they are changes
 /**
- * InputMember.php is a page for adding new members to the database, or
+ * @file InputMember.php is a page for adding new members to the database, or
  *   editing existing members' accounts.
  *
  * PHP version 5.4
  *
  * LICENSE: TBD
  *
- * @category  MemberInfo_Mutator
- * @package   FriendComputer
+ * @package   FriendComputer\Mutator\MemberInfo
  * @author    Desmond Duval 
  * @copyright 2009-2014 Pioneer Valley Gaming Collective
  * @license   TBD

@@ -1,6 +1,6 @@
 <?php
 /**
- * SalesBox.inc prints the quicksale boxes in the register.php page
+ * @file SalesBox.inc prints the quicksale boxes in the register.php page
  * 
  * It uses functions that were included in register.php
  *
@@ -8,8 +8,7 @@
  *
  * LICENSE: TBD
  *
- * @category  Inventory_Form
- * @package   FriendComputer
+ * @package   FriendComputer\Register\Widget
  * @author    Michael Whitehouse 
  * @author    Creidieki Crouch 
  * @author    Desmond Duval 

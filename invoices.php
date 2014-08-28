@@ -1,14 +1,13 @@
 <?php
 /**
- * Invoices.php gives an active user with inventory privs the
+ * @file Invoices.php gives an active user with inventory privs the
  *   chance to put invoices into record for determining Purchase budget.
  *
  * PHP version 5.4
  *
  * LICENSE: TBD
  *
- * @category  Report_Form
- * @package   FriendComputer
+ * @package   FriendComputer\Build\Report
  * @author    Michael Whitehouse 
  * @author    Creidieki Crouch 
  * @author    Desmond Duval 

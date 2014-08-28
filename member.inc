@@ -1,14 +1,13 @@
 <?php
 /**
- * Member.inc is a library containing most membership and frequent gamer
+ * @file Member.inc is a library containing most membership and frequent gamer
  *   functions.
  *
  * PHP version 5.4
  *
  * LICENSE: TBD
  *
- * @category  Library
- * @package   FriendComputer
+ * @package   FriendComputer\Library\MemberInfo
  * @author    Michael Whitehouse 
  * @author    Creidieki Crouch 
  * @author    Desmond Duval 
@@ -30,7 +29,7 @@ $FGDISCOUNT = array(0 => 0, 1 => 1, 5 => 1, 25, 50, 75, 100, 150, 200, 250,
 /**
  * FG_Discount calculates and returns the discount for a given sales total.
  * @param float $sales is the sales total to be tested.
- * @return int Returns an integer discount percentage between 5 and 21.
+ * @retval int Returns an integer discount percentage between 5 and 21.
  */
 function FG_discount($sales)
 {
@@ -76,7 +75,7 @@ function FG_discount($sales)
  * FG_DiscountNow takes a member ID, and calculates that member's discount,
  *   based on their last month's sales total.
  * @param int $member is the chosen member's ID.
- * @return int Returns an integer discount percentage between 5 and 21.
+ * @retval int Returns an integer discount percentage between 5 and 21.
  */
 function FG_discountNow($member)
 {
@@ -90,7 +89,6 @@ function FG_discountNow($member)
  *   calculate distance to the next level.
  * @param int   $member   This is the selected member's ID.
  * @param float $thissale This is the total of the current sale.
- * @return void
  */
 function FG_showInfo($member, $thissale)
 {
@@ -115,7 +113,6 @@ function FG_showInfo($member, $thissale)
  * @global array $FGDISCOUNT This is the array of discount values, used to
  *   calculate distance to the next level.
  * @param int $member This is the selected member's ID.
- * @return void
  */
 function FG_showInfoNoSale($member)
 {
@@ -142,7 +139,7 @@ function FG_showInfoNoSale($member)
  * @param float $totalPrice is the total price of the curretn sale.
  * @param int   $TID        is the transaction ID of the sale for which there is referral
  *   credit being awarded.
- * @return string Returns a descriptive string if a member is awarded some 
+ * @retval string Returns a descriptive string if a member is awarded some 
  *   referral credit, and false if there is no credit awarded, or if there is 
  *   no referrer to award credit to.
  */
@@ -185,7 +182,7 @@ function giveReferralCredit($customerID, $totalPrice, $TID)
  * MemberSalesLastMonth takes a member ID, and returns that member's total
  *   sales last month.
  * @param int $member is the chosen member's ID.
- * @return float Returns the sum of the chosen member's sales for last month.
+ * @retval float Returns the sum of the chosen member's sales for last month.
  */
 function memberSalesLastMonth($member)
 {
@@ -211,7 +208,7 @@ function memberSalesLastMonth($member)
  * MemberSalesThisMonth takes a member ID, and returns that member's total
  *   sales so far this month.
  * @param int $member is the chosen member's ID.
- * @return float Returns the sum of the chosen member's sales for this month.
+ * @retval float Returns the sum of the chosen member's sales for this month.
  */
 function memberSalesThisMonth($member)
 {
@@ -231,7 +228,7 @@ function memberSalesThisMonth($member)
  * PeopleReferred takes a member's ID, and returns the number of other
  *   members who were referred by them.
  * @param int $ID is the chosen member's ID.
- * @return int Returns the number of members referred by the chosen member.
+ * @retval int Returns the number of members referred by the chosen member.
  */
 function peopleReferred($ID)
 {
@@ -245,7 +242,7 @@ function peopleReferred($ID)
  * TaxExempt takes a member's ID, and returns either that member's
  *   tax exempt number, or false if no tax exempt number exists.
  * @param int $ID is the chosen member's ID.
- * @return string Returns the chosen member's tax exempt number, or false
+ * @retval string Returns the chosen member's tax exempt number, or false
  *   if none exists.
  */
 function taxExempt($ID)
@@ -306,7 +303,6 @@ class newMember
     /**
      * DisplayQuickForm either prints the quick add form, if there is no member
      *   currently set, or does nothing, if a member has been set.
-     * @return void
      */
     function displayQuickForm()
     {
@@ -353,7 +349,7 @@ class newMember
      * Process takes whatever information is currently stored in the object,
      *   and attempts to add a new member with it. If the member already exists,
      *   it will attempt to update the existing member.
-     * @return boolean Returns true if successful, and false if creating/updating
+     * @retval boolean Returns true if successful, and false if creating/updating
      *   fails.
      */
     function process()

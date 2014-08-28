@@ -1,14 +1,13 @@
 <?php
 /**
- * Config.inc provides an interface between FriendComputer and our MySql
+ * @file Config.inc provides an interface between FriendComputer and our MySql
  *   database. It contains secret information that should not be shared.
  *
  * PHP version 5.4
  *
  * LICENSE: TBD
  *
- * @category  Library
- * @package   FriendComputer
+ * @package   FriendComputer\Library\MySQLHandle
  * @author    Michael Whitehouse 
  * @author    Creidieki Crouch 
  * @author    Desmond Duval 
@@ -27,7 +26,7 @@
 /**
  * Open_stream() connects the webapp with our database, so we can
  *   access or modify records from it.
- * @return boolean|\mysqli
+ * @retval boolean|object
  */
 function open_stream()
 {

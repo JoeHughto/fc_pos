@@ -1,13 +1,12 @@
 <?php
 /**
- * FriendComputer.inc provides an API for displaying an information box.
+ * @file FriendComputer.inc provides an API for displaying an information box.
  *
  * PHP version 5.4
  *
  * LICENSE: TBD
  *
- * @category  Library
- * @package   FriendComputer
+ * @package   FriendComputer\Library\Core
  * @author    Michael Whitehouse 
  * @author    Creidieki Crouch 
  * @author    Desmond Duval 
@@ -28,7 +27,6 @@ require_once 'funcs.inc';
 /**
  * FcMessage displays a message from Friend Computer.
  * @param string $message is the message to be printed.
- * @return void
  */
 function fcMessage($message)
 {

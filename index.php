@@ -1,14 +1,13 @@
 <?php
 /**
- * index.php is the master page, presenting members with some easy info
+ * @file index.php is the master page, presenting members with some easy info
  *   and tools, as well as links to other helpful features of FriendComputer.
  *
  * PHP version 5.4
  *
  * LICENSE: TBD
  *
- * @category  Account_View
- * @package   FriendComputer
+ * @package   FriendComputer\View\Report\MemberInfo
  * @author    Michael Whitehouse 
  * @author    Creidieki Crouch 
  * @author    Desmond Duval 

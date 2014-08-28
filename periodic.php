@@ -1,6 +1,6 @@
 <?php
 /**
- * Periodic.php is a page used to perform all the once a month tasks in a batch.
+ * @file Periodic.php is a page used to perform all the once a month tasks in a batch.
  *
  * Currently, it gives $15, $10, and $5 credits to the highest raking frequent
  *   gamers, grants officers their monthly 15 hedons & $20 store credit, and
@@ -10,8 +10,7 @@
  *
  * LICENSE: TBD
  *
- * @category  Report_View
- * @package   FriendComputer
+ * @package   FriendComputer\Utility
  * @author    Michael Whitehouse 
  * @author    Creidieki Crouch 
  * @author    Desmond Duval 

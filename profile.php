@@ -1,14 +1,13 @@
 <?php
 /**
- * Profile.php is a page that allows the active user to modify the information
+ * @file Profile.php is a page that allows the active user to modify the information
  *   on their account stored in the database.
  * 
  * PHP version 5.4
  *
  * LICENSE: TBD
  *
- * @category  Report_Form
- * @package   FriendComputer
+ * @package   FriendComputer\Mutator\MemberInfo
  * @author    Michael Whitehouse 
  * @author    Creidieki Crouch 
  * @author    Desmond Duval 

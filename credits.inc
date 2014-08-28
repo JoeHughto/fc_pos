@@ -1,13 +1,12 @@
 <?php
 /**
- * Credits.inc provides an API for interacting with member's hedons.
+ * @file Credits.inc provides an API for interacting with member's hedons.
  *
  * PHP version 5.4
  *
  * LICENSE: TBD
  *
- * @category  Library
- * @package   FriendComputer
+ * @package   FriendComputer\Library\Hedons
  * @author    Michael Whitehouse 
  * @author    Creidieki Crouch 
  * @author    Desmond Duval 
@@ -37,7 +36,6 @@ $WORKINGMEMBERCREDITS = 15;
  * @param int        $SID is the selected member's ID.
  * @param int|string $max is the maximum records that should be returned.
  *   If this value is "ALL", it will return all records for the given member.
- * @return void
  */
 function displayCreditTransactions($SID, $max='ALL')
 {
@@ -96,7 +94,6 @@ function displayCreditTransactions($SID, $max='ALL')
  * @param int        $SID is the selected member's ID.
  * @param string|int $max is the maximum records that should be returned.
  *   If this value is "ALL", it will return all records for the given member.
- * @return void
  */
 function displayHedonRequests($SID, $max='ALL')
 {
@@ -125,7 +122,6 @@ function displayHedonRequests($SID, $max='ALL')
 /**
  * DisplayAllHedonRequests prints a list of all currently pending Hedon
  *   Requests, with checkboxes to allow their batch modification.
- * @return void
  */
 function displayAllHedonRequests()
 {
@@ -153,7 +149,6 @@ function displayAllHedonRequests()
 /**
  * DisplayAllBounties prints a list of all currently available Bounties,
  *   with checkboxes to allow their batch modification.
- * @return void
  */
 function displayAllBounties()
 {
@@ -181,7 +176,6 @@ function displayAllBounties()
  * DisplayMembershipStatus prints a block of text stating what a given
  *   member's membership status currently is.
  * @param int $SID is the given member's ID.
- * @return void
  */
 function displayMembershipStatus($SID)
 {
@@ -229,7 +223,7 @@ function displayMembershipStatus($SID)
  *   DisplayMembershipStatus, but returns a string representation, instead
  *   of printing directly to the page.
  * @param int $SID is the given member's ID.
- * @return string Returns a string containing all the membership status info
+ * @retval string Returns a string containing all the membership status info
  *   for a given member.
  */
 function displayMembershipStatusString($SID)
@@ -282,7 +276,7 @@ function displayMembershipStatusString($SID)
  * GetCreditTotal takes a member's ID, and returns the number of Hedons
  *   that member has.
  * @param int $ID is the given member's ID.
- * @return float Returns a value representing the number of Hedons a
+ * @retval float Returns a value representing the number of Hedons a
  *   given member currently has.
  */
 function getCreditTotal($ID)
@@ -309,7 +303,6 @@ function getCreditTotal($ID)
  *   Hedons a month's membership costs. Currently 15h/mo.
  * @param int $ID     is the member's ID
  * @param int $months is a number of months the member wishes to purchase.
- * @return void
  */
 function renewMembership($ID, $months)
 {
@@ -357,7 +350,7 @@ function renewMembership($ID, $months)
  * @param  float  $amt    is the amount of Hedons being transferred.
  * @param  string $note   is a note that can be appended to the transfer.
  * @param  int    $reason is a Reason Code for the transfer.
- * @return boolean Returns a boolean representing whether the transfer was
+ * @retval boolean Returns a boolean representing whether the transfer was
  *   successful.
  */
 function transferCredits($sender, $recep, $amt, $note, $reason)
@@ -394,7 +387,7 @@ function transferCredits($sender, $recep, $amt, $note, $reason)
  * @param  int    $memID is the member ID of the member requesting Hedons.
  * @param  float  $amt   is the number of Hedons being requested.
  * @param  string $note  is a reason for the request.
- * @return boolean Returns a boolean representing whether the Hedon Request
+ * @retval boolean Returns a boolean representing whether the Hedon Request
  *   was successfully created.
  */
 function requestCredits($memID, $amt, $note)
@@ -423,7 +416,6 @@ function requestCredits($memID, $amt, $note)
  *   with a matching timestamp by removing it from the table, and transferring
  *   the requisitioned hedons to the requesting member.
  * @param datetime $daytime is the datetime of the HR that is being approved.
- * @return void
  */
 function approveHedonRequest($daytime)
 {
@@ -445,7 +437,6 @@ function approveHedonRequest($daytime)
  *   matching timestamp, by deleting the bounty from the table, and
  *   submitting a Hedon Request for the Bounty.
  * @param datetime $daytime is the datetime of the Bounty that is being claimed.
- * @return void
  */
 function claimBounty($daytime)
 {
@@ -466,7 +457,6 @@ function claimBounty($daytime)
  * DenyHedonRequest takes a datetime and denies the first Hedon Request
  *   with a matching timestamp by deleting it from the table.
  * @param datetime $daytime is the datetime of the HR that is being denied.
- * @return void
  */
 function denyHedonRequest($daytime)
 {
@@ -588,7 +578,7 @@ class creditSpending
     /**
      * Conclude concludes sale and executes all credit purchases.
      * @global type $mleagueID Current Magic League ID
-     * @return string Returns either the total cost, or "insuf" if insufficient
+     * @retval string Returns either the total cost, or "insuf" if insufficient
      *   Hedons.
      */
     public function conclude()
@@ -657,7 +647,7 @@ class creditSpending
     /**
      * Discount reduces the total cost of the order by 10% if the 50h discount
      *   checkbox has been checked.
-     * @return int Returns 10 if user has bought Hedon Discount, 0 otherwise.
+     * @retval int Returns 10 if user has bought Hedon Discount, 0 otherwise.
      */
     public function discount()
     {
@@ -671,7 +661,6 @@ class creditSpending
     /**
      * DisplayCheckBoxes prints all Hedon Purchasable items to the register
      *   page, as defined in the data structures in class CreditSpending.
-     * @return void
      */
     public function displayCheckBoxes()
     {
@@ -701,7 +690,7 @@ class creditSpending
     /**
      * DisplayCurrent prints a box containing all currently selected
      *   Hedon Purchases to the page it's called from.
-     * @return boolean Returns false if insufficient Hedons, true otherwise.
+     * @retval boolean Returns false if insufficient Hedons, true otherwise.
      */
     public function displayCurrent()
     {

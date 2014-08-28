@@ -1,6 +1,6 @@
 <?php
 /**
- * Logout.php is the page that the "Logout" link in the menu brings the
+ * @file Logout.php is the page that the "Logout" link in the menu brings the
  *   active user to. Upon loading, all SESSION variables are wiped, and we
  *   are presented with a login screen.
  *
@@ -8,8 +8,7 @@
  *
  * LICENSE: TBD
  *
- * @category  Report_Form
- * @package   FriendComputer
+ * @package   FriendComputer\Utility
  * @author    Michael Whitehouse 
  * @author    Creidieki Crouch 
  * @author    Desmond Duval 

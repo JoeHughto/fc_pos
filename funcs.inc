@@ -1,13 +1,12 @@
 <?php
 /**
- * funcs.inc is the main function library of FriendComputer
+ * @file funcs.inc is the main function library of FriendComputer
  *
  * PHP version 5.4
  *
  * LICENSE: TBD
  *
- * @category  Library
- * @package   FriendComputer
+ * @package   FriendComputer\Library\Core
  * @author    Michael Whitehouse 
  * @author    Creidieki Crouch 
  * @author    Desmond Duval 
@@ -46,7 +45,6 @@ $SHIFTCREDITS = 4; // credits for covering one standard shift
 
 /**
  * MegaStrip is used to strip slashes from GET, POST, and COOKIE.
- * @return void
  */
 function megaStrip()
 {
@@ -64,7 +62,7 @@ function megaStrip()
  *   cleanly.
  * @param mixed $value is a string, or array of strings to be stripped of
  *   slashes.
- * @return mixed Returns a string or array of strings without slashes.
+ * @retval mixed Returns a string or array of strings without slashes.
  */
 function stripslashes_deep($value)
 {
@@ -83,7 +81,7 @@ function stripslashes_deep($value)
  *   ledger record.
  * @param string $reason  is the explanation attached to the added record, 
  *   for admin review purposes.
- * @return boolean Returns true if the record is added to the storeAccount
+ * @retval boolean Returns true if the record is added to the storeAccount
  *   table, false if the record fails to be added.
  */
 function accountTransact($member, $amount, $transID, $reason)
@@ -116,7 +114,7 @@ function accountTransact($member, $amount, $transID, $reason)
  *   the quantity is negative.
  * @param string $note   is an explanation for why the packs are being added
  *   or subtracted. This should always be filled.
- * @return boolean Returns true if packs are successfully adjusted,
+ * @retval boolean Returns true if packs are successfully adjusted,
  *   false otherwise.
  */
 function adjustPacksOnAcct($member, $qty, $note="")
@@ -146,7 +144,7 @@ function adjustPacksOnAcct($member, $qty, $note="")
 /**
  * CashCountInFourHours is used to check whether a new cash count needs
  *   doing.
- * @return boolean Returns true when a cash count has been done in the last
+ * @retval boolean Returns true when a cash count has been done in the last
  *   four hours, and false when there hasn't been one.
  */
 function cashCountInFourHours()
@@ -165,7 +163,7 @@ function cashCountInFourHours()
 /**
  * CashCountTime checks when the last cash count was done, and returns
  *   the time as an integer.
- * @return integer Returns an integer representing the time of the last cash
+ * @retval integer Returns an integer representing the time of the last cash
  *   count.
  */
 function cashCountTime()
@@ -180,7 +178,7 @@ function cashCountTime()
  * CheckAlphaNum takes a string as input and returns true if it only contains
  *   alphanumeric characters. Otherwise returns false.
  * @param string $string is the string being tested.
- * @return boolean Returns true if all conditions are satisfied.
+ * @retval boolean Returns true if all conditions are satisfied.
  */
 function checkAlphaNum($string)
 {
@@ -191,7 +189,7 @@ function checkAlphaNum($string)
  * CheckAlphaNum takes a string as input and returns true if it only contains
  *   alphanumeric characters and space. Otherwise returns false.
  * @param string $string is the string being tested.
- * @return boolean Returns true if all conditions are satisfied.
+ * @retval boolean Returns true if all conditions are satisfied.
  */
 function checkAlphaNumSpace($string)
 {
@@ -202,7 +200,7 @@ function checkAlphaNumSpace($string)
  * CheckDateNum takes a string as input and returns true if it contains
  *   a date in the form "YYYY-MM-DD". Otherwise returns false.
  * @param string $string is the string to be checked for a date.
- * @return boolean Returns true if there is a date in $string, false
+ * @retval boolean Returns true if there is a date in $string, false
  *   otherwise.
  */
 function checkDateNum($string)
@@ -214,7 +212,7 @@ function checkDateNum($string)
  * Check_email_address takes a string as input and returns true if it contains
  *   a legal email address. Otherwise returns false.
  * @param string $email is the email address to be checked.
- * @return boolean Returns true or false, depending on the state of the address.
+ * @retval boolean Returns true or false, depending on the state of the address.
  */
 function check_email_address($email)
 {
@@ -267,7 +265,7 @@ function check_email_address($email)
  * 10 - Double Member
  * 
  * @param int $memberNum is the selected member's ID.
- * @return int Returns an integer membership code.
+ * @retval int Returns an integer membership code.
  */
 function checkMember($memberNum)
 {
@@ -304,7 +302,7 @@ function checkMember($memberNum)
  * CheckMemberReg takes an integer member ID and returns a boolean
  *   indicating whether the selected member is a Register Volunteer.
  * @param int $memberNum is the selected member's ID.
- * @return int Returns 1 if member is a register volunteer, 0 otherwise.
+ * @retval int Returns 1 if member is a register volunteer, 0 otherwise.
  */
 function checkMemberReg($memberNum)
 {
@@ -319,7 +317,7 @@ function checkMemberReg($memberNum)
  * CheckName takes a string and returns a boolean indicating whether the string
  *   fits a pattern that matches a name. Doesn't alter $name.
  * @param string $name is the name to be tested.
- * @return boolean Returns true if given string meets criterea for names.
+ * @retval boolean Returns true if given string meets criterea for names.
  */
 function checkName($name)
 {
@@ -331,7 +329,7 @@ function checkName($name)
  *   to store credit at a rate of 3$/pack.
  * @param int   $member is the ID of the selected member.
  * @param float $qty    is the quantity of packs being converted.
- * @return boolean Returns true if successful, and false otherwise.
+ * @retval boolean Returns true if successful, and false otherwise.
  */
 function convertPacksToStoreCredit($member, $qty)
 {
@@ -378,7 +376,7 @@ function convertPacksToStoreCredit($member, $qty)
  *   into their components. Dates must be in the form "YY-MM-DD".
  * @param string $beginDate is the starting date for the comparison.
  * @param string $endDate   is the ending date for the comparison.
- * @return int Returns the difference in days between $beginDate and $endDate.
+ * @retval int Returns the difference in days between $beginDate and $endDate.
  */
 function dateDiff($dformat, $beginDate, $endDate)
 {
@@ -394,7 +392,7 @@ function dateDiff($dformat, $beginDate, $endDate)
  *   they're the same, and false otherwise.
  * @param string $date1 is the starting date for the comparison.
  * @param string $date2 is the ending date for the comparison.
- * @return boolean Returns true if $date1 == $date2, and false otherwise.
+ * @retval boolean Returns true if $date1 == $date2, and false otherwise.
  */
 function dateSame($date1, $date2)
 {
@@ -417,7 +415,7 @@ function dateSame($date1, $date2)
 /**
  * DateSplit allows users to chop a given datestring into its component parts.
  * @param string $datestr is a string holding a date in the form "YYYY-MM-DD".
- * @return array Returns an array in the form $newdate[] = [0, 1, 2]=>[Y, M, D]
+ * @retval array Returns an array in the form $newdate[] = [0, 1, 2]=>[Y, M, D]
  */
 function dateSplit($datestr)
 {
@@ -431,7 +429,7 @@ function dateSplit($datestr)
  * DateString takes a string modification, and applies it to the current
  *   date, returning the modified date.
  * @param string $mod is a string modification string.
- * @return date Returns the current date, modified by $mod.
+ * @retval date Returns the current date, modified by $mod.
  */
 function dateString($mod)
 {
@@ -443,7 +441,7 @@ function dateString($mod)
 /**
  * DateStringVar takes a datestring and converts it to a date, returning it.
  * @param string $when is the selected date.
- * @return date Returns a date object representing $when.
+ * @retval date Returns a date object representing $when.
  */
 function dateStringVar($when)
 {
@@ -455,7 +453,7 @@ function dateStringVar($when)
  * DayToNum takes a string representing a day of the week, and returns
  *   a consistent and corresponding integer.
  * @param string $day is a string containing the name of a daykof the week.
- * @return int Returns an integer representation for the day of the week.
+ * @retval int Returns an integer representation for the day of the week.
  */
 function dayToNum($day)
 {
@@ -487,7 +485,7 @@ function dayToNum($day)
 /**
  * DetermineCurrentShift calculates the current time, and checks to see what
  *   shift, if any, it currently is at the game store.
- * @return int Returns an integer of the current shift number, or 0 if the
+ * @retval int Returns an integer of the current shift number, or 0 if the
  *   store is closed.
  */
 function determineCurrentShift()
@@ -513,7 +511,6 @@ function determineCurrentShift()
  *   value is stored in it. All transactions will be loaded if $max is set
  *   to 0.
  * @param int $ID  is the selected member's ID
- * @return void
  */
 function displayAccount($max, $ID)
 {
@@ -540,7 +537,7 @@ function displayAccount($max, $ID)
  * @param date $start is the earliest date that will be checked for referrals.
  *   All referrals before this date will be ignored.
  * @param int  $ID    is the selected member's ID
- * @return boolean Returns true if the referrals are successfully displayed,
+ * @retval boolean Returns true if the referrals are successfully displayed,
  *   and false otherwise.
  */
 function displayRefs($start, $ID)
@@ -584,7 +581,6 @@ function displayRefs($start, $ID)
 /**
  * DisplayError allows the application to print error messages to the page.
  * @param string $message is the error message to be printed.
- * @return void
  */
 function displayError($message)
 {
@@ -598,7 +594,6 @@ function displayError($message)
  * DisplayErrorDie allows the application to print error messages to the page,
  *   after which it promptly prints the footer and dies.
  * @param string $message is the error message to be printed.
- * @return void
  */
 function displayErrorDie($message)
 {
@@ -612,7 +607,6 @@ function displayErrorDie($message)
 
 /**
  * DisplayLogin prints a login form to whatever page it's called from.
- * @return void
  */
 function displayLogin()
 {
@@ -629,7 +623,6 @@ function displayLogin()
  * DisplayFCMessage builds a brief message from FriendComputer, and prints
  *   it to the screen
  * @param string $message is the message to be printed.
- * @return void
  */
 function displayFCMessage($message)
 {
@@ -640,7 +633,7 @@ function displayFCMessage($message)
 /**
  * EndKey takes an array, and returns the key of the last element in the array.
  * @param array $array is the selected array.
- * @return mixed Returns the key of the last element in the array.
+ * @retval mixed Returns the key of the last element in the array.
  */
 function endKey($array)
 {
@@ -652,7 +645,7 @@ function endKey($array)
  * ExtractNums takes any string, and returns a second string consisting of
  *   only the numbers from the input string.
  * @param string $input is the string to be modified.
- * @return string Returns a string containing all the numbers from $input,
+ * @retval string Returns a string containing all the numbers from $input,
  *   respectively.
  */
 function extractNums($input)
@@ -671,7 +664,7 @@ function extractNums($input)
 /**
  * FormPhoneNumber
  * @param string $raw is the string of raw numbers to be modified.
- * @return string Returns an American-formatted phone number.
+ * @retval string Returns an American-formatted phone number.
  */
 function formPhoneNumber($raw)
 {
@@ -696,7 +689,7 @@ function formPhoneNumber($raw)
  * GreaterThanZero takes a number and returns either that number or 0,
  *   whichever is larger.
  * @param float $num is the number to be tested.
- * @return float Returns either 0 or $num, whichever is larger.
+ * @retval float Returns either 0 or $num, whichever is larger.
  */
 function greaterThanZero($num)
 {
@@ -706,7 +699,6 @@ function greaterThanZero($num)
 /**
  * NoRefresh prints a hidden form element which can be used to update
  *   SESSION in noRefreshCheck
- * @return void
  */
 function noRefresh()
 {
@@ -719,7 +711,7 @@ function noRefresh()
  * NoRefreshCheck checks to see if the POST variable 'page' is the same
  *   as a hidden value. If they are the same, it indicates the page has
  *   been refreshed. If they are different, The page has not been refreshed.
- * @return boolean Returns true if page has not been refreshed. Returns false
+ * @retval boolean Returns true if page has not been refreshed. Returns false
  *   if the page has been refreshed.
  */
 function noRefreshCheck()
@@ -743,7 +735,7 @@ function noRefreshCheck()
  * GetAccountBalance takes a member ID and returns that member's store credit
  *   balance.
  * @param int $member is the selected member's ID
- * @return float Returns the total account balance for the given member. 
+ * @retval float Returns the total account balance for the given member. 
  */
 function getAccountBalance($member)
 {
@@ -759,7 +751,7 @@ function getAccountBalance($member)
  * GetAccountPacks takes a member ID and returns that member's future pack
  *   balance.
  * @param int $member is the selected member's ID
- * @return float Returns the total future packs for the given member. 
+ * @retval float Returns the total future packs for the given member. 
  */
 function getAccountPacks($member)
 {
@@ -775,7 +767,7 @@ function getAccountPacks($member)
  * GetAvailBalance takes a member ID and returns that member's available
  *   store credit balance.
  * @param int $member is the selected member's ID
- * @return float Returns the available account balance for the given member. 
+ * @retval float Returns the available account balance for the given member. 
  */
 function getAvailBalance($member)
 {
@@ -802,7 +794,7 @@ function getAvailBalance($member)
 /**
  * GetMemberEmail takes a member ID and returns that member's email address.
  * @param int $member is the selected member's ID
- * @return string Returns the email address for the given member. 
+ * @retval string Returns the email address for the given member. 
  */
 function getMemberEmail($member)
 {
@@ -820,7 +812,7 @@ function getMemberEmail($member)
  * LastDayOfMonth takes a selected month as an integer, and returns the
  *   number of days in that month, ignoring leapyears.
  * @param int $month is the integer representation of the selected month.
- * @return int Returns the number of days in given month.
+ * @retval int Returns the number of days in given month.
  */
 function lastDayOfMonth($month)
 {
@@ -849,7 +841,7 @@ function lastDayOfMonth($month)
 /**
  * LateReg is a boolean check to determine whether the current shift has been
  *   in effect for at least 30 minutes.
- * @return boolean Returns true if more than 30 minutes have passed since
+ * @retval boolean Returns true if more than 30 minutes have passed since
  *   the start of the current shift, and false otherwise.
  */
 function lateReg()
@@ -885,7 +877,7 @@ function lateReg()
  *   returning a true or false indicating whether the password was accepted.
  * @param string $username is the username being tested.
  * @param string $password is the password being tested.
- * @return boolean Returns true if the combination is accepted, false if they
+ * @retval boolean Returns true if the combination is accepted, false if they
  *   are rejected.
  */
 function login($username, $password)
@@ -929,7 +921,6 @@ function login($username, $password)
 
 /**
  * Logout deletes all active SESSION variables and prints the login UI.
- * @return void
  */
 function logout()
 {
@@ -952,7 +943,6 @@ function logout()
  * LogoutTimeout is used when a member times out of FriendComputer, in
  *   which case we save all the lost variables in hidden inputs so they
  *   can be recovered if need be.
- * @return void
  */
 function logoutTimeout()
 {
@@ -987,7 +977,7 @@ function logoutTimeout()
  * Money formats a given float and returns a string representing that float
  *   as a monetary amount.
  * @param float $float is the value to be formatted.
- * @return string Returns a string representation of the float as a monetary
+ * @retval string Returns a string representation of the float as a monetary
  *   sum.
  */
 function money($float)
@@ -999,7 +989,7 @@ function money($float)
  * MoneyND formats a given float and returns a string representing that float
  *   as a monetary amount, but without the prefacing dollar sign.
  * @param float $float is the value to be formatted.
- * @return string Returns a string representation of the float as a monetary
+ * @retval string Returns a string representation of the float as a monetary
  *   sum.
  */
 function moneyND($float)
@@ -1020,7 +1010,7 @@ function moneyND($float)
  * @param int $num   is the selected member's ID
  * @param int $order is the formatting code, determining how to format
  *   the returned value.
- * @return boolean Returns true if the name is successfully printed, and false
+ * @retval boolean Returns true if the name is successfully printed, and false
  *   otherwise.
  */
 function printMember($num, $order)
@@ -1060,7 +1050,7 @@ function printMember($num, $order)
  * @param int $num   is the selected member's ID
  * @param int $order is the formatting code, determining how to format
  *   the returned value.
- * @return string Returns the selected member's name formatted as set by $order.
+ * @retval string Returns the selected member's name formatted as set by $order.
  */
 function printMemberString($num, $order)
 {
@@ -1099,7 +1089,7 @@ function printMemberString($num, $order)
  *   satisfy the stipulations of $sql.
  * @param mixed  $cxn is the connection to the database.
  * @param string $sql is the query to be passed to the database.
- * @return array Returns an array of all the records matching the query.
+ * @retval array Returns an array of all the records matching the query.
  */
 function query($cxn, $sql)
 {
@@ -1120,7 +1110,7 @@ function query($cxn, $sql)
  *   satisfy the stipulations of $sql as an associative array.
  * @param mixed  $cxn is the connection to the database.
  * @param string $sql is the query to be passed to the database.
- * @return array Returns an associative array of all the records
+ * @retval array Returns an associative array of all the records
  *   matching the query.
  */
 function queryAssoc($cxn, $sql)
@@ -1139,7 +1129,7 @@ function queryAssoc($cxn, $sql)
  *   at that connection which satisfies the stipulations of $sql.
  * @param mixed  $cxn is the connection to the database.
  * @param string $sql is the query to be passed to the database.
- * @return mixed Returns the value of the first element of the first record
+ * @retval mixed Returns the value of the first element of the first record
  *   matching the given query.
  */
 function queryOnce($cxn, $sql)
@@ -1157,7 +1147,7 @@ function queryOnce($cxn, $sql)
  * opposed to a static statement for the query, and a connection.
  * @param mixed $stmt is a bound statement, including both a connection and
  *   a query.
- * @return mixed Returns the bound statement, after storing the results of
+ * @retval mixed Returns the bound statement, after storing the results of
  *   the query inside it.
  */
 function queryB($stmt)
@@ -1176,7 +1166,6 @@ function queryB($stmt)
  *   information as possible so as to diagnose what happened.
  * @param string $page is the name of the page the function is being called
  *   from.
- * @return void
  */
 function reportBug($page)
 {
@@ -1202,7 +1191,6 @@ function reportBug($page)
  * SafeGet takes an array of strings, and unsets any initialized
  *   GET variables that are not listed in the $approved array.
  * @param array $approved is the array of approved variables.
- * @return void
  */
 function safeGet($approved)
 {
@@ -1226,7 +1214,6 @@ function safeGet($approved)
  * SafeGet takes an array of strings, and unsets any initialized
  *   POST variables that are not listed in the $approved array.
  * @param array $approved is the array of approved variables.
- * @return void
  */
 function safePost($approved)
 {
@@ -1258,7 +1245,6 @@ function safePost($approved)
  *   be named "department[$id]".
  * @param string $default is the name of the department you want to be
  *   displayed as the default value.
- * @return void
  */
 function selectDepartment($id, $default)
 {
@@ -1291,7 +1277,6 @@ function selectDepartment($id, $default)
  * @param int    $defMon    is the default integer value for the month <select> box.
  * @param int    $defDay    is the default integer value for the day <select> box.
  * @param int    $defYear   is the default integer value for the year <select> box.
- * @return void
  */
 function selectInputDate($monName, $dayName, $yearName, $startYear,
     $endYear, $defMon, $defDay, $defYear
@@ -1339,7 +1324,6 @@ function selectInputDate($monName, $dayName, $yearName, $startYear,
  *   funcs.dayToNum()
  * @param string $name    is the name of the printed <select> box.
  * @param int    $default is the day of the week that should be pre-selected.
- * @return void
  */
 function selectInputDayOfWeek($name, $default)
 {
@@ -1365,7 +1349,6 @@ function selectInputDayOfWeek($name, $default)
  * @param string $minuteName is the name of the minute <select> box.
  * @param int    $defHour    is the default value for the hour <select> box.
  * @param int    $defMinute  is the default value for the minute <select> box.
- * @return void
  */
 function selectInputTime($hourName, $minuteName, $defHour, $defMinute)
 {
@@ -1404,7 +1387,6 @@ function selectInputTime($hourName, $minuteName, $defHour, $defMinute)
  *   be named "manufacturer[$id]".
  * @param string $default is the name of the manufacturer you want to be
  *   displayed as the default value.
- * @return void
  */
 function selectManufacturer($id, $default)
 {
@@ -1431,7 +1413,6 @@ function selectManufacturer($id, $default)
  * @param string $name    is the name of the <select> box.
  * @param int    $default is the member ID of a selected default value.
  * @param int    $league  is the integer ID of the selected magic league.
- * @return void
  */
 function selectLeagueMember($name, $default, $league)
 {
@@ -1474,7 +1455,6 @@ function selectLeagueMember($name, $default, $league)
  *   all store members.
  * @param string $name    is the name of the <select> box.
  * @param int    $default is the member ID of a selected default value.
- * @return void
  */
 function selectMember($name, $default)
 {
@@ -1504,7 +1484,6 @@ function selectMember($name, $default)
  *   all store register volunteers.
  * @param string $name    is the name of the <select> box.
  * @param int    $default is the member ID of a selected default value.
- * @return void
  */
 function selectRegMember($name, $default)
 {

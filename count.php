@@ -1,14 +1,13 @@
 <?php
 /**
- * Count.php is used to track how much cash is in the register, in order
+ * @file Count.php is used to track how much cash is in the register, in order
  *   to prevent loss due to volunteer mistakes or theft.
  *
  * PHP version 5.4
  *
  * LICENSE: TBD
  *
- * @category   Report_Form
- * @package    FriendComputer
+ * @package    FriendComputer\Report\Build
  * @author     Michael Whitehouse 
  * @author     Creidieki Crouch 
  * @author     Desmond Duval 

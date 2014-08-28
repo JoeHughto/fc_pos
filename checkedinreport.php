@@ -1,14 +1,13 @@
 <?php
 /**
- * Checkedinreport.php is used to provide a view on the state of staffing
+ * @file CheckedInReport.php is used to provide a view on the state of staffing
  *   over a given period.
  *
  * PHP version 5.4
  *
  * LICENSE: TBD
  *
- * @category  Report_View
- * @package   FriendComputer
+ * @package   FriendComputer\Report\View
  * @author    Michael Whitehouse 
  * @author    Creidieki Crouch 
  * @author    Desmond Duval 

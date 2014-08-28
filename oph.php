@@ -1,13 +1,12 @@
 <?php
 /**
- * OPH.php allows for the manipulation of hedons from arbitrary accounts.
+ * @file OPH.php allows for the manipulation of hedons from arbitrary accounts.
  *
  * PHP version 5.4
  *
  * LICENSE: TBD
  *
- * @category  Inventory_Mutator
- * @package   FriendComputer
+ * @package   FriendComputer\Transfer\Hedons
  * @author    Michael Whitehouse 
  * @author    Creidieki Crouch 
  * @author    Desmond Duval 

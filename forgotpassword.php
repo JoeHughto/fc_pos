@@ -1,14 +1,13 @@
 <?php
 /**
- * ForgotPassword.php is a page designed to allow members to reset their
+ * @file ForgotPassword.php is a page designed to allow members to reset their
  *   passwords easily via email.
  *
  * PHP version 5.4
  *
  * LICENSE: TBD
  *
- * @category  Request_Form
- * @package   FriendComputer
+ * @package   FriendComputer\Utility
  * @author    Desmond Duval 
  * @copyright 2009-2014 Pioneer Valley Gaming Collective
  * @license   TBD
@@ -38,7 +37,7 @@ require_once 'config.inc';
  * Query is a reimplementation of funcs.query().
  * @param mixed  $cxn Connection to the database.
  * @param string $sql SQL Query String.
- * @return boolean Returns either a result, or false.
+ * @retval boolean Returns either a result, or false.
  */
 function query($cxn, $sql)
 {
@@ -61,7 +60,7 @@ function query($cxn, $sql)
  * 
  * @param type $num   is the ID number of the given member.
  * @param type $order An integer representing the order of the name.
- * @return string Returns a string of the member's name.
+ * @retval string Returns a string of the member's name.
  */
 function printMemberString($num, $order)
 {
@@ -99,7 +98,7 @@ function printMemberString($num, $order)
  * Check_Email_Address is a reimplementation of funcs.check_email_address()
  * @param string $email is the email address of the member who has forgotten
  *   their password.
- * @return boolean Returns true if the string $email is a legal email address.
+ * @retval boolean Returns true if the string $email is a legal email address.
  */
 function check_email_address($email)
 {

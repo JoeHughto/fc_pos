@@ -1,13 +1,12 @@
 <?php
 /**
- * FGReport.php is a page displaying our highest ranked Frequent Gamers.
+ * @file FGReport.php is a page displaying our highest ranked Frequent Gamers.
  *
  * PHP version 5.4
  *
  * LICENSE: TBD
  *
- * @category  Report_View
- * @package   FriendComputer
+ * @package   FriendComputer\View\Report
  * @author    Michael Whitehouse 
  * @author    Creidieki Crouch 
  * @author    Desmond Duval 

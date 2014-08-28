@@ -1,14 +1,13 @@
 <?php
 /**
- * HedonRequests.php is a page for admins to approve/deny any pending
+ * @file HedonRequests.php is a page for admins to approve/deny any pending
  *   Hedon Requests.
  *
  * PHP version 5.4
  *
  * LICENSE: TBD
  *
- * @category  Transfer_Form
- * @package   FriendComputer
+ * @package   FriendComputer\Transfer\Credits
  * @author    Desmond Duval 
  * @copyright 2009-2014 Pioneer Valley Gaming Collective
  * @license   TBD

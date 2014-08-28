@@ -1,6 +1,6 @@
 <?php
 /**
- * Register.php is our main point of sale page, used to cash out customers in
+ * @file Register.php is our main point of sale page, used to cash out customers in
  *   store.
  * 
  * This app displays a pulldown for member name and fields for entering guest
@@ -17,8 +17,7 @@
  *
  * LICENSE: TBD
  *
- * @category  Report_Form
- * @package   FriendComputer
+ * @package   FriendComputer\Register
  * @author    Michael Whitehouse 
  * @author    Creidieki Crouch 
  * @author    Desmond Duval 

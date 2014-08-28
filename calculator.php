@@ -1,13 +1,12 @@
 <?php
 /**
- * Calculator.php is a page that calculates percentage discounts as needed.
+ * @file Calculator.php is a page that calculates percentage discounts as needed.
  *
  * PHP version 5.4
  *
  * LICENSE: TBD
  *
- * @category  Transfer_Form
- * @package   FriendComputer
+ * @package   FriendComputer\Utility
  * @author    Michael Whitehouse 
  * @author    Creidieki Crouch 
  * @author    Desmond Duval 

@@ -1,13 +1,12 @@
 <?php
 /**
- * Cashspend.php is used to track the removal of cash from the register.
+ * @file CashSpend.php is used to track the removal of cash from the register.
  *
  * PHP version 5.4
  *
  * LICENSE: TBD
  *
- * @category  Ledger_View
- * @package   FriendComputer
+ * @package   FriendComputer\View\Ledger
  * @author    Michael Whitehouse 
  * @author    Creidieki Crouch 
  * @author    Desmond Duval 
