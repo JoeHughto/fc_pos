@@ -1,49 +1,43 @@
 <?php
 /**
- * @file CreditTransactions.php is a page used to check on a given member's
+ * @file credittransactions.php
+ * @brief credittransactions.php is a page used to check on a given member's
  *   Hedon transactions.
- *
- * PHP version 5.4
- *
- * LICENSE: TBD
- *
- * @package   FriendComputer\View\Ledger\Hedons
+ * 
+ * This file includes:<br>
+ * funcs.inc:<br>
+ * &nbsp;&nbsp;Used for the config.inc include<br>
+ * &nbsp;&nbsp;printMemberString()<br>
+ * credits.inc:<br>
+ * &nbsp;&nbsp;getCreditTotal()<br>
+ * &nbsp;&nbsp;displayCreditTransactions()<br>
+ * <br>
+ * Possible Arguments:<br>
+ * SESSION:<br>
+ * &nbsp;&nbsp; mem - Used to determine whether the current user has membership
+ *   coordinator privledges.<br>
+ * &nbsp;&nbsp;ID - Used to show the current user their own Hedon transactions.<br>
+ * GET:<br>
+ * &nbsp;&nbsp;ID - If mem is set, ID may be sent as a GET variable to show any other
+ *   member's ledger, otherwise the active user's account will be shown.<br>
+ * &nbsp;&nbsp;qty - Number of records to display, or 'ALL' to display all records.<br>
+ * 
+ * @link http://www.worldsapartgames.org/fc/credittransactions.php @endlink
+ * 
  * @author    Michael Whitehouse 
  * @author    Creidieki Crouch 
  * @author    Desmond Duval 
  * @copyright 2009-2014 Pioneer Valley Gaming Collective
- * @license   TBD
- * @version   GIT:$ID$
- * @link      http://www.worldsapartgames.org/fc/credittransactions.php
+ * @version   1.8d
  * @since     Project has existed since time immemorial.
  */
 
-/**
- * This file includes:
- * funcs.inc:
- *   Used for the config.inc include
- *   printMemberString()
- * credits.inc:
- *   getCreditTotal()
- *   displayCreditTransactions()
- */
 $title = "Hedon Transactions";
 $version = "1.8d";
 require_once 'funcs.inc';
 require_once 'credits.inc';
 require_once 'header.php';
 
-/**
- * Possible Arguments:
- * SESSION:
- *   mem - Used to determine whether the current user has membership
- *     coordinator privledges.
- *   ID - Used to show the current user their own Hedon transactions.
- * GET:
- *   ID - If mem is set, ID may be sent as a GET variable to show any other
- *     member's ledger, otherwise the active user's account will be shown.
- *   qty - Number of records to display, or 'ALL' to display all records.
- */
 $ID = $_GET['ID'];
 
 $qty = ($_GET['qty'] > 0) ? $_GET['qty'] : 'ALL';

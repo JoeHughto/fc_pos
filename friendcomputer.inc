@@ -1,31 +1,26 @@
 <?php
 /**
- * @file FriendComputer.inc provides an API for displaying an information box.
- *
- * PHP version 5.4
- *
- * LICENSE: TBD
- *
- * @package   FriendComputer\Library\Core
+ * @file friendcomputer.inc
+ * @brief friendcomputer.inc provides an API for displaying an information box.
+ * 
+ * This file includes:<br>
+ * funcs.inc:<br>
+ * &nbsp;&nbsp;determineCurrentShift()<br>
+ * 
+ * @link http://www.worldsapartgames.org/fc/index.php @endlink
+ * 
  * @author    Michael Whitehouse 
  * @author    Creidieki Crouch 
  * @author    Desmond Duval 
  * @copyright 2009-2014 Pioneer Valley Gaming Collective
- * @license   TBD
- * @version   GIT:$ID$
- * @link      http://www.worldsapartgames.org/fc/index.php
+ * @version   1.8d
  * @since     Project has existed since time immemorial.
  */
 
-/**
- * This file includes:
- * funcs.inc:
- *   determineCurrentShift()
- */
 require_once 'funcs.inc';
 
 /**
- * FcMessage displays a message from Friend Computer.
+ * fcMessage displays a message from Friend Computer.
  * @param string $message is the message to be printed.
  */
 function fcMessage($message)

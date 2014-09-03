@@ -1,19 +1,19 @@
 <?php
 /**
- * @file funcs.inc is the main function library of FriendComputer
- *
- * PHP version 5.4
- *
- * LICENSE: TBD
- *
- * @package   FriendComputer\Library\Core
+ * @file funcs.inc
+ * @brief funcs.inc is the main function library of FriendComputer
+ * 
+ * This file includes:<br>
+ * @todo Document funcs.inc's includes, definitely config.inc, but also
+ *   anything else.
+ * 
+ * @link http://www.worldsapartgames.org/fc/index.php @endlink
+ * 
  * @author    Michael Whitehouse 
  * @author    Creidieki Crouch 
  * @author    Desmond Duval 
  * @copyright 2009-2014 Pioneer Valley Gaming Collective
- * @license   TBD
- * @version   GIT:$ID$
- * @link      http://www.worldsapartgames.org/fc/index.php
+ * @version   1.8d
  * @since     Project has existed since time immemorial.
  */
 
@@ -44,7 +44,7 @@ $IMAGEROOT = "http://www.worldsapartgames.org/productimages/";
 $SHIFTCREDITS = 4; // credits for covering one standard shift
 
 /**
- * MegaStrip is used to strip slashes from GET, POST, and COOKIE.
+ * megaStrip is used to strip slashes from GET, POST, and COOKIE.
  */
 function megaStrip()
 {
@@ -58,7 +58,7 @@ function megaStrip()
 }
 
 /**
- * Stripslashes_deep is used by megaStrip() to remove slashes from arrays
+ * stripslashes_deep is used by megaStrip() to remove slashes from arrays
  *   cleanly.
  * @param mixed $value is a string, or array of strings to be stripped of
  *   slashes.
@@ -73,7 +73,7 @@ function stripslashes_deep($value)
 }
 
 /**
- * AccountTransact is used to adjust store credit ledgers as needed.
+ * accountTransact is used to adjust store credit ledgers as needed.
  * @param int    $member  is the selected member's ID
  * @param float  $amount  is the amount by which the member's store credit
  *   will be adjusted, up if positive, or down if negative.
@@ -106,7 +106,7 @@ function accountTransact($member, $amount, $transID, $reason)
 }
 
 /**
- * AdjustPacksOnAcct is used to add transactions to the future pack ledger.
+ * adjustPacksOnAcct is used to add transactions to the future pack ledger.
  *   given the relavent information, it can add or remove packs from
  *   a given account, requiring an explanation to do so.
  * @param int    $member is the selected member's ID
@@ -142,7 +142,7 @@ function adjustPacksOnAcct($member, $qty, $note="")
 }
 
 /**
- * CashCountInFourHours is used to check whether a new cash count needs
+ * cashCountInFourHours is used to check whether a new cash count needs
  *   doing.
  * @retval boolean Returns true when a cash count has been done in the last
  *   four hours, and false when there hasn't been one.
@@ -161,7 +161,7 @@ function cashCountInFourHours()
 }
 
 /**
- * CashCountTime checks when the last cash count was done, and returns
+ * cashCountTime checks when the last cash count was done, and returns
  *   the time as an integer.
  * @retval integer Returns an integer representing the time of the last cash
  *   count.
@@ -175,7 +175,7 @@ function cashCountTime()
 }
 
 /**
- * CheckAlphaNum takes a string as input and returns true if it only contains
+ * checkAlphaNum takes a string as input and returns true if it only contains
  *   alphanumeric characters. Otherwise returns false.
  * @param string $string is the string being tested.
  * @retval boolean Returns true if all conditions are satisfied.
@@ -186,8 +186,8 @@ function checkAlphaNum($string)
 }
 
 /**
- * CheckAlphaNum takes a string as input and returns true if it only contains
- *   alphanumeric characters and space. Otherwise returns false.
+ * checkAlphaNumSpace takes a string as input and returns true if it only
+ *   contains alphanumeric characters and spaces. Otherwise returns false.
  * @param string $string is the string being tested.
  * @retval boolean Returns true if all conditions are satisfied.
  */
@@ -197,7 +197,7 @@ function checkAlphaNumSpace($string)
 }
 
 /**
- * CheckDateNum takes a string as input and returns true if it contains
+ * checkDateNum takes a string as input and returns true if it contains
  *   a date in the form "YYYY-MM-DD". Otherwise returns false.
  * @param string $string is the string to be checked for a date.
  * @retval boolean Returns true if there is a date in $string, false
@@ -209,7 +209,7 @@ function checkDateNum($string)
 }
 
 /**
- * Check_email_address takes a string as input and returns true if it contains
+ * check_email_address takes a string as input and returns true if it contains
  *   a legal email address. Otherwise returns false.
  * @param string $email is the email address to be checked.
  * @retval boolean Returns true or false, depending on the state of the address.
@@ -254,7 +254,7 @@ function check_email_address($email)
 }
 
 /**
- * CheckMember takes an integer member number and returns the membership status
+ * checkMember takes an integer member number and returns the membership status
  *   of that particular member.
  * 
  * Membership Codes:
@@ -299,7 +299,7 @@ function checkMember($memberNum)
 }
 
 /**
- * CheckMemberReg takes an integer member ID and returns a boolean
+ * checkMemberReg takes an integer member ID and returns a boolean
  *   indicating whether the selected member is a Register Volunteer.
  * @param int $memberNum is the selected member's ID.
  * @retval int Returns 1 if member is a register volunteer, 0 otherwise.
@@ -314,7 +314,7 @@ function checkMemberReg($memberNum)
 }
 
 /**
- * CheckName takes a string and returns a boolean indicating whether the string
+ * checkName takes a string and returns a boolean indicating whether the string
  *   fits a pattern that matches a name. Doesn't alter $name.
  * @param string $name is the name to be tested.
  * @retval boolean Returns true if given string meets criterea for names.
@@ -325,7 +325,7 @@ function checkName($name)
 }
 
 /**
- * ConvertPacksToStoreCredit allows members to convert their Future Packs
+ * convertPacksToStoreCredit allows members to convert their Future Packs
  *   to store credit at a rate of 3$/pack.
  * @param int   $member is the ID of the selected member.
  * @param float $qty    is the quantity of packs being converted.
@@ -370,7 +370,7 @@ function convertPacksToStoreCredit($member, $qty)
 }
 
 /**
- * DateDiff takes a delimiter and two dates, and returns the difference
+ * dateDiff takes a delimiter and two dates, and returns the difference
  *   between them in days.
  * @param string $dformat   is a delimiter used to separate the date strings
  *   into their components. Dates must be in the form "YY-MM-DD".
@@ -388,7 +388,7 @@ function dateDiff($dformat, $beginDate, $endDate)
 }
 
 /**
- * DateSame checks to see if two dates are the same, returning true if
+ * dateSame checks to see if two dates are the same, returning true if
  *   they're the same, and false otherwise.
  * @param string $date1 is the starting date for the comparison.
  * @param string $date2 is the ending date for the comparison.
@@ -413,7 +413,7 @@ function dateSame($date1, $date2)
 }
 
 /**
- * DateSplit allows users to chop a given datestring into its component parts.
+ * dateSplit allows users to chop a given datestring into its component parts.
  * @param string $datestr is a string holding a date in the form "YYYY-MM-DD".
  * @retval array Returns an array in the form $newdate[] = [0, 1, 2]=>[Y, M, D]
  */
@@ -426,7 +426,7 @@ function dateSplit($datestr)
 }
 
 /**
- * DateString takes a string modification, and applies it to the current
+ * dateString takes a string modification, and applies it to the current
  *   date, returning the modified date.
  * @param string $mod is a string modification string.
  * @retval date Returns the current date, modified by $mod.
@@ -439,7 +439,7 @@ function dateString($mod)
 }
 
 /**
- * DateStringVar takes a datestring and converts it to a date, returning it.
+ * dateStringVar takes a datestring and converts it to a date, returning it.
  * @param string $when is the selected date.
  * @retval date Returns a date object representing $when.
  */
@@ -450,7 +450,7 @@ function dateStringVar($when)
 }
 
 /**
- * DayToNum takes a string representing a day of the week, and returns
+ * dayToNum takes a string representing a day of the week, and returns
  *   a consistent and corresponding integer.
  * @param string $day is a string containing the name of a daykof the week.
  * @retval int Returns an integer representation for the day of the week.
@@ -483,7 +483,7 @@ function dayToNum($day)
 }
 
 /**
- * DetermineCurrentShift calculates the current time, and checks to see what
+ * determineCurrentShift calculates the current time, and checks to see what
  *   shift, if any, it currently is at the game store.
  * @retval int Returns an integer of the current shift number, or 0 if the
  *   store is closed.
@@ -506,7 +506,7 @@ function determineCurrentShift()
 }
 
 /**
- * DisplayAccount lists all account transactions for a given member.
+ * displayAccount lists all account transactions for a given member.
  * @param int $max reduces the number of records displayed to whatever
  *   value is stored in it. All transactions will be loaded if $max is set
  *   to 0.
@@ -533,7 +533,7 @@ function displayAccount($max, $ID)
 }
 
 /**
- * DisplayRefs displays all referrals for a given member, since a given date.
+ * displayRefs displays all referrals for a given member, since a given date.
  * @param date $start is the earliest date that will be checked for referrals.
  *   All referrals before this date will be ignored.
  * @param int  $ID    is the selected member's ID
@@ -579,7 +579,7 @@ function displayRefs($start, $ID)
 }
 
 /**
- * DisplayError allows the application to print error messages to the page.
+ * displayError allows the application to print error messages to the page.
  * @param string $message is the error message to be printed.
  */
 function displayError($message)
@@ -591,7 +591,7 @@ function displayError($message)
 }
 
 /**
- * DisplayErrorDie allows the application to print error messages to the page,
+ * displayErrorDie allows the application to print error messages to the page,
  *   after which it promptly prints the footer and dies.
  * @param string $message is the error message to be printed.
  */
@@ -606,7 +606,7 @@ function displayErrorDie($message)
 }
 
 /**
- * DisplayLogin prints a login form to whatever page it's called from.
+ * displayLogin prints a login form to whatever page it's called from.
  */
 function displayLogin()
 {
@@ -620,7 +620,7 @@ function displayLogin()
 }
 
 /**
- * DisplayFCMessage builds a brief message from FriendComputer, and prints
+ * displayFCMessage builds a brief message from FriendComputer, and prints
  *   it to the screen
  * @param string $message is the message to be printed.
  */
@@ -631,7 +631,7 @@ function displayFCMessage($message)
 }
 
 /**
- * EndKey takes an array, and returns the key of the last element in the array.
+ * endKey takes an array, and returns the key of the last element in the array.
  * @param array $array is the selected array.
  * @retval mixed Returns the key of the last element in the array.
  */
@@ -642,7 +642,7 @@ function endKey($array)
 }
 
 /**
- * ExtractNums takes any string, and returns a second string consisting of
+ * extractNums takes any string, and returns a second string consisting of
  *   only the numbers from the input string.
  * @param string $input is the string to be modified.
  * @retval string Returns a string containing all the numbers from $input,
@@ -662,7 +662,7 @@ function extractNums($input)
 }
 
 /**
- * FormPhoneNumber
+ * formPhoneNumber
  * @param string $raw is the string of raw numbers to be modified.
  * @retval string Returns an American-formatted phone number.
  */
@@ -686,7 +686,7 @@ function formPhoneNumber($raw)
 }
 
 /**
- * GreaterThanZero takes a number and returns either that number or 0,
+ * greaterThanZero takes a number and returns either that number or 0,
  *   whichever is larger.
  * @param float $num is the number to be tested.
  * @retval float Returns either 0 or $num, whichever is larger.
@@ -697,7 +697,7 @@ function greaterThanZero($num)
 }
 
 /**
- * NoRefresh prints a hidden form element which can be used to update
+ * noRefresh prints a hidden form element which can be used to update
  *   SESSION in noRefreshCheck
  */
 function noRefresh()
@@ -708,7 +708,7 @@ function noRefresh()
 }
 
 /**
- * NoRefreshCheck checks to see if the POST variable 'page' is the same
+ * noRefreshCheck checks to see if the POST variable 'page' is the same
  *   as a hidden value. If they are the same, it indicates the page has
  *   been refreshed. If they are different, The page has not been refreshed.
  * @retval boolean Returns true if page has not been refreshed. Returns false
@@ -732,7 +732,7 @@ function noRefreshCheck()
 }
 
 /**
- * GetAccountBalance takes a member ID and returns that member's store credit
+ * getAccountBalance takes a member ID and returns that member's store credit
  *   balance.
  * @param int $member is the selected member's ID
  * @retval float Returns the total account balance for the given member. 
@@ -748,7 +748,7 @@ function getAccountBalance($member)
 }
 
 /**
- * GetAccountPacks takes a member ID and returns that member's future pack
+ * getAccountPacks takes a member ID and returns that member's future pack
  *   balance.
  * @param int $member is the selected member's ID
  * @retval float Returns the total future packs for the given member. 
@@ -764,7 +764,7 @@ function getAccountPacks($member)
 }
 
 /**
- * GetAvailBalance takes a member ID and returns that member's available
+ * getAvailBalance takes a member ID and returns that member's available
  *   store credit balance.
  * @param int $member is the selected member's ID
  * @retval float Returns the available account balance for the given member. 
@@ -792,7 +792,7 @@ function getAvailBalance($member)
 }
 
 /**
- * GetMemberEmail takes a member ID and returns that member's email address.
+ * getMemberEmail takes a member ID and returns that member's email address.
  * @param int $member is the selected member's ID
  * @retval string Returns the email address for the given member. 
  */
@@ -809,7 +809,7 @@ function getMemberEmail($member)
 }
 
 /**
- * LastDayOfMonth takes a selected month as an integer, and returns the
+ * lastDayOfMonth takes a selected month as an integer, and returns the
  *   number of days in that month, ignoring leapyears.
  * @param int $month is the integer representation of the selected month.
  * @retval int Returns the number of days in given month.
@@ -839,7 +839,7 @@ function lastDayOfMonth($month)
 }
 
 /**
- * LateReg is a boolean check to determine whether the current shift has been
+ * lateReg is a boolean check to determine whether the current shift has been
  *   in effect for at least 30 minutes.
  * @retval boolean Returns true if more than 30 minutes have passed since
  *   the start of the current shift, and false otherwise.
@@ -873,7 +873,7 @@ function lateReg()
 }
 
 /**
- * Login takes a username and password, and compares them to the database,
+ * login takes a username and password, and compares them to the database,
  *   returning a true or false indicating whether the password was accepted.
  * @param string $username is the username being tested.
  * @param string $password is the password being tested.
@@ -920,7 +920,7 @@ function login($username, $password)
 }
 
 /**
- * Logout deletes all active SESSION variables and prints the login UI.
+ * logout deletes all active SESSION variables and prints the login UI.
  */
 function logout()
 {
@@ -940,7 +940,7 @@ function logout()
 }
 
 /**
- * LogoutTimeout is used when a member times out of FriendComputer, in
+ * logoutTimeout is used when a member times out of FriendComputer, in
  *   which case we save all the lost variables in hidden inputs so they
  *   can be recovered if need be.
  */
@@ -974,7 +974,7 @@ function logoutTimeout()
 }
 
 /**
- * Money formats a given float and returns a string representing that float
+ * money formats a given float and returns a string representing that float
  *   as a monetary amount.
  * @param float $float is the value to be formatted.
  * @retval string Returns a string representation of the float as a monetary
@@ -986,7 +986,7 @@ function money($float)
 }
 
 /**
- * MoneyND formats a given float and returns a string representing that float
+ * moneyND formats a given float and returns a string representing that float
  *   as a monetary amount, but without the prefacing dollar sign.
  * @param float $float is the value to be formatted.
  * @retval string Returns a string representation of the float as a monetary
@@ -998,7 +998,7 @@ function moneyND($float)
 }
 
 /**
- * PrintMember takes a member ID, and a formatting code, and prints the
+ * printMember takes a member ID, and a formatting code, and prints the
  *   member's name, formatted as indicated by the formatting code.
  * 
  * Formatting Codes:
@@ -1038,7 +1038,7 @@ function printMember($num, $order)
 }
 
 /**
- * PrintMemberString takes a member ID, and a formatting code, and returns the
+ * printMemberString takes a member ID, and a formatting code, and returns the
  *   member's name, as a string, formatted as indicated by the formatting code.
  * 
  * Formatting Codes:
@@ -1084,7 +1084,7 @@ function printMemberString($num, $order)
 }
 
 /**
- * Query is a handle for database queries. It takes an SQL connection
+ * query is a handle for database queries. It takes an SQL connection
  *   and an SQL query, and returns all records at that connection which
  *   satisfy the stipulations of $sql.
  * @param mixed  $cxn is the connection to the database.
@@ -1105,7 +1105,7 @@ function query($cxn, $sql)
 }
 
 /**
- * QueryAssoc is a handle for database queries. It takes an SQL connection
+ * queryAssoc is a handle for database queries. It takes an SQL connection
  *   and an SQL query, and returns all records at that connection which
  *   satisfy the stipulations of $sql as an associative array.
  * @param mixed  $cxn is the connection to the database.
@@ -1124,7 +1124,7 @@ function queryAssoc($cxn, $sql)
 }
 
 /**
- * QueryOnce is a handle for database queries. It takes an SQL connection
+ * queryOnce is a handle for database queries. It takes an SQL connection
  *   and an SQL query, and returns the first element of the first record
  *   at that connection which satisfies the stipulations of $sql.
  * @param mixed  $cxn is the connection to the database.
@@ -1143,7 +1143,7 @@ function queryOnce($cxn, $sql)
 }
    
 /**
- * QueryB is a handle for SQL queries that uses a bound statement, as
+ * queryB is a handle for SQL queries that uses a bound statement, as
  * opposed to a static statement for the query, and a connection.
  * @param mixed $stmt is a bound statement, including both a connection and
  *   a query.
@@ -1162,7 +1162,7 @@ function queryB($stmt)
 }
 
 /**
- * ReportBug sends an email to the High Programmer, with as much
+ * reportBug sends an email to the High Programmer, with as much
  *   information as possible so as to diagnose what happened.
  * @param string $page is the name of the page the function is being called
  *   from.
@@ -1188,7 +1188,7 @@ function reportBug($page)
 }
 
 /**
- * SafeGet takes an array of strings, and unsets any initialized
+ * safeGet takes an array of strings, and unsets any initialized
  *   GET variables that are not listed in the $approved array.
  * @param array $approved is the array of approved variables.
  */
@@ -1211,7 +1211,7 @@ function safeGet($approved)
 }
 
 /**
- * SafeGet takes an array of strings, and unsets any initialized
+ * safePost takes an array of strings, and unsets any initialized
  *   POST variables that are not listed in the $approved array.
  * @param array $approved is the array of approved variables.
  */
@@ -1234,7 +1234,7 @@ function safePost($approved)
 }
 
 /**
- * SelectDepartment prints a box that allows the user to select a
+ * selectDepartment prints a box that allows the user to select a
  *   department from our full list of departments. The <select> name
  *   is set to "department[$id]" and the returned value is set to the
  *   name of the selected department.
@@ -1266,7 +1266,7 @@ function selectDepartment($id, $default)
 }
 
 /**
- * SelectInputDate takes some defining variables, and prints a set of
+ * selectInputDate takes some defining variables, and prints a set of
  *   three <select> boxes that can be easily used to select a date.
  * @param string $monName   is the name of the printed month <select> box.
  * @param string $dayName   is the name of the printed day <select> box.
@@ -1319,7 +1319,7 @@ function selectInputDate($monName, $dayName, $yearName, $startYear,
 }
 
 /**
- * SelectInputDayOfWeek prints a <select> box containing all the days of
+ * selectInputDayOfWeek prints a <select> box containing all the days of
  *   the week, it's returned variables will be in numeric form, as defined in
  *   funcs.dayToNum()
  * @param string $name    is the name of the printed <select> box.
@@ -1343,7 +1343,7 @@ function selectInputDayOfWeek($name, $default)
 }
       
 /**
- * SelectInputTime takes names and default values, and prints a set of
+ * selectInputTime takes names and default values, and prints a set of
  *   <select> boxes used for selecting a time.
  * @param string $hourName   is the name of the hour <select> box.
  * @param string $minuteName is the name of the minute <select> box.
@@ -1376,7 +1376,7 @@ function selectInputTime($hourName, $minuteName, $defHour, $defMinute)
 }
 
 /**
- * SelectManufacturer prints a box that allows the user to select a
+ * selectManufacturer prints a box that allows the user to select a
  *   manufacturer from our full list of manufacturers. The <select> name
  *   is set to "manufacturer[$id]" and the returned value is set to the
  *   name of the selected manufacturer.
@@ -1408,7 +1408,7 @@ function selectManufacturer($id, $default)
 }
 
 /**
- * SelectLeagueMember prints a <select> box containing only the names of
+ * selectLeagueMember prints a <select> box containing only the names of
  *   store members who are registered for a given league.
  * @param string $name    is the name of the <select> box.
  * @param int    $default is the member ID of a selected default value.
@@ -1451,7 +1451,7 @@ function selectLeagueMember($name, $default, $league)
 }
 
 /**
- * SelectMember prints a <select> box containing the names of
+ * selectMember prints a <select> box containing the names of
  *   all store members.
  * @param string $name    is the name of the <select> box.
  * @param int    $default is the member ID of a selected default value.
@@ -1480,7 +1480,7 @@ function selectMember($name, $default)
 }
 
 /**
- * SelectRegMember prints a <select> box containing the names of
+ * selectRegMember prints a <select> box containing the names of
  *   all store register volunteers.
  * @param string $name    is the name of the <select> box.
  * @param int    $default is the member ID of a selected default value.

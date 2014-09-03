@@ -1,24 +1,23 @@
 <?php
 /**
- * @file GiftCert.inc is a library used for selling and converting gift certificates.
- *
- * PHP version 5.4
- *
- * LICENSE: TBD
- *
- * @package   FriendComputer\Library\GiftCert
+ * @file giftcert.inc
+ * @brief giftcert.inc is a library used for selling and converting gift certificates.
+ * 
+ * @todo This file uses some functions, and they should be noted, even if the
+ *   file doesn't include or require them.
+ * 
+ * @link http://www.worldsapartgames.org/fc/index.php @endlink
+ * 
  * @author    Michael Whitehouse 
  * @author    Creidieki Crouch 
  * @author    Desmond Duval 
  * @copyright 2009-2014 Pioneer Valley Gaming Collective
- * @license   TBD
- * @version   GIT:$ID$
- * @link      http://www.worldsapartgames.org/fc/index.php
+ * @version   1.8d
  * @since     Project has existed since time immemorial.
  */
 
 /**
- * GiftCertBalance takes a gift certificate ID, and returns the balance
+ * giftCertBalance takes a gift certificate ID, and returns the balance
  *   remaining on that gift certificate. If there is no cert with that ID,
  *   it will return false.
  * @param int $ID is the ID of the gift certificate to be tested.
@@ -36,7 +35,7 @@ function giftCertBalance($ID)
 }
 
 /**
- * GiftCertToAccount allows members to inject their gift certificate
+ * giftCertToAccount allows members to inject their gift certificate
  *   balance directly into their store credit balance.
  * @param int $giftCert is the ID of the gift certificate.
  * @param int $member   in the selected member's ID.
@@ -74,7 +73,7 @@ function giftCertToAccount($giftCert, $member)
 }
             
 /**
- * ShowAllGiftCerts prints a list of all gift certificates in the system, and
+ * showAllGiftCerts prints a list of all gift certificates in the system, and
  *   all relavent information for each.
  */
 function showAllGiftCerts()
@@ -86,17 +85,12 @@ function showAllGiftCerts()
 }
 
 /**
- * GiftCert is a class for managing gift certificates consistently.
+ * giftCert is a class for managing gift certificates consistently.
  * 
- * @category  Library
- * @package   FriendComputer
  * @author    Michael Whitehouse 
  * @author    Creidieki Crouch 
  * @author    Desmond Duval 
  * @copyright 2009-2014 Pioneer Valley Gaming Collective
- * @license   TBD
- * @version   GIT:$ID$
- * @link      http://www.worldsapartgames.org/fc/index.php
  * @since     Project has existed since time immemorial.
  */
 class giftCert
@@ -120,7 +114,7 @@ class giftCert
     }
 
     /**
-     * DisplayForm prints a form which is compatible with the
+     * displayForm prints a form which is compatible with the
      *   constructor giftCert(). Designed for register.php
      */
     function displayForm()
@@ -131,7 +125,7 @@ class giftCert
     }
 
     /**
-     * DisplayInfo prints all relavent information for a given gift
+     * displayInfo prints all relavent information for a given gift
      *   certificate to the page on which it is called.
      * @retval boolean Returns true if successful, false otherwise.
      */
@@ -181,10 +175,10 @@ class giftCert
             echo "<font color=RED>There is no gift certificate #" . $this->certNum . "<p>";
             return false;
         }
-    } // end function
+    }
 
     /**
-     * DisplaySelectForm prints a form for use in redeeming gift certificates.
+     * displaySelectForm prints a form for use in redeeming gift certificates.
      */
     function displaySelectForm()
     {
@@ -192,7 +186,7 @@ class giftCert
     }
 
     /**
-     * Redeem takes an amount, and reduces the gift certificate's balance
+     * redeem takes an amount, and reduces the gift certificate's balance
      *   by that amount.
      * @param float $amount is the amount being deducted from the balance.
      * @retval boolean Returns true if amount is deducted, false otherwise.
@@ -231,7 +225,7 @@ class giftCert
     }
 
     /**
-     * Sell is called to create new gift certificates in the database. This
+     * sell is called to create new gift certificates in the database. This
      * function should not be called until after payment is concluded.
      * @retval int Returns the gift certificate ID that has been created, or
      *   false if the creation failed.

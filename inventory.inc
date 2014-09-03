@@ -1,31 +1,28 @@
 <?php
 /**
- * @file Inventory.inc is the primary library for inventory related functions.
+ * @file inventory.inc
+ * @brief inventory.inc is the primary library for inventory related functions.
  *   It also contains two classes, specialOrder and viewreceipt.
- *
- * PHP version 5.4
- *
- * LICENSE: TBD
- *
- * @package   FriendComputer\Library\Inventory
+ * 
+ * @todo This file uses config.inc, but doesn't import anything.
+ * 
+ * This file includes:<br>
+ * Nothing!<br>
+ * 
+ * @link http://www.worldsapartgames.org/fc/index.php @endlink
+ * 
  * @author    Michael Whitehouse
  * @author    Creidieki Crouch
  * @author    Desmond Duval
  * @copyright 2009-2014 Pioneer Valley Gaming Collective
- * @license   TBD
- * @version   GIT:$ID$
- * @link      http://www.worldsapartgames.org/fc/index.php
+ * @version   1.8d
  * @since     Project has existed since time immemorial.
  */
 
-/**
- * This file includes:
- * Nothing!
- */
 $TAXRATE = .0625;
 
 /**
- * DisplayBlankItem displays a blank item with set values.
+ * displayBlankItem displays a blank item with set values.
  * @param int $count  is the ID of the item.
  * @param int $newsku is the sku of the item.
  */
@@ -54,7 +51,7 @@ function displayBlankItem($count, $newsku)
 }
 
 /**
- * DisplayDepartmentList prints a <select> list of departments
+ * displayDepartmentList prints a <select> list of departments
  *   with the name 'department[$count]'
  * @param int    $count   is the key of the POST variable you want your
  *   <select> list to push to.
@@ -80,7 +77,7 @@ function displayDepartmentList($count, $default)
 }
 
 /**
- * DisplayDepartmentListScalar prints a <select> list of departments
+ * displayDepartmentListScalar prints a <select> list of departments
  *   with a chosen name.
  * @param string $default is the name of the desired default department.
  * @param string $name    is the chosen name of the <select> list. This defaults
@@ -106,7 +103,7 @@ function displayDepartmentListScalar($default, $name='department')
 }
 
 /**
- * DisplayExistingItem takes a query result for an item during the receiving
+ * displayExistingItem takes a query result for an item during the receiving
  *   process, and displays the item with fields for new cost, qty, price.
  * @param object $result   is a query result containing an item.
  * @param int    $newqty   is the number of that item that are being received.
@@ -170,7 +167,7 @@ function displayExistingItem($result, $newqty, $newcost, $newprice)
 }
 
 /**
- * DisplayManufacturerList prints a <select> list of manufacturers
+ * displayManufacturerList prints a <select> list of manufacturers
  *   with the name 'manufacturer[$count]'
  * @param int    $count   is the key of the POST variable you want your
  *   <select> list to push to.
@@ -196,7 +193,7 @@ function displayManufacturerList($count, $default)
 }
 
 /**
- * DisplayManufacturerListScalar prints a <select> list of manufacturers
+ * displayManufacturerListScalar prints a <select> list of manufacturers
  *   with a chosen name.
  * @param string $default is the name of the desired default manufacturer.
  * @param string $name    is the chosen name of the <select> list. This defaults
@@ -222,7 +219,7 @@ function displayManufacturerListScalar($default, $name='manufacturer')
 }
 
 /**
- * DisplayPreorderSelect prints a <select> list of all preorders.
+ * displayPreorderSelect prints a <select> list of all preorders.
  * @param string $name is the chosen name for the <select> list.
  */
 function displayPreorderSelect($name)
@@ -243,7 +240,7 @@ function displayPreorderSelect($name)
 }
 
 /**
- * DisplayPreorderForm prints a form prepopulated with data from a preorder
+ * displayPreorderForm prints a form prepopulated with data from a preorder
  *   as a blank and includes a hidden called preorder with the preorderID
  *   so the preorder can be linked with the form's data.
  * @param int $ID is the ID of the chosen preorder, to be pre-filled in the form.
@@ -294,7 +291,7 @@ function displayPreorderForm($ID)
 }
 
 /**
- * DisplaySaleItem takes a query result of an item, and prints an input box
+ * displaySaleItem takes a query result of an item, and prints an input box
  *   for that item's quantity.
  * @param object $result is the query result containing the item.
  * @param int    $qty    is the initial value of the qty input box.
@@ -312,7 +309,7 @@ function displaySaleItem($result, $qty)
 }
 
 /**
- * DisplaySpecialOrders prints a list of all special orders for a given member.
+ * displaySpecialOrders prints a list of all special orders for a given member.
  * @param int $member is the ID of the chosen member.
  */
 function displaySpecialOrders($member)
@@ -339,7 +336,7 @@ function displaySpecialOrders($member)
 }
 
 /**
- * DisplayRegisterItem prints a qty form for a given item, including custom price
+ * displayRegisterItem prints a qty form for a given item, including custom price
  *   and description labels.
  * @param int    $ID          is the ID of the chosen item.
  * @param int    $qty         is the qty of the item being purchased.
@@ -354,7 +351,7 @@ function displayRegisterItem($ID, $qty, $price, $description)
 }
 
 /**
- * DisplayRegisterItemPrice prints a form for a given variable priced item,
+ * displayRegisterItemPrice prints a form for a given variable priced item,
  *   including qty and price inputs, and a custom description label.
  * @param int    $ID          is the ID of the chosen item.
  * @param int    $qty         is the qty of the item being purchased.
@@ -370,7 +367,7 @@ function displayRegisterItemPrice($ID, $qty, $price, $description)
 }
 
 /**
- * GetItemQuantity returns the current inventory quantity of a given item.
+ * getItemQuantity returns the current inventory quantity of a given item.
  * @param int $item is the ID of the chosen item.
  * @retval int Returns the qty of the given item as it is in the system.
  */
@@ -385,7 +382,7 @@ function getItemQuantity($item)
 }
 
 /**
- * GetPreorderAssociated returns an itemID for the item associated with
+ * getPreorderAssociated returns an itemID for the item associated with
  *   a given preorderID
  * @param int $ID is the chosen preorderID.
  * @retval int Returns an itemID corresponding to the given preorder.
@@ -403,7 +400,7 @@ function getPreorderAssociate($ID)
 }
 
 /**
- * GetPreorderSpec returns a preorderID for the preorder associated with
+ * getPreorderSpec returns a preorderID for the preorder associated with
  *   a given special order ID.
  * @param int $ID is the ID of the chosen special order.
  * @retval int Returns a preorderID for the corresponding special order.
@@ -420,7 +417,7 @@ function getPreorderSpec($ID)
 }
 
 /**
- * GetPreorderName returns the name for the preorder associated with a
+ * getPreorderName returns the name for the preorder associated with a
  *   given preorderID.
  * @param int $ID is the chosen preorderID.
  * @retval string Returns the name of the chosen preorder.
@@ -438,7 +435,7 @@ function getPreorderName($ID)
 }
 
 /**
- * GetPreorderPrice returns the price for the preorder associated with a
+ * getPreorderPrice returns the price for the preorder associated with a
  *   given preorderID, less a potential additional discount.
  * @param int   $ID           is the chosen preorderID.
  * @param float $addlDiscount is an optional additional discount that can be
@@ -459,7 +456,7 @@ function getPreorderPrice($ID, $addlDiscount=0)
 }
 
 /**
- * MemberDiscount returns the discount for a given member, and optionally
+ * memberDiscount returns the discount for a given member, and optionally
  *   prints this information to the current page.
  * @param int     $member is the chosen memberID.
  * @param boolean $print  determines whether anything is printed to the
@@ -504,7 +501,7 @@ function memberDiscount($member, $print=true)
 }
 
 /**
- * RightPrice takes two potential prices, and returns the correct one in any
+ * rightPrice takes two potential prices, and returns the correct one in any
  *   given case.
  * @param float $price     is the original price.
  * @param float $salePrice is the sale price.
@@ -517,7 +514,7 @@ function rightPrice($price, $salePrice)
 }
 
 /**
- * SalePrice returns true or false depending o whether the tested value
+ * salePrice returns true or false depending o whether the tested value
  *   is equal to 0.
  * @param float $salePrice is the price being tested.
  * @retval boolean Returns true if saleprice != 0, false if saleprice == 0.
@@ -528,22 +525,13 @@ function salePrice($salePrice)
 }
 
 /**
- * SpecialOrder is a class used for creating and mutating special
+ * specialOrder is a class used for creating and mutating special
  *   orders in FriendComputer.
- *
- * PHP version 5.4
- *
- * LICENSE: TBD
- *
- * @category  Library
- * @package   FriendComputer
+ * 
  * @author    Michael Whitehouse
  * @author    Creidieki Crouch
  * @author    Desmond Duval
  * @copyright 2009-2014 Pioneer Valley Gaming Collective
- * @license   TBD
- * @version   GIT:$ID$
- * @link      http://www.worldsapartgames.org/fc/index.php
  * @since     Project has existed since time immemorial.
  */
 class specialOrder
@@ -565,7 +553,7 @@ class specialOrder
     var $pickUp; // true if there is a preorder being picked up
 
     /**
-     * SpecialOrder is the constructor for class SpecialOrder
+     * Constructor for class SpecialOrder
      */
     function specialOrder()
     {
@@ -672,7 +660,7 @@ class specialOrder
     } // end function specialOrder
 
     /**
-     * Process takes all field information about the current object, and
+     * process takes all field information about the current object, and
      *   attempts to submit it to the database. First the store credit is added,
      *   and if that is successful, the special order is added to the table.
      * @retval boolean Returns true if successful, false if not.
@@ -788,7 +776,7 @@ class specialOrder
     } // end process
 
     /**
-     * Deliver processes orders which are being picked up.
+     * deliver processes orders which are being picked up.
      *   Sets date taken to current time, but will not allow process to occur if 
      *   more items are being picked up than are being paid for in account.
      * @param float $totalPrice is the total amount being paid.
@@ -827,7 +815,7 @@ class specialOrder
     } // end deliver
 
     /**
-     * DeliverSum returns sum of items being picked up.
+     * deliverSum returns sum of items being picked up.
      *   intrans is an array of prices of special orders being picked up.
      *   preintrans is an array of specialOrderIDs of preorders being picked up
      * @retval float Returns the total sum of all special orders and preorders
@@ -839,7 +827,7 @@ class specialOrder
     }
 
     /**
-     * DisplayForm displays the special order form with defaults set to 
+     * displayForm displays the special order form with defaults set to 
      *   existing values.
      */
     function displayForm()
@@ -859,7 +847,7 @@ class specialOrder
     }
 
     /**
-     * DisplayOrderable displays a select element of all preorder 
+     * displayOrderable displays a select element of all preorder 
      *   items which are still available
      */
     function displayOrderable()
@@ -899,7 +887,7 @@ class specialOrder
     } // end function
 
     /**
-     * ShowOrders shows outstanding orders/requests for member
+     * showOrders shows outstanding orders/requests for member
      */
     function showOrders()
     {
@@ -1018,21 +1006,14 @@ class specialOrder
 } // end class
 
 /**
- * ViewReceipt is a class used for generating printable receipts.
- *
- * PHP version 5.4
- *
- * LICENSE: TBD
- *
- * @category  Library
+ * viewreceipt is a class used for generating printable receipts.
+ * 
  * @package   FriendComputer
  * @author    Michael Whitehouse
  * @author    Creidieki Crouch
  * @author    Desmond Duval
  * @copyright 2009-2014 Pioneer Valley Gaming Collective
- * @license   TBD
- * @version   GIT:$ID$
- * @link      http://www.worldsapartgames.org/fc/index.php
+ * @version   1.8d
  * @since     Project has existed since time immemorial.
  */
 class viewreceipt
@@ -1045,7 +1026,7 @@ class viewreceipt
     var $customer;
 
     /**
-     * ViewReceipt is the constructor for class ViewReceipt.
+     * Constructor for class viewreceipt.
      */
     function viewreceipt()
     {
@@ -1078,7 +1059,7 @@ class viewreceipt
     }
 
     /**
-     * ShowList prints the current object's current list.
+     * showList prints the current object's current list.
      */
     function showList()
     {
@@ -1149,7 +1130,7 @@ class viewreceipt
 } // end class
 
 /**
- * DisplayReceipt displays a receipt for a given transactionID.
+ * displayReceipt displays a receipt for a given transactionID.
  * @global real $TAXRATE is the current tax rate, set at the top of this library.
  * @param int $recID is the ID of the chosen transaction.
  */

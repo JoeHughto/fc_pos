@@ -1,39 +1,33 @@
 <?php
 /**
- * @file Bounties.php is a page for posting and claiming Hedon Bounties
+ * @file bounties.php
+ * @brief bounties.php is a page for posting and claiming Hedon Bounties
  *
- * PHP version 5.4
+ * This file includes:<br>
+ * funcs.inc:<br>
+ * &nbsp;&nbsp;Used for the config.inc include<br>
+ * &nbsp;&nbsp;displayError()<br>
+ * credits.inc:<br>
+ * &nbsp;&nbsp;displayAllBounties()<br>
+ * &nbsp;&nbsp;claimBounty()<br>
+ * <br>
+ * Possible Arguments:<br>
+ * POST:<br>
+ * &nbsp;&nbsp;submit - Indicates a button was pushed, and which one.<br>
+ * 
+ * @link http://www.worldsapartgames.org/fc/bounties.php @endlink
  *
- * LICENSE: TBD
- *
- * @package   FriendComputer\Request\Hedons
  * @author    Desmond Duval 
  * @copyright 2009-2014 Pioneer Valley Gaming Collective
- * @license   TBD
- * @version   GIT:$ID$
- * @link      http://www.worldsapartgames.org/fc/bounties.php
+ * @version   1.8d
  * @since     Project has existed since time immemorial.
  */
 
-/**
- * This file includes:
- * funcs.inc:
- *   Used for the config.inc include
- *   displayError()
- * credits.inc:
- *   displayAllBounties()
- *   claimBounty()
- */
 $title = "Unclaimed Bounties";
 $version = "1.8d";
 require_once 'funcs.inc' ;
 require_once 'credits.inc';
 
-/**
- * Possible Arguments:
- * POST:
- *   submit - Indicates a button was pushed, and which one.
- */
 if (isset($_POST['submit'])) {
     extract($_POST);
 

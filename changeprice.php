@@ -1,50 +1,44 @@
 <?php
 /**
- * @file Changeprice.php is a page that was used to change the prices of existing
+ * @file changeprice.php
+ * @brief changeprice.php is a page that was used to change the prices of existing
  *   items in the system. If it is not provided with some GET arguments, it
  *   does nothing.
- *
- * PHP version 5.4
- *
- * LICENSE: TBD
- *
- * @package    FriendComputer\Mutator\Inventory
+ * 
+ * This file includes:<br>
+ * funcs.inc:<br>
+ * &nbsp;&nbsp;Used for the config.inc include<br>
+ * <br>
+ * Possible Arguments:<br>
+ * SESSION:<br>
+ * &nbsp;&nbsp;inv - Used to determine whether the current user has inventory
+ *   privledges.<br>
+ * POST:<br>
+ * &nbsp;&nbsp;ID - The ID of the item we're attempting to change the price of.<br>
+ * &nbsp;&nbsp;price - The price we want to assign the item.<br>
+ * &nbsp;&nbsp;cost - The value we want to assign to the item's cost.<br>
+ * &nbsp;&nbsp;desc - This is a hidden description from the database to ensure the
+ *   correct description gets included in the SQL query.<br>
+ * GET:<br>
+ * &nbsp;&nbsp;ID - If ID is set, the page will display the UI to change the price of
+ *   the given item.<br>
+ * 
+ * @link http://www.worldsapartgames.org/fc/changeprice.php @endlink
+ * 
  * @author     Michael Whitehouse 
  * @author     Creidieki Crouch 
  * @author     Desmond Duval 
  * @copyright  2009-2014 Pioneer Valley Gaming Collective
- * @license    TBD
- * @version    GIT:$ID$
- * @link       http://www.worldsapartgames.org/fc/changeprice.php
+ * @version    1.8d
  * @since      Project has existed since time immemorial.
  * @deprecated since version 1.2
  */
 
-/**
- * This file includes:
- * funcs.inc:
- *   Used for the config.inc include
- */
 $title = "Change Price";
 $version = "1.8d";
 require_once 'funcs.inc';
 require_once 'header.php';
 
-/**
- * Possible Arguments:
- * SESSION:
- *   inv - Used to determine whether the current user has inventory
- *     privledges.
- * POST:
- *   ID - The ID of the item we're attempting to change the price of.
- *   price - The price we want to assign the item.
- *   cost - The value we want to assign to the item's cost.
- *   desc - This is a hidden description from the database to ensure the
- *     correct description gets included in the SQL query.
- * GET:
- *   ID - If ID is set, the page will display the UI to change the price of
- *     the given item.
- */
 $cxn = open_stream();
 if ($_SESSION['inv'] != 1) {
     echo "You must have Inventory Priviledges to adjust prices and costs<p>";

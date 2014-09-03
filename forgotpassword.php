@@ -1,31 +1,26 @@
 <?php
 /**
- * @file ForgotPassword.php is a page designed to allow members to reset their
+ * @file forgotpassword.php
+ * @brief forgotpassword.php is a page designed to allow members to reset their
  *   passwords easily via email.
- *
- * PHP version 5.4
- *
- * LICENSE: TBD
- *
- * @package   FriendComputer\Utility
+ * 
+ * This file includes:<br>
+ * config.inc:<br>
+ * &nbsp;&nbsp;MySQL Bindings<br>
+ * &nbsp;&nbsp;displayError()<br>
+ * Reimplements:<br>
+ * &nbsp;&nbsp;funcs.query()<br>
+ * &nbsp;&nbsp;funcs.printMemberString()<br>
+ * &nbsp;&nbsp;funcs.check_email_address()<br>
+ * 
+ * @link http://www.worldsapartgames.org/fc/forgotpassword.php @endlink
+ * 
  * @author    Desmond Duval 
  * @copyright 2009-2014 Pioneer Valley Gaming Collective
- * @license   TBD
- * @version   GIT:$ID$
- * @link      http://www.worldsapartgames.org/fc/forgotpassword.php
+ * @version   1.8d
  * @since     Project has existed since time immemorial.
  */
 
-/**
- * This file includes:
- * config.inc:
- *   MySQL Bindings
- *   displayError()
- * Reimplements:
- *   funcs.query()
- *   funcs.printMemberString()
- *   funcs.check_email_address()
- */
 $title = "Forgotten Password Reset";
 $version = "1.8d";
 require_once 'config.inc';
@@ -34,7 +29,8 @@ require_once 'config.inc';
 //  as funcs.inc enforces login on all pages
 
 /**
- * Query is a reimplementation of funcs.query().
+ * query is a reimplementation of funcs.query().
+ * @see funcs.inc
  * @param mixed  $cxn Connection to the database.
  * @param string $sql SQL Query String.
  * @retval boolean Returns either a result, or false.
@@ -42,7 +38,7 @@ require_once 'config.inc';
 function query($cxn, $sql)
 {
     if (!$result = mysqli_query($cxn, $sql)) {
-        displayError("Query Error!<br>Query: $sql<br>SQL Error: " . mysqli_error($cxn));
+        echo "Query Error!<br>Query: $sql<br>SQL Error: " . mysqli_error($cxn) . "<br>";
         return false;
     } else {
         return $result;
@@ -50,7 +46,8 @@ function query($cxn, $sql)
 }
 
 /**
- * PrintMemberString is a reimplementation of funcs.printMemberString()
+ * printMemberString is a reimplementation of funcs.printMemberString()
+ * @see funcs.inc
  * 
  * Order Values:
  * 1 fname lname
@@ -95,7 +92,8 @@ function printMemberString($num, $order)
 }
 
 /**
- * Check_Email_Address is a reimplementation of funcs.check_email_address()
+ * check_email_address is a reimplementation of funcs.check_email_address()
+ * @see funcs.inc
  * @param string $email is the email address of the member who has forgotten
  *   their password.
  * @retval boolean Returns true if the string $email is a legal email address.

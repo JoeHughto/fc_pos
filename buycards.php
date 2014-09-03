@@ -1,52 +1,46 @@
 <?php
 /**
- * @file Buycards.php is used to give account balance to members who sell cards
+ * @file buycards.php
+ * @brief buycards.php is used to give account balance to members who sell cards
  *   to the store for store credit.
+ * 
+ * This file includes:<br>
+ * funcs.inc:<br>
+ * &nbsp;&nbsp;Used for the config.inc include<br>
+ * &nbsp;&nbsp;displayErrorDie()<br>
+ * &nbsp;&nbsp;accountTransact()<br>
+ * &nbsp;&nbsp;printMember()<br>
+ * &nbsp;&nbsp;getAccountBalance()<br>
+ * &nbsp;&nbsp;getAvailBalance()<br>
+ * &nbsp;&nbsp;selectMember()<br>
+ * <br>
+ * Possible Arguments:<br>
+ * SESSION:<br>
+ * &nbsp;&nbsp;ID - Used to add the volunteer's ID to the transaction, as the member who
+ *   authorized the transaction.<br>
+ * POST:<br>
+ * &nbsp;&nbsp;submit - When this variable = 'Submit', the button has been pressed, so
+ *   we should attend to the data, and ship some store credit.<br>
+ * &nbsp;&nbsp;member - The integer Member ID number, to whose account store credit
+ *   should be applied.<br>
+ * &nbsp;&nbsp;price - The amount of money that should be deducted from card sales,
+ *   and put into the account of the member selling the cards to the store.<br>
  *
- * PHP version 5.4
- *
- * LICENSE: TBD
- *
- * @package   FriendComputer\Transfer\Account
+ * @link http://www.worldsapartgames.org/fc/buycards.php @endlink
+ * 
  * @author    Michael Whitehouse 
  * @author    Creidieki Crouch 
  * @author    Desmond Duval 
  * @copyright 2009-2014 Pioneer Valley Gaming Collective
- * @license   TBD
- * @version   GIT:$ID$
- * @link      http://www.worldsapartgames.org/fc/buycards.php
+ * @version   1.8d
  * @since     Project has existed since time immemorial.
  */
 
-/**
- * This file includes:
- * funcs.inc:
- *   Used for the config.inc include
- *   displayErrorDie()
- *   accountTransact()
- *   printMember()
- *   getAccountBalance()
- *   getAvailableBalance()
- *   selectMember()
- */
 $title = "Buy Cards";
 $version = "1.8d";
 require_once 'funcs.inc';
 require_once 'header.php';
 
-/**
- * Possible Arguments:
- * SESSION:
- *   ID - Used to add the volunteer's ID to the transaction, as the member who
- *     authorized the transaction.
- * POST:
- *   submit - When this variable = 'Submit', the button has been pressed, so
- *     we should attend to the data, and ship some store credit.
- *   member - The integer Member ID number, to whose account store credit
- *     should be applied.
- *   price - The amount of money that should be deducted from card sales,
- *     and put into the account of the member selling the cards to the store.
- */
 $cxn = open_stream();
 
 if ($_SESSION['inv'] != 1) {

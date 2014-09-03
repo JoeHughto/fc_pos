@@ -1,6 +1,7 @@
 <?php
 /**
- * @file Register.php is our main point of sale page, used to cash out customers in
+ * @file register.php
+ * @brief register.php is our main point of sale page, used to cash out customers in
  *   store.
  * 
  * This app displays a pulldown for member name and fields for entering guest
@@ -11,67 +12,114 @@
  *   a box for quantity is added, defaulting to 1. Once all items have been
  *   added to the order, we take payment from the customer, and record it as
  *   such by setting payment type and concluding the order. This will deduct
- *   the item from inventory, and update ledgers keeping track of cashflow.
+ *   the item from inventory, and update ledgers keeping track of cashflow.<br>
+ * <br>
+ * This file includes:<br>
+ * funcs.inc:<br>
+ * &nbsp;&nbsp;Used for the config.inc include<br>
+ * &nbsp;&nbsp;noRefreshCheck()<br>
+ * &nbsp;&nbsp;cashCountInFourHours()<br>
+ * &nbsp;&nbsp;cashCountTime()<br>
+ * &nbsp;&nbsp;reportBug()<br>
+ * &nbsp;&nbsp;checkDateNum()<br>
+ * &nbsp;&nbsp;displayErrorDie()<br>
+ * &nbsp;&nbsp;displayError()<br>
+ * &nbsp;&nbsp;money()<br>
+ * &nbsp;&nbsp;getAccountBalance()<br>
+ * &nbsp;&nbsp;getAvailBalance()<br>
+ * &nbsp;&nbsp;printMemberString()<br>
+ * member.inc:<br>
+ * &nbsp;&nbsp;NewMember::process()<br>
+ * &nbsp;&nbsp;taxExempt()<br>
+ * &nbsp;&nbsp;FG_showInfo()<br>
+ * &nbsp;&nbsp;giveReferralCredit()<br>
+ * &nbsp;&nbsp;NewMember::displayQuickForm()<br>
+ * inventory.inc:<br>
+ * &nbsp;&nbsp;memberDiscount()<br>
+ * &nbsp;&nbsp;realPrice()<br>
+ * &nbsp;&nbsp;SalePrice()<br>
+ * &nbsp;&nbsp;displayRegisterItemPrice()<br>
+ * &nbsp;&nbsp;displayRegisterItem()<br>
+ * &nbsp;&nbsp;SpecialOrder::deliver()<br>
+ * &nbsp;&nbsp;SpecialOrder::process()<br>
+ * &nbsp;&nbsp;SpecialOrder::displayForm()<br>
+ * credits.inc:<br>
+ * &nbsp;&nbsp;CreditSpending::discount()<br>
+ * &nbsp;&nbsp;getCreditTotal()<br>
+ * &nbsp;&nbsp;CreditSpending::displayCurrent()<br>
+ * &nbsp;&nbsp;CreditSpending::conclude()<br>
+ * &nbsp;&nbsp;transferCredits()<br>
+ * giftcert.inc:<br>
+ * &nbsp;&nbsp;giftCertToAccount()<br>
+ * &nbsp;&nbsp;GiftCert::displayInfo()<br>
+ * &nbsp;&nbsp;GiftCert::redeem()<br>
+ * &nbsp;&nbsp;GiftCert::sell()<br>
+ * &nbsp;&nbsp;giftCertBalance()<br>
+ * &nbsp;&nbsp;GiftCert::displaySelectForm()<br>
+ * <br>
+ * Possible Arguments:<br>
+ * SESSION:<br>
+ * &nbsp;&nbsp;reg - Used to determine whether the active user has register
+ *   privs.<br>
+ * &nbsp;&nbsp;ID - Used to record the member ID of the volunteer cashing out the sale.
+ * &nbsp;&nbsp;transaction_ID - A unique ID for the transaction which can be used as
+ *   a reference handle if we come back to this sale later.<br>
+ * &nbsp;&nbsp;adm - Used to determine whether the active user has admin
+ *   privs.<br>
+ * POST:<br>
+ * &nbsp;&nbsp;close - If this variable is set, it means we intend to process and close
+ *   the current transaction.<br>
+ * &nbsp;&nbsp;bug - If this variable is set, it means a manual bug report was made, and
+ *   all information pertaining to it should be emailed to the High Programmer.<br>
+ * &nbsp;&nbsp;date - This is the date of the current transaction.<br>
+ * &nbsp;&nbsp;IEID - Invoice Event ID, for referencing the change in inventory.<br>
+ * &nbsp;&nbsp;member - This is the integer ID of the member who is purchasing the current
+ *   order. This variable is used to calculate discount, and track sales.<br>
+ *   &nbsp;&nbsp;submit - If this variable is set, it means we need to update the current
+ *     order with any new information that's been sent our way.<br>
+ * &nbsp;&nbsp;giftcertnum - If this variable is set, we want to inject the given gift
+ *   certificate into the current member's account balance.<br>
+ * &nbsp;&nbsp;discount - This variable is the adjusted discount, used to alter a member's
+ *   discount up or down when necessary.<br>
+ * &nbsp;&nbsp;price - This is an array of variable priced items, and the prices set to
+ *   each. The key of each value is the item ID, and the value, the total
+ *   price.<br>
+ * &nbsp;&nbsp;qty - This is an array holding the values for the quantity of each static
+ *   priced item in the current order, assigned to keys of those items' Item
+ *   IDs. When new items are searched for in $POST['sku'], qty boxes are added
+ *   to the ledger, and if values are input to them, they will be added to this
+ *   array on submission of the form. If we cycle through this list, we will
+ *   have all the non-variable priced items' IDs and qtys in one small array.<br>
+ * &nbsp;&nbsp;sku - This is a string of search strings, delimited by '\n', to be split
+ *   up and searched for, with the results added to a list.<br>
+ * &nbsp;&nbsp;specqty - This is an array of quantities for items in the quick sales boxes.<br>
+ * &nbsp;&nbsp;noMagicCap - This is a boolean value, which can only be set by a volunteer
+ *   with admin privs, and sets the current order to override the usual limit
+ *   to volume discounts on Magic packs.<br>
+ * &nbsp;&nbsp;pay - This integer value indicates the payment type for the order. The
+ *   order cannot be closed if this is not set to a value.<br>
+ * &nbsp;&nbsp;cashpay    - These variables are used to track payment in<br>
+ * &nbsp;&nbsp;ccpay      -   a given form. Any payment type that isn't used<br>
+ * &nbsp;&nbsp;checkpay   -   is simply zeroed out, and won't be checked<br>
+ * &nbsp;&nbsp;accountpay -   unless the POST['pay'] payment type is set to<br>
+ * &nbsp;&nbsp;giftpay    -   allow this type of payment.<br>
+ * GET:<br>
+ * &nbsp;&nbsp;date - If this variable is set, it will manually alter the date of
+ *   the current transaction. Only works for Admins.<br>
+ * &nbsp;&nbsp;ID - We can attempt to load a particular transaction_ID by setting this
+ *   variable, limited to all the normal restrictions on setting a particular
+ *   transaction ID.<br>
  * 
- * PHP version 5.4
- *
- * LICENSE: TBD
- *
- * @package   FriendComputer\Register
+ * @link http://www.worldsapartgames.org/fc/register.php @endlink
+ * 
  * @author    Michael Whitehouse 
  * @author    Creidieki Crouch 
  * @author    Desmond Duval 
  * @copyright 2009-2014 Pioneer Valley Gaming Collective
- * @license   TBD
- * @version   GIT:$ID$
- * @link      http://www.worldsapartgames.org/fc/register.php
+ * @version   1.8d
  * @since     Project has existed since time immemorial.
  */
 
-/**
- * This file includes:
- * funcs.inc:
- *   Used for the config.inc include
- *   noRefreshCheck()
- *   cashCountInFourHours()
- *   cashCountTime()
- *   reportBug()
- *   checkDateNum()
- *   displayErrorDie()
- *   displayError()
- *   money()
- *   getAccountBalance()
- *   getAvailBalance()
- *   printMemberString()
- * member.inc:
- *   NewMember::process()
- *   taxExempt()
- *   FG_showInfo()
- *   giveReferralCredit()
- *   NewMember::displayQuickForm()
- * inventory.inc:
- *   memberDiscount()
- *   realPrice()
- *   SalePrice()
- *   displayRegisterItemPrice()
- *   displayRegisterItem()
- *   SpecialOrder::deliver()
- *   SpecialOrder::process()
- *   SpecialOrder::displayForm()
- * credits.inc:
- *   CreditSpending::discount()
- *   getCreditTotal()
- *   CreditSpending::displayCurrent()
- *   CreditSpending::conclude()
- *   transferCredits()
- * giftcert.inc:
- *   giftCertToAccount()
- *   GiftCert::displayInfo()
- *   GiftCert::redeem()
- *   GiftCert::sell()
- *   giftCertBalance()
- *   GiftCert::displaySelectForm()
- */
 $title = 'Sales Register';
 $version = "1.8d";
 require_once 'funcs.inc';
@@ -81,61 +129,6 @@ require_once 'credits.inc';
 require_once 'giftcert.inc';
 require_once 'friendcomputer.inc';
 require_once 'header.php';
-
-/**
- * Possible Arguments:
- * SESSION:
- *   reg - Used to determine whether the active user has register
- *     privs.
- *   ID - Used to record the member ID of the volunteer cashing out the sale.
- *   transaction_ID - A unique ID for the transaction which can be used as
- *     a reference handle if we come back to this sale later.
- *   adm - Used to determine whether the active user has admin
- *     privs.
- * POST:
- *   close - If this variable is set, it means we intend to process and close
- *     the current transaction.
- *   bug - If this variable is set, it means a manual bug report was made, and
- *     all information pertaining to it should be emailed to the High Programmer.
- *   date - This is the date of the current transaction.
- *   IEID - Invoice Event ID, for referencing the change in inventory 
- *   member - This is the integer ID of the member who is purchasing the current
- *     order. This variable is used to calculate discount, and track sales.
- *   submit - If this variable is set, it means we need to update the current
- *     order with any new information that's been sent our way.
- *   giftcertnum - If this variable is set, we want to inject the given gift
- *     certificate into the current member's account balance.
- *   discount - This variable is the adjusted discount, used to alter a member's
- *     discount up or down when necessary.
- *   price - This is an array of variable priced items, and the prices set to
- *     each. The key of each value is the item ID, and the value, the total
- *     price.
- *   qty - This is an array holding the values for the quantity of each static
- *     priced item in the current order, assigned to keys of those items' Item
- *     IDs. When new items are searched for in $POST['sku'], qty boxes are added
- *     to the ledger, and if values are input to them, they will be added to this
- *     array on submission of the form. If we cycle through this list, we will
- *     have all the non-variable priced items' IDs and qtys in one small array.
- *   sku - This is a string of search strings, delimited by '\n', to be split
- *     up and searched for, with the results added to a list.
- *   specqty - This is an array of quantities for items in the quick sales boxes.
- *   noMagicCap - This is a boolean value, which can only be set by a volunteer
- *     with admin privs, and sets the current order to override the usual limit
- *     to volume discounts on Magic packs.
- *   pay - This integer value indicates the payment type for the order. The
- *     order cannot be closed if this is not set to a value.
- *   cashpay    - These variables are used to track payment in
- *   ccpay      -   a given form. Any payment type that isn't used
- *   checkpay   -   is simply zeroed out, and won't be checked
- *   accountpay -   unless the POST['pay'] payment type is set to
- *   giftpay    -   allow this type of payment.
- * GET:
- *   date - If this variable is set, it will manually alter the date of
- *     the current transaction. Only works for Admins.
- *   ID - We can attempt to load a particular transaction_ID by setting this
- *     variable, limited to all the normal restrictions on setting a particular
- *     transaction ID.
- */
 
 $noRefresh = noRefreshCheck(); // to bypass this, uncomment next line
 $noRefresh = true;

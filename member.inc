@@ -1,33 +1,27 @@
 <?php
 /**
- * @file Member.inc is a library containing most membership and frequent gamer
+ * @file member.inc
+ * @brief member.inc is a library containing most membership and frequent gamer
  *   functions.
- *
- * PHP version 5.4
- *
- * LICENSE: TBD
- *
- * @package   FriendComputer\Library\MemberInfo
+ * 
+ * This file includes:<br>
+ * Nothing!<br>
+ * 
+ * @link http://www.worldsapartgames.org/fc/index.php @endlink
+ * 
  * @author    Michael Whitehouse 
  * @author    Creidieki Crouch 
  * @author    Desmond Duval 
  * @copyright 2009-2014 Pioneer Valley Gaming Collective
- * @license   TBD
- * @version   GIT:$ID$
- * @link      http://www.worldsapartgames.org/fc/index.php
+ * @version   1.8d
  * @since     Project has existed since time immemorial.
- */
-
-/**
- * This file includes:
- * Nothing!
  */
 
 $FGDISCOUNT = array(0 => 0, 1 => 1, 5 => 1, 25, 50, 75, 100, 150, 200, 250, 
     300, 350, 400, 450, 500, 550, 600, 700, 1000);
 
 /**
- * FG_Discount calculates and returns the discount for a given sales total.
+ * FG_discount calculates and returns the discount for a given sales total.
  * @param float $sales is the sales total to be tested.
  * @retval int Returns an integer discount percentage between 5 and 21.
  */
@@ -72,7 +66,7 @@ function FG_discount($sales)
 }
 
 /**
- * FG_DiscountNow takes a member ID, and calculates that member's discount,
+ * FG_discountNow takes a member ID, and calculates that member's discount,
  *   based on their last month's sales total.
  * @param int $member is the chosen member's ID.
  * @retval int Returns an integer discount percentage between 5 and 21.
@@ -83,7 +77,7 @@ function FG_discountNow($member)
 }
 
 /**
- * FG_ShowInfo prints a Member Info box, including all FG information
+ * FG_showInfo prints a Member Info box, including all FG information
  *   easily provided, and taking into account the current sale.
  * @global array $FGDISCOUNT This is the array of discount values, used to
  *   calculate distance to the next level.
@@ -108,8 +102,8 @@ function FG_showInfo($member, $thissale)
 }
 
 /**
- * FG_ShowInfo prints Member Info, including all FG information
- *   easily provided, ignoring any potential current sales.
+ * FG_showInfoNoSale prints Member Info, including all FG information
+ *   easily provided, but ignoring any potential current sales.
  * @global array $FGDISCOUNT This is the array of discount values, used to
  *   calculate distance to the next level.
  * @param int $member This is the selected member's ID.
@@ -132,7 +126,7 @@ function FG_showInfoNoSale($member)
 }
 
 /**
- * GiveReferralCredit checks a member's account to see who, if anyone, referred
+ * giveReferralCredit checks a member's account to see who, if anyone, referred
  *   them, and awards that person store credit as appropriate from the
  *   given sale.
  * @param int   $customerID is the member ID of the member making a purchase.
@@ -179,7 +173,7 @@ function giveReferralCredit($customerID, $totalPrice, $TID)
 }   
 
 /**
- * MemberSalesLastMonth takes a member ID, and returns that member's total
+ * memberSalesLastMonth takes a member ID, and returns that member's total
  *   sales last month.
  * @param int $member is the chosen member's ID.
  * @retval float Returns the sum of the chosen member's sales for last month.
@@ -205,7 +199,7 @@ function memberSalesLastMonth($member)
 }
 
 /**
- * MemberSalesThisMonth takes a member ID, and returns that member's total
+ * memberSalesThisMonth takes a member ID, and returns that member's total
  *   sales so far this month.
  * @param int $member is the chosen member's ID.
  * @retval float Returns the sum of the chosen member's sales for this month.
@@ -225,7 +219,7 @@ function memberSalesThisMonth($member)
 }
 
 /**
- * PeopleReferred takes a member's ID, and returns the number of other
+ * peopleReferred takes a member's ID, and returns the number of other
  *   members who were referred by them.
  * @param int $ID is the chosen member's ID.
  * @retval int Returns the number of members referred by the chosen member.
@@ -239,7 +233,7 @@ function peopleReferred($ID)
 }
 
 /**
- * TaxExempt takes a member's ID, and returns either that member's
+ * taxExempt takes a member's ID, and returns either that member's
  *   tax exempt number, or false if no tax exempt number exists.
  * @param int $ID is the chosen member's ID.
  * @retval string Returns the chosen member's tax exempt number, or false
@@ -257,22 +251,15 @@ function taxExempt($ID)
 }
 
 /**
- * NewMember is a class containing functions relavent to signing up
+ * newMember is a class containing functions relavent to signing up
  *   new members.
- *
- * PHP version 5.4
- *
- * LICENSE: TBD
- *
- * @category  Library
- * @package   FriendComputer
+ * 
+ * @link http://www.worldsapartgames.org/fc/index.php @endlink
+ * 
  * @author    Michael Whitehouse 
  * @author    Creidieki Crouch 
  * @author    Desmond Duval 
  * @copyright 2009-2014 Pioneer Valley Gaming Collective
- * @license   TBD
- * @version   GIT:$ID$
- * @link      http://www.worldsapartgames.org/fc/index.php
  * @since     Project has existed since time immemorial.
  */
 class newMember
@@ -286,7 +273,7 @@ class newMember
     var $message; // message for FC
 
     /**
-     * NewMember() is the constructor function for class NewMember.
+     * Constructor for class newMember.
      */
     function newMember()
     {
@@ -301,7 +288,7 @@ class newMember
     }
 
     /**
-     * DisplayQuickForm either prints the quick add form, if there is no member
+     * displayQuickForm either prints the quick add form, if there is no member
      *   currently set, or does nothing, if a member has been set.
      */
     function displayQuickForm()
@@ -343,10 +330,10 @@ class newMember
             echo "</td></tr></table><p>";
         }
 
-    } // end displayQuickForm
+    }
 
     /**
-     * Process takes whatever information is currently stored in the object,
+     * process takes whatever information is currently stored in the object,
      *   and attempts to add a new member with it. If the member already exists,
      *   it will attempt to update the existing member.
      * @retval boolean Returns true if successful, and false if creating/updating
@@ -458,7 +445,6 @@ class newMember
                     }
 
                     $couponmessage = "Dear " . $this->fname . " " . $this->lname . "
-
                         On behalf of the Pioneer Valley Gamer Collective, I, 
                         Friend Computer, would like to thank you for 
                         registering with Worlds Apart Games. This now means 
@@ -481,15 +467,23 @@ class newMember
                         percentage of what they buy put into your store 
                         account. Ask at the store for more details.
 
-                        By being in our database, you are able to log into your Friend Computer account. This lets you spend your Hedons, transfer account to other people, and do some other things. Your info is as follows:
+                        By being in our database, you are able to log into
+                        your Friend Computer account. This lets you spend your 
+                        Hedons, transfer account to other people, and do some 
+                        other things. Your info is as follows:
                         http://www.worldsapartgames.org/fc
                         Login: $login
                         Password: $rawpass
 
-                        As you were hopefully told, you will now be getting our newsletter which is full of great information on Worlds Apart events and new releases.
+                        As you were hopefully told, you will now be getting our 
+                        newsletter which is full of great information on 
+                        Worlds Apart events and new releases.
 
-                        As additional thanks for signing up, we are sending you this coupon good for 10% off any purchase. Just print out this email and bring it in " .
-                        "before $datestr for your discount. We look forward to seeing you soon.
+                        As additional thanks for signing up, we are sending 
+                        you this coupon good for 10% off any purchase. 
+                        Just print out this email and bring it in " .
+                        "before $datestr for your discount. We look forward 
+                        to seeing you soon.
 
                         Sincerely
                         Friend Computer
@@ -577,6 +571,6 @@ class newMember
         }
         echo $this->message;
         return false;
-    } // end process
-} // end class
+    }
+}
 ?>

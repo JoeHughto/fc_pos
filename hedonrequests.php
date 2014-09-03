@@ -1,47 +1,40 @@
 <?php
 /**
- * @file HedonRequests.php is a page for admins to approve/deny any pending
+ * @file hedonrequests.php
+ * @brief hedonrequests.php is a page for admins to approve/deny any pending
  *   Hedon Requests.
- *
- * PHP version 5.4
- *
- * LICENSE: TBD
- *
- * @package   FriendComputer\Transfer\Credits
+ * 
+ * This file includes:<br>
+ * funcs.inc:<br>
+ * &nbsp;&nbsp;Used for the config.inc include<br>
+ * credits.inc:<br>
+ * &nbsp;&nbsp;approveHedonRequest()<br>
+ * &nbsp;&nbsp;denyHedonRequest()<br>
+ * &nbsp;&nbsp;displayAllHedonRequests()<br>
+ * <br>
+ * Possible Arguments:<br>
+ * SESSION:<br>
+ * &nbsp;&nbsp;mem - Used to determine whether the current user has membership
+ *   coordinator privledges.<br>
+ * POST:<br>
+ * &nbsp;&nbsp;submit - When this variable is filled, we need to do work. The three
+ *   values this variable can have are 'Add Packs', 'Remove Packs',
+ *   and 'Convert Packs'.<br>
+ * &nbsp;&nbsp;selectedReqs[] - This is an array of all checkboxes which were checked
+ *   when the submit button was pressed.<br>
+ * 
  * @author    Desmond Duval 
  * @copyright 2009-2014 Pioneer Valley Gaming Collective
- * @license   TBD
- * @version   GIT:$ID$
+ * @version   1.8d
  * @link      http://www.worldsapartgames.org/fc/hedonrequests.php
  * @since     Project has existed since time immemorial.
  */
 
-/**
- * This file includes:
- * funcs.inc:
- *   Used for the config.inc include
- * credits.inc:
- *   approveHedonRequest()
- *   denyHedonRequest()
- *   displayAllHedonRequests()
- */
 $title = "Pending Hedon Requests";
 $version = "1.8d";
 require_once 'funcs.inc';
 require_once 'credits.inc';
 
-/**
- * Possible Arguments:
- * SESSION:
- *   mem - Used to determine whether the current user has membership
- *     coordinator privledges.
- * POST:
- *   submit - When this variable is filled, we need to do work. The three
- *     values this variable can have are 'Add Packs', 'Remove Packs',
- *     and 'Convert Packs'.
- *   selectedReqs[] - This is an array of all checkboxes which were checked
- *     when the submit button was pressed.
- */
 if (isset($_POST['submit'])) {
     extract($_POST);
 

@@ -1,59 +1,53 @@
 <?php
 /**
- * @file FuturePacks.php is a page for making use of future packs on members' accounts.
+ * @file futurepacks.php
+ * @brief futurepacks.php is a page for making use of future packs on members' accounts.
  *
- * PHP version 5.4
- *
- * LICENSE: TBD
- *
- * @package   FriendComputer\Transfer\FuturePacks
+ * This file includes:<br>
+ * funcs.inc:<br>
+ * &nbsp;&nbsp;Used for the config.inc include<br>
+ * &nbsp;&nbsp;adjustPacksOnAcct()<br>
+ * &nbsp;&nbsp;convertPacksToStoreCredit()<br>
+ * &nbsp;&nbsp;selectMember()<br>
+ * &nbsp;&nbsp;printMember()<br>
+ * &nbsp;&nbsp;getAccountPacks()<br>
+ * &nbsp;&nbsp;printMemberString()<br>
+ * 
+ * Possible Arguments:<br>
+ * SESSION:<br>
+ * &nbsp;&nbsp;eve - Used to determine whether the current user has inventory
+ *   privledges.<br>
+ * &nbsp;&nbsp;adm - Used to determine whether the current user has admin
+ *   privledges.<br>
+ * &nbsp;&nbsp;reg - Used to determine whether the current user has register
+ *   privledges.<br>
+ * &nbsp;&nbsp;ID - Current user's member ID. Used to display the current
+ *   user's Future Packs.<br>
+ * POST:<br>
+ * &nbsp;&nbsp;submit - When this variable is filled, we need to do work. The three
+ *   values this variable can have are 'Add Packs', 'Remove Packs',
+ *   and 'Convert Packs'.<br>
+ * &nbsp;&nbsp;target - This is the member ID of the member whose packs we are modifying.<br>
+ * &nbsp;&nbsp;qty - This is the number of packs we are modifying.<br>
+ * &nbsp;&nbsp;notes - This is a place to put an explanation for the modification.<br>
+ * &nbsp;&nbsp;selMem - This string is used to pull up a member's info, but not to
+ *   modify their account.<br>
+ * 
+ * @link http://www.worldsapartgames.org/fc/futurepacks.php @endlink
+ * 
  * @author    Michael Whitehouse 
  * @author    Creidieki Crouch 
  * @author    Desmond Duval 
  * @copyright 2009-2014 Pioneer Valley Gaming Collective
- * @license   TBD
- * @version   GIT:$ID$
- * @link      http://www.worldsapartgames.org/fc/futurepacks.php
+ * @version   1.8d
  * @since     Project has existed since time immemorial.
  */
 
-/**
- * This file includes:
- * funcs.inc:
- *   Used for the config.inc include
- *   adjustPacksOnAcct()
- *   convertPacksToStoreCredit()
- *   selectMember()
- *   printMember()
- *   getAccountPacks()
- *   printMemberString()
- */
 $title = "Future Packs";
 $version = "1.8d";
 require_once 'funcs.inc';
 require_once 'header.php';
 
-/**
- * Possible Arguments:
- * SESSION:
- *   eve - Used to determine whether the current user has inventory
- *     privledges.
- *   adm - Used to determine whether the current user has admin
- *     privledges.
- *   reg - Used to determine whether the current user has register
- *     privledges.
- *   ID - Current user's member ID. Used to display the current
- *     user's Future Packs.
- * POST:
- *   submit - When this variable is filled, we need to do work. The three
- *     values this variable can have are 'Add Packs', 'Remove Packs',
- *     and 'Convert Packs'.
- *   target - This is the member ID of the member whose packs we are modifying.
- *   qty - This is the number of packs we are modifying.
- *   notes - This is a place to put an explanation for the modification.
- *   selMem - This string is used to pull up a member's info, but not to
- *     modify their account.
- */
 $cxn = open_stream();
 
 echo"<hr>";

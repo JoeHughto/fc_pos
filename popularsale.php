@@ -1,38 +1,28 @@
 <?php
 /**
- * @file PopularSale.php is a page which displays two lists, one list of items which
+ * @file popularsale.php
+ * @brief popularsale.php is a page which displays two lists, one list of items which
  *   are out of stock, and have sold in the last 3 months, and one list of items
  *   which are in stock, but haven't sold in at least 6 months.
  * 
- * PHP version 5.4
- *
- * LICENSE: TBD
- *
- * @package   FriendComputer\View\Report
+ * This file includes:<br>
+ * funcs.inc:<br>
+ * &nbsp;&nbsp;Used for the config.inc include<br>
+ * 
+ * @link http://www.worldsapartgames.org/fc/popularsale.php @endlink
+ * 
  * @author    Michael Whitehouse 
  * @author    Creidieki Crouch 
  * @author    Desmond Duval 
  * @copyright 2009-2014 Pioneer Valley Gaming Collective
- * @license   TBD
- * @version   GIT:$ID$
- * @link      http://www.worldsapartgames.org/fc/popularsale.php
+ * @version   1.8d
  * @since     Project has existed since time immemorial.
  */
 
-/**
- * This file includes:
- * funcs.inc:
- *   Used for the config.inc include
- */
 $title = "Popular Sale Report";
 $version = "1.8d";
 require_once 'funcs.inc';
 require_once 'header.php';
-
-/**
- * Possible Arguments:
- * No arguments are supported by this application.
- */
 
 $cxn = open_stream();
 

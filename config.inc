@@ -1,30 +1,24 @@
 <?php
 /**
- * @file Config.inc provides an interface between FriendComputer and our MySql
+ * @file config.inc
+ * @brief config.inc provides an interface between FriendComputer and our MySql
  *   database. It contains secret information that should not be shared.
- *
- * PHP version 5.4
- *
- * LICENSE: TBD
- *
- * @package   FriendComputer\Library\MySQLHandle
+ * 
+ * This file includes:<br>
+ * @todo This file uses functions from funcs.inc, but doesn't include it.
+ * 
+ * @link http://www.worldsapartgames.org/fc/index.php @endlink
+ * 
  * @author    Michael Whitehouse 
  * @author    Creidieki Crouch 
  * @author    Desmond Duval 
  * @copyright 2009-2014 Pioneer Valley Gaming Collective
- * @license   TBD
- * @version   GIT:$ID$
- * @link      http://www.worldsapartgames.org/fc/index.php
+ * @version   1.8d
  * @since     Project has existed since time immemorial.
  */
 
 /**
- * This file includes:
- * Nothing!
- */
-
-/**
- * Open_stream() connects the webapp with our database, so we can
+ * open_stream() connects the webapp with our database, so we can
  *   access or modify records from it.
  * @retval boolean|object
  */

@@ -1,41 +1,36 @@
 <?php
 /**
- * SalesReport.inc is a library of functions used to display the sales report
+ * @file salesreport.inc
+ * @brief salesreport.inc is a library of functions used to display the sales report
  *   on salesreport.php.
  * 
- * PHP version 5.4
- *
- * LICENSE: TBD
- *
- * @package   FriendComputer\Library
+ * This file uses but does not include:<br>
+ * funcs.inc:<br>
+ * &nbsp;&nbsp;Used for the config.inc include<br>
+ * &nbsp;&nbsp;dateDiff()<br>
+ * &nbsp;&nbsp;money()<br>
+ * &nbsp;&nbsp;lastDayOfMonth()<br>
+ * &nbsp;&nbsp;checkDateNum()<br>
+ * &nbsp;&nbsp;dateStringVar()<br>
+ * 
+ * @link http://www.worldsapartgames.org/fc/salesreport.php @endlink
+ * 
  * @author    Michael Whitehouse 
  * @author    Creidieki Crouch 
  * @author    Desmond Duval 
  * @copyright 2009-2014 Pioneer Valley Gaming Collective
- * @license   TBD
- * @version   GIT:$ID$
- * @link      http://www.worldsapartgames.org/fc/salesreport.php
+ * @version   1.8b
  * @since     Project has existed since time immemorial.
  */
 
-/**
- * This file uses but does not include:
- * funcs.inc:
- *   Used for the config.inc include
- *   dateDiff()
- *   money()
- *   lastDayOfMonth()
- *   checkDateNum()
- *   dateStringVar()
- */
-
-// displayList
-// displays all items sold in specified time frame
-// order is
-//   DEPT for department
-//   NAME for name
-//   MANU for manufacturer
-// staff is 
+ /**
+  * displayList() displays all items sold in specified time frame
+  * @param string $start Description
+  * @param string $end Description
+  * @param int $order Description
+  * @param int $staff Description
+  * @param int $cust Description
+  */
 function displayList($start, $end, $order, $staff, $cust) {
     $cxn = open_stream();
 
@@ -285,6 +280,11 @@ function displayList($start, $end, $order, $staff, $cust) {
 // displayTableByDay
 // shows sales by day on a nifty table
 // start and end are the start and end date in the form YYYY-MM-DD
+/**
+ * displayTableByDay
+ * @param string $start
+ * @param string $end
+ */
 function displayTableByDay($start, $end) {
     if (checkDateNum($start) && checkDateNum($end)) {
         $cxn = open_stream();
@@ -339,6 +339,11 @@ function displayTableByDay($start, $end) {
 // displayTableByHour
 // shows sales by hour on a nifty table
 // start and end are the start and end date in the form YYYY-MM-DD
+/**
+ * displayTableByHour()
+ * @param string $start
+ * @param string $end
+ */
 function displayTableByHour($start, $end) {
     $cxn = open_stream();
     $sql = "SELECT totalPrice,

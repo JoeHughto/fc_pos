@@ -1,65 +1,58 @@
 <?php
 /**
- * @file League.php is used for reporting league match results, and viewing the
+ * @file league.php
+ * @brief league.php is used for reporting league match results, and viewing the
  *   current league standings.
- *
- * PHP version 5.4
- *
- * LICENSE: TBD
- *
- * @package   FriendComputer\Build\Report\League
+ * 
+ * This file includes:<br>
+ * funcs.inc:<br>
+ * &nbsp;&nbsp;Used for the config.inc include<br>
+ * &nbsp;&nbsp;printMemberString()<br>
+ * &nbsp;&nbsp;displayError()<br>
+ * &nbsp;&nbsp;selectMember()<br>
+ * &nbsp;&nbsp;selectLeagueMember()<br>
+ * <br>
+ * Possible Arguments:<br>
+ * SESSION:<br>
+ * &nbsp;&nbsp;ID - This is the memberID of the active user, for use in recording the
+ *   submitter of a given league result.<br>
+ * POST:<br>
+ * &nbsp;&nbsp;league - This is the leagueID for the league we should be reporting 
+ *   matches for.<br>
+ * &nbsp;&nbsp;BOMB - If this variable is set, it means we need to delete the last
+ *   league result.<br>
+ * &nbsp;&nbsp;sqlid - This variable stores the ID of the league results being
+ *   "set up the bomb".<br>
+ * &nbsp;&nbsp;oldDCL - This variable is used when reverting results with the bomb.<br>
+ * &nbsp;&nbsp;submit - When this variable has any value, we need to do some work reporting
+ *   a match.<br>
+ * &nbsp;&nbsp;winner - This will hold the memberID of the winner of the match.<br>
+ * &nbsp;&nbsp;loser - This will hold the memberID of the loser of the match.<br>
+ * &nbsp;&nbsp;points - This variable is used to track point spreads in board game leagues.<br>
+ * &nbsp;&nbsp;game - If set, this will hold the name of the game played in board game league.<br>
+ * GET:<br>
+ * &nbsp;&nbsp;playerID - If this variable is set, then we want to look at a single
+ *   member's league results.<br>
+ * &nbsp;&nbsp;league - The league number we're trying to modify.<br>
+ * &nbsp;&nbsp;NewPlayer - This will be populated when we enter New Player Mode.<br>
+ * 
+ * @link http://www.worldsapartgames.org/fc/league.php @endlink
+ * 
  * @author    Michael Whitehouse 
  * @author    Creidieki Crouch 
  * @author    Desmond Duval 
  * @copyright 2009-2014 Pioneer Valley Gaming Collective
- * @license   TBD
- * @version   GIT:$ID$
- * @link      http://www.worldsapartgames.org/fc/league.php
+ * @version   1.8d
  * @since     Project has existed since time immemorial.
  */
 
-/**
- * This file includes:
- * funcs.inc:
- *   Used for the config.inc include
- *   printMemberString()
- *   displayError()
- *   selectMember()
- *   selectLeagueMember()
- */
 $title = "League Standings";
 $version = "1.8d";
 require_once 'funcs.inc';
 require_once 'header.php';
 
 /**
- * Possible Arguments:
- * SESSION:
- *   ID - This is the memberID of the active user, for use in recording the
- *     submitter of a given league result.
- * POST:
- *   league - This is the leagueID for the league we should be reporting 
- *     matches for.
- *   BOMB - If this variable is set, it means we need to delete the last
- *     league result.
- *   sqlid - This variable stores the ID of the league results being
- *     "set up the bomb".
- *   oldDCL - This variable is used when reverting results with the bomb.
- *   submit - When this variable has any value, we need to do some work reporting
- *     a match.
- *   winner - This will hold the memberID of the winner of the match.
- *   loser - This will hold the memberID of the loser of the match.
- *   points - This variable is used to track point spreads in board game leagues.
- *   game - If set, this will hold the name of the game played in board game league.
- * GET:
- *   playerID - If this variable is set, then we want to look at a single
- *     member's league results.
- *   league - The league number we're trying to modify
- *   NewPlayer - This will be populated when we enter New Player Mode.
- */
-
-/**
- * GetMagicDCL returns a DCL number for a given member, and a given league type.
+ * getMagicDCL returns a DCL number for a given member, and a given league type.
  * @param int $memberID is the selected memberID.
  * @param int $type     is the type of league we're looking at. If this is anything
  *   but 1, the function will return false.
@@ -74,7 +67,7 @@ function getMagicDCL($memberID, $type)
 }
 
 /**
- * InitMagicDCL creates a new DCL entry for a player in a given league type.
+ * initMagicDCL creates a new DCL entry for a player in a given league type.
  *   All new players start at DCL of 1600
  * @param int $memberID is the ID of the selected member.
  * @param int $type     is the league type code. The only currently 
@@ -89,7 +82,7 @@ function initMagicDCL($memberID, $type)
 }
 
 /**
- * LowestDCI returns the lowest ranking DCL in the ratings table.
+ * lowestDCI returns the lowest ranking DCL in the ratings table.
  * @retval int Returns the minimum DCL rating in the ratings table.
  */
 function lowestDCL()
@@ -104,7 +97,7 @@ function lowestDCL()
 }
 
 /**
- * SetMagicDCL
+ * setMagicDCL
  * @param int $memberID is the ID of the selected member.
  * @param int $newDCL   is the new DCL rating we are assigning.
  * @param int $type     is the league type code. The only current legal value is 1.

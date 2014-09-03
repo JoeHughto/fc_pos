@@ -1,6 +1,28 @@
-<HTML>
-<HEAD>
 <?php
+/**
+ * @file header.php
+ * @brief header.php is a file that prints our menu and helpful information
+ *   when imported.
+ * 
+ * @todo This file should have a function that echos this information, possibly
+ *   several functions that echo some each, to split code up some, and make
+ *   it more modular.
+ * @todo This file uses external functions but does not import or require 
+ *   any other files.
+ * 
+ * @link http://www.worldsapartgames.org/fc/index.php @endlink
+ * 
+ * @author    Michael Whitehouse 
+ * @author    Creidieki Crouch 
+ * @author    Desmond Duval 
+ * @copyright 2009-2014 Pioneer Valley Gaming Collective
+ * @version   1.8d
+ * @since     Project has existed since time immemorial.
+ */
+
+echo "<HTML>";
+echo "<HEAD>";
+
 echo "<TITLE>$title</TITLE>\n";
 
 echo "</HEAD>

@@ -1,29 +1,24 @@
 <?php
 /**
- * @file Logout.php is the page that the "Logout" link in the menu brings the
+ * @file logout.php
+ * @brief logout.php is the page that the "Logout" link in the menu brings the
  *   active user to. Upon loading, all SESSION variables are wiped, and we
  *   are presented with a login screen.
- *
- * PHP version 5.4
- *
- * LICENSE: TBD
- *
- * @package   FriendComputer\Utility
+ * 
+ * This file includes:<br>
+ * funcs.inc:<br>
+ * &nbsp;&nbsp;?<br>
+ * 
+ * @link http://www.worldsapartgames.org/fc/logout.php @endlink
+ * 
  * @author    Michael Whitehouse 
  * @author    Creidieki Crouch 
  * @author    Desmond Duval 
  * @copyright 2009-2014 Pioneer Valley Gaming Collective
- * @license   TBD
- * @version   GIT:$ID$
- * @link      http://www.worldsapartgames.org/fc/logout.php
+ * @version   1.8d
  * @since     Project has existed since time immemorial.
  */
 
-/**
- * This file includes:
- * funcs.inc:
- *   ?
- */
 require_once 'funcs.inc';
 require_once 'header.php';
 

@@ -1,59 +1,52 @@
 <?php
 /**
- * @file Periodic.php is a page used to perform all the once a month tasks in a batch.
+ * @file periodic.php
+ * @brief periodic.php is a page used to perform all the once a month tasks in a batch.
  *
  * Currently, it gives $15, $10, and $5 credits to the highest raking frequent
  *   gamers, grants officers their monthly 15 hedons & $20 store credit, and
- *   gives Michael $50 store credit.
+ *   gives Michael $50 store credit.<br>
+ * <br>
+ * This file includes:<br>
+ * funcs.inc:<br>
+ * &nbsp;&nbsp;Used for the config.inc include<br>
+ * &nbsp;&nbsp;printMemberString()<br>
+ * &nbsp;&nbsp;accountTransact()<br>
+ * &nbsp;&nbsp;displayError()<br>
+ * &nbsp;&nbsp;printMemberString()<br>
+ * member.inc:<br>
+ * &nbsp;&nbsp;taxExempt()<br>
+ * &nbsp;&nbsp;memberSalesLastMonth()<br>
+ * &nbsp;&nbsp;getMemberEmail()<br>
+ * credits.inc:<br>
+ * &nbsp;&nbsp;transferCredits()<br>
+ * <br>
+ * Possible Arguments:<br>
+ * SESSION:<br>
+ * &nbsp;&nbsp;adm - Used to determine whether the active user has admin
+ *   privs.<br>
+ * &nbsp;&nbsp;ID - The ID of the active user, required for appending to
+ *   some queries.<br>
+ * POST:<br>
+ * &nbsp;&nbsp;monthly - If monthly is set to 1, we do some work, 
+ *   running the monthly script.<br>
  * 
- * PHP version 5.4
- *
- * LICENSE: TBD
- *
- * @package   FriendComputer\Utility
+ * @link http://www.worldsapartgames.org/fc/periodic.php @endlink
+ * 
  * @author    Michael Whitehouse 
  * @author    Creidieki Crouch 
  * @author    Desmond Duval 
  * @copyright 2009-2014 Pioneer Valley Gaming Collective
- * @license   TBD
- * @version   GIT:$ID$
- * @link      http://www.worldsapartgames.org/fc/periodic.php
+ * @version   1.8d
  * @since     Project has existed since time immemorial.
  */
 
-/**
- * This file includes:
- * funcs.inc:
- *   Used for the config.inc include
- *   printMemberString()
- *   accountTransact()
- *   displayError()
- *   printMemberString()
- * member.inc:
- *   taxExempt()
- *   memberSalesLastMonth()
- *   getMemberEmail()
- * credits.inc:
- *   transferCredits()
- */
 $title = "Monthly Upkeep";
 $version = "1.8d";
 require_once 'funcs.inc';
 require_once 'member.inc';
 require_once 'credits.inc';
 require_once 'header.php';
-
-/**
- * Possible Arguments:
- * SESSION:
- *   adm - Used to determine whether the active user has admin
- *     privs.
- *   ID - The ID of the active user, required for appending to
- *     some queries.
- * POST:
- *   monthly - If monthly is set to 1, we do some work, 
- *     running the monthly script.
- */
 
 $officers = array(5, 39, 417, 17, 1044);
 if ($_SESSION['adm'] != 1) {

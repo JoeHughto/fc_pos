@@ -1,30 +1,25 @@
 <?php
 /**
- * @file SalesbyMonth.php shows stats for every month since we opened, 
+ * @file salesbymonth.php
+ * @brief salesbymonth.php shows stats for every month since we opened, 
  *   including sales, cost and profit
- *
- * PHP version 5.4
- *
- * LICENSE: TBD
- *
- * @package   FriendComputer\View\Report\Sales
+ * 
+ * This file includes:<br>
+ * funcs.inc:<br>
+ * &nbsp;&nbsp;Used for the config.inc include<br>
+ * &nbsp;&nbsp;lastDayOfMonth()<br>
+ * &nbsp;&nbsp;money()<br>
+ * 
+ * @link http://www.worldsapartgames.org/fc/salesbymonth.php @endlink
+ * 
  * @author    Michael Whitehouse 
  * @author    Creidieki Crouch 
  * @author    Desmond Duval 
  * @copyright 2009-2014 Pioneer Valley Gaming Collective
- * @license   TBD
- * @version   GIT:$ID$
- * @link      http://www.worldsapartgames.org/fc/salesbymonth.php
+ * @version   1.8d
  * @since     Project has existed since time immemorial.
  */
 
-/**
- * This file includes:
- * funcs.inc:
- *   Used for the config.inc include
- *   lastDayOfMonth()
- *   money()
- */
 $title = "Sales by Month";
 $version = "1.8d";
 require_once 'funcs.inc';

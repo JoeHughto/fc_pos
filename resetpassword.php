@@ -1,53 +1,48 @@
 <?php
 /**
- * @file ResetPassword.php resets a user's password for them.
+ * @file resetpassword.php
+ * @brief resetpassword.php resets a user's password for them.
  * 
  * It requires a hashcode that is randomly generated when a user reports that 
  *   they've lost their password. That hashcode can only be found in the email 
- *   FriendComputer sends the member.
- *
- * PHP version 5.4
- *
- * LICENSE: TBD
- *
- * @package   FriendComputer\Mutator\MemberInfo
+ *   FriendComputer sends the member.<br>
+ * <br>
+ * This file includes:<br>
+ * config.inc:<br>
+ * &nbsp;&nbsp;Access to the db.<br>
+ * <br>
+ * Possible Arguments:<br>
+ * POST:<br>
+ * &nbsp;&nbsp;submit - Indicates the submit button was pushed, and we have work to do.<br>
+ * &nbsp;&nbsp;hashcode - A pseudorandom hashcode which links a user to an email address,
+ *   confirming their identity so we can let them reset their password.<br>
+ * &nbsp;&nbsp;newpass - The desired new password.<br>
+ * &nbsp;&nbsp;newpassconfirm - A copy of the new password, to make sure it's right.<br>
+ * GET:<br>
+ * &nbsp;&nbsp;reset - This is a hashcode, which will populate the hashcode textbox if
+ *   initialized. This allows us to link users to the reset password page,
+ *   and autofill the hard part, right from their reset email.<br>
+ * 
+ * @link http://www.worldsapartgames.org/fc/resetpassword.php @endlink
+ * 
  * @author    Michael Whitehouse 
  * @author    Creidieki Crouch 
  * @author    Desmond Duval 
  * @copyright 2009-2014 Pioneer Valley Gaming Collective
- * @license   TBD
- * @version   GIT:$ID$
- * @link      http://www.worldsapartgames.org/fc/resetpassword.php
+ * @version   1.8d
  * @since     Project has existed since time immemorial.
  */
 
-/**
- * This file includes:
- * config.inc:
- *   Access to the db.
- */
 $title = "Forgotten Password Reset";
 $version = "1.8d";
 require 'config.inc';
 
-/**
- * Possible Arguments:
- * POST:
- *   submit - Indicates the submit button was pushed, and we have work to do.
- *   hashcode - A pseudorandom hashcode which links a user to an email address,
- *     confirming their identity so we can let them reset their password.
- *   newpass - The desired new password.
- *   newpassconfirm - A copy of the new password, to make sure it's right.
- * GET:
- *   reset - This is a hashcode, which will populate the hashcode textbox if
- *     initialized. This allows us to link users to the reset password page,
- *     and autofill the hard part, right from their reset email.
- */
 //Certain functions need to be included without including funcs.inc, as funcs enforces login on all pages
 
 /**
- * Query submits a given query to the given database connection, and returns
+ * query submits a given query to the given database connection, and returns
  *   a MySQL Result.
+ * @see funcs.inc
  * @param connection $cxn Connection to the database
  * @param string $sql Submitted SQL Query
  * @retval mixed MySQL Result
@@ -67,6 +62,7 @@ function query($cxn, $sql)
  * printMemberString
  * @param int $num Member ID whose name we are seeking.
  * @param int $order The order said member's name should be in.
+ * @see funcs.inc
  * Order Codes:
  *   1 - fname lname
  *   2 - lname

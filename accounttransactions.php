@@ -1,46 +1,40 @@
 <?php
 /**
- * @file AccountTransactions.php shows users their ledger of store credit transactions.
- *
- * PHP version 5.4
- *
- * LICENSE: TBD
- *
- * @package   FriendComputer\View\Ledger\Account
+ * @file accounttransactions.php
+ * @brief accounttransactions.php shows users their ledger of store credit transactions.
+ * 
+ * This file includes:<br>
+ * funcs.inc:<br>
+ * &nbsp;&nbsp;checkDateNum()<br>
+ * &nbsp;&nbsp;displayRefs()<br>
+ * &nbsp;&nbsp;getAccountBalance()<br>
+ * &nbsp;&nbsp;getAvailBalance()<br>
+ * &nbsp;&nbsp;displayAccount()<br>
+ * <br>
+ * Possible Arguments:<br>
+ * GET:<br>
+ * &nbsp;&nbsp;ID - If an ID is specified, the page will display that member's
+ *   store credit ledger, not the active user's.<br>
+ * &nbsp;&nbsp;qty - If a qty is specified, only the most block of that many 
+ *   transactions will be shown.<br>
+ * &nbsp;&nbsp;start - If a date is specified, only transactions and referals after that
+ *   date will be included in the list.<br>
+ * 
+ * @link http://www.worldsapartgames.org/fc/accounttransactions.php @endlink
+ * 
  * @author    Michael Whitehouse 
  * @author    Creidieki Crouch 
  * @author    Desmond Duval 
  * @copyright 2009-2014 Pioneer Valley Gaming Collective
- * @license   TBD
- * @version   GIT:$ID$
- * @link      http://www.worldsapartgames.org/fc/accounttransactions.php
+ * @version   1.8b
  * @since     Project has existed since time immemorial.
  */
 
-/**
- * This file includes:
- * funcs.inc:
- *   checkDateNum()
- *   displayRefs()
- *   getAccountBalance()
- *   getAvailableBalance()
- *   displayAccount()
- */
 $title = "Account Transactions";
 $version = "1.8d";
 require_once 'funcs.inc';
 require_once 'header.php';
 
-/**
- * Possible Arguments:
- * GET:
- *   ID - If an ID is specified, the page will display that member's
- *     store credit ledger, not the active user's.
- *   qty - If a qty is specified, only the most block of that many 
- *     transactions will be shown.
- *   start - If a date is specified, only transactions and referals after that
- *     date will be included in the list.
- */
 if ($_GET['ID'] > 0) {
     $ID = $_GET['ID'];
 } else {

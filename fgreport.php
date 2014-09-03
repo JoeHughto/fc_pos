@@ -1,34 +1,29 @@
 <?php
 /**
- * @file FGReport.php is a page displaying our highest ranked Frequent Gamers.
- *
- * PHP version 5.4
- *
- * LICENSE: TBD
- *
- * @package   FriendComputer\View\Report
+ * @file fgreport.php
+ * @brief fgreport.php is a page displaying our highest ranked Frequent Gamers.
+ * 
+ * This file includes:<br>
+ * funcs.inc:<br>
+ * &nbsp;&nbsp;Used for the config.inc include<br>
+ * &nbsp;&nbsp;printMemberString()<br>
+ * member.inc:<br>
+ * &nbsp;&nbsp;taxExempt()<br>
+ * &nbsp;&nbsp;memberSalesThisMonth()<br>
+ * &nbsp;&nbsp;memberSalesLastMonth()<br>
+ * &nbsp;&nbsp;FG_discount()<br>
+ * &nbsp;&nbsp;FG_discountNow()<br>
+ * 
+ * @link http://www.worldsapartgames.org/fc/fgreport.php @endlink
+ * 
  * @author    Michael Whitehouse 
  * @author    Creidieki Crouch 
  * @author    Desmond Duval 
  * @copyright 2009-2014 Pioneer Valley Gaming Collective
- * @license   TBD
- * @version   GIT:$ID$
- * @link      http://www.worldsapartgames.org/fc/fgreport.php
+ * @version   1.8d
  * @since     Project has existed since time immemorial.
  */
 
-/**
- * This file includes:
- * funcs.inc:
- *   Used for the config.inc include
- *   printMemberString()
- * member.inc:
- *   taxExempt()
- *   memberSalesThisMonth()
- *   memberSalesLastMonth()
- *   FG_discount()
- *   FG_discountNow()
- */
 $title = 'Frequent Gamer Report';
 $version = "1.8d";
 require_once 'funcs.inc';

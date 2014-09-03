@@ -1,29 +1,23 @@
 <?php
 /**
- * @file Credits.inc provides an API for interacting with member's hedons.
- *
- * PHP version 5.4
- *
- * LICENSE: TBD
- *
- * @package   FriendComputer\Library\Hedons
+ * @file credits.inc
+ * @brief credits.inc provides an API for interacting with member's hedons.
+ * 
+ * This file includes:<br>
+ * funcs.inc:<br>
+ * &nbsp;&nbsp;Used for the config.inc include<br>
+ * &nbsp;&nbsp;printMember()<br>
+ * &nbsp;&nbsp;displayError()<br>
+ * &nbsp;&nbsp;printMemberString()<br>
+ * 
+ * @link http://www.worldsapartgames.org/fc/index.php @endlink
+ * 
  * @author    Michael Whitehouse 
  * @author    Creidieki Crouch 
  * @author    Desmond Duval 
  * @copyright 2009-2014 Pioneer Valley Gaming Collective
- * @license   TBD
- * @version   GIT:$ID$
- * @link      http://www.worldsapartgames.org/fc/index.php
+ * @version   1.8d
  * @since     Project has existed since time immemorial.
- */
-
-/**
- * This file includes:
- * funcs.inc:
- *   Used for the config.inc include
- *   printMember()
- *   displayError()
- *   printMemberString()
  */
 require_once 'funcs.inc';
 
@@ -31,7 +25,7 @@ require_once 'funcs.inc';
 $WORKINGMEMBERCREDITS = 15;
 
 /**
- * DisplayCreditTransactions prints a list of hedon transactions for a given
+ * displayCreditTransactions prints a list of hedon transactions for a given
  *   member.
  * @param int        $SID is the selected member's ID.
  * @param int|string $max is the maximum records that should be returned.
@@ -89,7 +83,7 @@ function displayCreditTransactions($SID, $max='ALL')
 }
 
 /**
- * DisplayHedonRequests prints a list of hedon transactions for a given
+ * displayHedonRequests prints a list of hedon transactions for a given
  *   member.
  * @param int        $SID is the selected member's ID.
  * @param string|int $max is the maximum records that should be returned.
@@ -120,7 +114,7 @@ function displayHedonRequests($SID, $max='ALL')
 }
 
 /**
- * DisplayAllHedonRequests prints a list of all currently pending Hedon
+ * displayAllHedonRequests prints a list of all currently pending Hedon
  *   Requests, with checkboxes to allow their batch modification.
  */
 function displayAllHedonRequests()
@@ -147,7 +141,7 @@ function displayAllHedonRequests()
 }
 
 /**
- * DisplayAllBounties prints a list of all currently available Bounties,
+ * displayAllBounties prints a list of all currently available Bounties,
  *   with checkboxes to allow their batch modification.
  */
 function displayAllBounties()
@@ -173,7 +167,7 @@ function displayAllBounties()
 }
 
 /**
- * DisplayMembershipStatus prints a block of text stating what a given
+ * displayMembershipStatus prints a block of text stating what a given
  *   member's membership status currently is.
  * @param int $SID is the given member's ID.
  */
@@ -219,7 +213,7 @@ function displayMembershipStatus($SID)
 }
 
 /**
- * DisplayMembershipStatusString provides the same output as
+ * displayMembershipStatusString provides the same output as
  *   DisplayMembershipStatus, but returns a string representation, instead
  *   of printing directly to the page.
  * @param int $SID is the given member's ID.
@@ -273,7 +267,7 @@ function displayMembershipStatusString($SID)
 }
 
 /**
- * GetCreditTotal takes a member's ID, and returns the number of Hedons
+ * getCreditTotal takes a member's ID, and returns the number of Hedons
  *   that member has.
  * @param int $ID is the given member's ID.
  * @retval float Returns a value representing the number of Hedons a
@@ -296,7 +290,7 @@ function getCreditTotal($ID)
 }
 
 /**
- * RenewMembership takes a member's ID and a number of months, and exchanges
+ * renewMembership takes a member's ID and a number of months, and exchanges
  *   that member's hedons for months of membership at a rate of 15h/mo.
  *   THIS FUNCTION DOES NOT CHECK MEMBER'S CREDIT BALANCE.
  * @global int $WORKINGMEMBERCREDITS is a constant representing the number of
@@ -336,7 +330,7 @@ function renewMembership($ID, $months)
 }
    
 /**
- * TransferCredits processes tranfers of Hedons between members.
+ * transferCredits processes tranfers of Hedons between members.
  * 
  * Reason Code Definitions:
  * 0 - payment to Friend Computer
@@ -382,7 +376,7 @@ function transferCredits($sender, $recep, $amt, $note, $reason)
 }
 
 /**
- * RequestCredits adds a Hedon Request to the database, to be approved or
+ * requestCredits adds a Hedon Request to the database, to be approved or
  *   denied at a later point.
  * @param  int    $memID is the member ID of the member requesting Hedons.
  * @param  float  $amt   is the number of Hedons being requested.
@@ -412,7 +406,7 @@ function requestCredits($memID, $amt, $note)
 }
 
 /**
- * ApproveHedonRequest takes a datetime and approves the first Hedon Request
+ * approveHedonRequest takes a datetime and approves the first Hedon Request
  *   with a matching timestamp by removing it from the table, and transferring
  *   the requisitioned hedons to the requesting member.
  * @param datetime $daytime is the datetime of the HR that is being approved.
@@ -433,7 +427,7 @@ function approveHedonRequest($daytime)
 }
 
 /**
- * ClaimBounty takes a datetime and claims the first Bounty with a
+ * claimBounty takes a datetime and claims the first Bounty with a
  *   matching timestamp, by deleting the bounty from the table, and
  *   submitting a Hedon Request for the Bounty.
  * @param datetime $daytime is the datetime of the Bounty that is being claimed.
@@ -454,7 +448,7 @@ function claimBounty($daytime)
 }
 
 /**
- * DenyHedonRequest takes a datetime and denies the first Hedon Request
+ * denyHedonRequest takes a datetime and denies the first Hedon Request
  *   with a matching timestamp by deleting it from the table.
  * @param datetime $daytime is the datetime of the HR that is being denied.
  */
@@ -468,7 +462,7 @@ function denyHedonRequest($daytime)
 }
 
 /**
- CreditSpending provides an interface to simplify spending Hedons on
+ * creditspending provides an interface to simplify spending Hedons on
  *   items that are Hedon purchasable.
  * 
  * Within the class, a pseudo-table is defined which contains the names,
@@ -476,19 +470,10 @@ function denyHedonRequest($daytime)
  *   can also be specified, in which case it should have a specific block of
  *   code in the execution function.
  * 
- * PHP version 5.4
- *
- * LICENSE: TBD
- *
- * @category  Library
- * @package   FriendComputer
  * @author    Michael Whitehouse 
  * @author    Creidieki Crouch 
  * @author    Desmond Duval 
  * @copyright 2009-2014 Pioneer Valley Gaming Collective
- * @license   TBD
- * @version   GIT:$ID$
- * @link      http://www.worldsapartgames.org/fc/index.php
  * @since     Project has existed since time immemorial.
  */
 class creditSpending
@@ -576,7 +561,7 @@ class creditSpending
     }
       
     /**
-     * Conclude concludes sale and executes all credit purchases.
+     * conclude concludes sale and executes all credit purchases.
      * @global type $mleagueID Current Magic League ID
      * @retval string Returns either the total cost, or "insuf" if insufficient
      *   Hedons.
@@ -645,7 +630,7 @@ class creditSpending
     }
 
     /**
-     * Discount reduces the total cost of the order by 10% if the 50h discount
+     * discount reduces the total cost of the order by 10% if the 50h discount
      *   checkbox has been checked.
      * @retval int Returns 10 if user has bought Hedon Discount, 0 otherwise.
      */
@@ -659,7 +644,7 @@ class creditSpending
     }
     
     /**
-     * DisplayCheckBoxes prints all Hedon Purchasable items to the register
+     * displayCheckBoxes prints all Hedon Purchasable items to the register
      *   page, as defined in the data structures in class CreditSpending.
      */
     public function displayCheckBoxes()
@@ -685,10 +670,8 @@ class creditSpending
         }
     }  
 
-    // displayCurrent
-    // displays what is currently selected for Credits
     /**
-     * DisplayCurrent prints a box containing all currently selected
+     * displayCurrent prints a box containing all currently selected
      *   Hedon Purchases to the page it's called from.
      * @retval boolean Returns false if insufficient Hedons, true otherwise.
      */
@@ -713,5 +696,5 @@ class creditSpending
         echo "<br>Total Hedon Cost: {$this->creditTotal}<br>
             Remaining After Purchase: " . ($this->creditBalance - $this->creditTotal) . "</td></tr></table>";
     }
-} // end class  
+}
 ?>

@@ -1,39 +1,33 @@
 <?php
 /**
- * @file Calculator.php is a page that calculates percentage discounts as needed.
+ * @file calculator.php
+ * @brief calculator.php is a page that calculates percentage discounts as needed.
+ * 
+ * This file includes:<br>
+ * Nothing!<br>
+ * <br>
+ * Possible Arguments:<br>
+ * POST:<br>
+ * &nbsp;&nbsp;submit - When this variable = 'Submit', the button has been pressed, so
+ *   we should attend to the data, and ship some store credit.<br>
+ * &nbsp;&nbsp;base - This is the original price of the item/order that we're trying
+ *   to discount.<br>
+ * &nbsp;&nbsp;target - This is the price we want to discount the item/order to.<br>
+ * 
+ * @link http://www.worldsapartgames.org/fc/calculator.php @endlink
  *
- * PHP version 5.4
- *
- * LICENSE: TBD
- *
- * @package   FriendComputer\Utility
  * @author    Michael Whitehouse 
  * @author    Creidieki Crouch 
  * @author    Desmond Duval 
  * @copyright 2009-2014 Pioneer Valley Gaming Collective
- * @license   TBD
- * @version   GIT:$ID$
- * @link      http://www.worldsapartgames.org/fc/calculator.php
+ * @version   1.8d
  * @since     Project has existed since time immemorial.
  */
 
-/**
- * This file includes:
- * Nothing!
- */
 $title = "Calculator";
 $version = "1.8d";
 require_once 'header.php';
 
-/**
- * Possible Arguments:
- * POST:
- *   submit - When this variable = 'Submit', the button has been pressed, so
- *     we should attend to the data, and ship some store credit.
- *   base - This is the original price of the item/order that we're trying
- *     to discount.
- *   target - This is the price we want to discount the item/order to.
- */
 if ($_POST['submit'] == 'Submit') {
     $base = $_POST['base'];
     $target = $_POST['target'];

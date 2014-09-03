@@ -1,34 +1,29 @@
 <?php
 /**
- * @file SalesBox.inc prints the quicksale boxes in the register.php page
+ * @file salesbox.inc
+ * @brief salesbox.inc prints the quicksale boxes in the register.php page
  * 
- * It uses functions that were included in register.php
- *
- * PHP version 5.4
- *
- * LICENSE: TBD
- *
- * @package   FriendComputer\Register\Widget
+ * It uses functions that were included in register.php<br>
+ * <br>
+ * This file uses, but does not include:<br>
+ * funcs.inc:<br>
+ * &nbsp;&nbsp;selectMember()<br>
+ * giftcert.inc:<br>
+ * &nbsp;&nbsp;GiftCert::displaySelectForm()<br>
+ * &nbsp;&nbsp;GiftCert::displayForm()<br>
+ * credits.inc:<br>
+ * &nbsp;&nbsp;CreditSpending::displayCheckBoxes()<br>
+ * 
+ * @link http://www.worldsapartgames.org/fc/register.php @endlink
+ * 
  * @author    Michael Whitehouse 
  * @author    Creidieki Crouch 
  * @author    Desmond Duval 
  * @copyright 2009-2014 Pioneer Valley Gaming Collective
- * @license   TBD
- * @version   GIT:$ID$
- * @link      http://www.worldsapartgames.org/fc/register.php
+ * @version   1.8d
  * @since     Project has existed since time immemorial.
  */
 
-/**
- * This file uses, but does not include:
- * funcs.inc:
- *   selectMember()
- * giftcert.inc:
- *   GiftCert::displaySelectForm()
- *   GiftCert::displayForm()
- * credits.inc:
- *   CreditSpending::displayCheckBoxes()
- */
 echo "<hr>
     <table><tr><td valign=top rowspan=2>";
 echo "<button name='submit' value='submit'>Update Order</button>

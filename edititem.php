@@ -1,59 +1,53 @@
 <?php
 /**
- * @file EditItem.php is a page for modifying any of the information on a given item.
+ * @file edititem.php
+ * @brief edititem.php is a page for modifying any of the information on a given item.
  *
- * PHP version 5.4
- *
- * LICENSE: TBD
- *
- * @package   FriendComputer\Mutator\Inventory
+ * This file includes:<br>
+ * funcs.inc:<br>
+ * &nbsp;&nbsp;Used for the config.inc include<br>
+ * inventory.inc:<br>
+ * &nbsp;&nbsp;displayDepartmentListScalar()<br>
+ * &nbsp;&nbsp;displayManufacturerListScalar()<br>
+ * <br>
+ * Possible Arguments:<br>
+ * SESSION:<br>
+ * &nbsp;&nbsp;inv - Used to determine whether the current user has inventory
+ *   privledges.<br>
+ * POST:<br>
+ * &nbsp;&nbsp;ID - The ID of the item we're attempting to edit.<br>
+ * &nbsp;&nbsp;submit - This variable will not be empty when we need to do work.<br>
+ * &nbsp;&nbsp;price - The price we want to assign the item.<br>
+ * &nbsp;&nbsp;saleprice - The Sale Price we want to assign the item.<br>
+ * &nbsp;&nbsp;cost - The value we want to assign to the item's cost.<br>
+ * &nbsp;&nbsp;department - The department we want to assign the item to.<br>
+ * &nbsp;&nbsp;manufacturer - The manufacturer we want to assign the item to.<br>
+ * &nbsp;&nbsp;UPC - The item's UPC Code<br>
+ * &nbsp;&nbsp;alternate1 - Extra slots for additional UPC Codes or search strings.<br>
+ * &nbsp;&nbsp;alternate2 - Extra slots for additional UPC Codes or search strings.<br>
+ * &nbsp;&nbsp;inv - Unknown, should not do anything, investigate further.<br>
+ * &nbsp;&nbsp;tax - Boolean value indicating whether the item is taxable.<br>
+ * &nbsp;&nbsp;desc - This is a hidden description from the database to ensure the
+ *   correct description gets included in the SQL query.<br>
+ * GET:<br>
+ * &nbsp;&nbsp;ID - If ID is set, the page will display the UI to edit.<br>
+ * 
+ * @link http://www.worldsapartgames.org/fc/edititem.php @endlink
+ * 
  * @author    Michael Whitehouse 
  * @author    Creidieki Crouch 
  * @author    Desmond Duval 
  * @copyright 2009-2014 Pioneer Valley Gaming Collective
- * @license   TBD
- * @version   GIT:$ID$
- * @link      http://www.worldsapartgames.org/fc/edititem.php
+ * @version   1.8d
  * @since     Project has existed since time immemorial.
  */
 
-/**
- * This file includes:
- * funcs.inc:
- *   Used for the config.inc include
- * inventory.inc:
- *   displayDepartmentListScalar()
- *   displayManufacturerListScalar()
- */
 $title = 'Edit Item';
 $version = '1.8d';
 require_once 'funcs.inc';
 require_once 'inventory.inc';
 require_once 'header.php';
 
-/**
- * Possible Arguments:
- * SESSION:
- *   inv - Used to determine whether the current user has inventory
- *     privledges.
- * POST:
- *   ID - The ID of the item we're attempting to edit.
- *   submit - This variable will not be empty when we need to do work.
- *   price - The price we want to assign the item.
- *   saleprice - The Sale Price we want to assign the item.
- *   cost - The value we want to assign to the item's cost.
- *   department - The department we want to assign the item to.
- *   manufacturer - The manufacturer we want to assign the item to.
- *   UPC - The item's UPC Code
- *   alternate1 - Extra slots for additional UPC Codes or search strings.
- *   alternate2 - Extra slots for additional UPC Codes or search strings.
- *   inv - Unknown, should not do anything, investigate further.
- *   tax - Boolean value indicating whether the item is taxable.
- *   desc - This is a hidden description from the database to ensure the
- *     correct description gets included in the SQL query.
- * GET:
- *   ID - If ID is set, the page will display the UI to edit.
- */
 $cxn = open_stream();
 if ($_SESSION['inv'] != 1) {
     echo "You must have Inventory Permissions to recieve and invoice. If you believe you have recieved this in error, please
