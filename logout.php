@@ -5,9 +5,9 @@
  *   active user to. Upon loading, all SESSION variables are wiped, and we
  *   are presented with a login screen.
  * 
- * This file includes:<br>
- * funcs.inc:<br>
- * &nbsp;&nbsp;?<br>
+ * This file includes:
+ * funcs.inc:
+ * - ?
  * 
  * @link http://www.worldsapartgames.org/fc/logout.php @endlink
  * 

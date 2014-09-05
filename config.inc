@@ -4,7 +4,7 @@
  * @brief config.inc provides an interface between FriendComputer and our MySql
  *   database. It contains secret information that should not be shared.
  * 
- * This file includes:<br>
+ * This file includes:
  * @todo This file uses functions from funcs.inc, but doesn't include it.
  * 
  * @link http://www.worldsapartgames.org/fc/index.php @endlink

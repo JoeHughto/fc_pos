@@ -4,66 +4,69 @@
  * @brief receiveinvoice.php is a page used to receive orders into the system, adding
  *   them to the inventory, and changing prices and costs as needed.
  * 
- * This file includes:<br>
- * funcs.inc:<br>
- * &nbsp;&nbsp;Used for the config.inc include<br>
- * &nbsp;&nbsp;displayErrorDie()<br>
- * &nbsp;&nbsp;checkName()<br>
- * &nbsp;&nbsp;extractNums()<br>
- * &nbsp;&nbsp;displayError()<br>
- * inventory.inc:<br>
- * &nbsp;&nbsp;displayExistingItem()<br>
- * &nbsp;&nbsp;displayBlankItem()<br>
- * &nbsp;&nbsp;displayDepartmentList()<br>
- * &nbsp;&nbsp;displayManufacturerList()<br>
- * <br>
- * Possible Arguments:<br>
- * SESSION:<br>
- * &nbsp;&nbsp;inv - Used to determine whether the active user has inventory
- *   privs.<br>
- * &nbsp;&nbsp;ID - The ID of the active user, required for recording the user
- *   receiving the invoice.<br>
- * &nbsp;&nbsp;invEvent_ID - This is an inventory event ID, used on this page to 
+ * This file includes:
+ * funcs.inc:
+ * - Used for the config.inc include
+ * - displayErrorDie()
+ * - checkName()
+ * - extractNums()
+ * - displayError()
+ * 
+ * inventory.inc:
+ * - displayExistingItem()
+ * - displayBlankItem()
+ * - displayDepartmentList()
+ * - displayManufacturerList()
+ * 
+ * Possible Arguments:
+ * SESSION:
+ * - inv - Used to determine whether the active user has inventory
+ *   privs.
+ * - ID - The ID of the active user, required for recording the user
+ *   receiving the invoice.
+ * - invEvent_ID - This is an inventory event ID, used on this page to 
  *   determine if the active user has already started receiving an invoice
- *   or not.<br>
- * POST:<br>
- * &nbsp;&nbsp;IEID - The page may provide an inventory event ID to be loaded, if
- *   one has already been started.<br>
- * &nbsp;&nbsp;submit - If this variable is set, it means we have skus to add to the
- *   invoice.<br>
- * &nbsp;&nbsp;close - If this variable is set, we need to check the invoice to make sure
- *   everything looks safe, and close it.<br>
- * &nbsp;&nbsp;sku - This is a string of skus, or search strings, separated by newlines, 
- *   to be read into the page as the items to be checked into the system.<br>
- * &nbsp;&nbsp;splitID - In the event of two items sharing a sku, this array is used to
+ *   or not.
+ * 
+ * POST:
+ * - IEID - The page may provide an inventory event ID to be loaded, if
+ *   one has already been started.
+ * - submit - If this variable is set, it means we have skus to add to the
+ *   invoice.
+ * - close - If this variable is set, we need to check the invoice to make sure
+ *   everything looks safe, and close it.
+ * - sku - This is a string of skus, or search strings, separated by newlines, 
+ *   to be read into the page as the items to be checked into the system.
+ * - splitID - In the event of two items sharing a sku, this array is used to
  *   allow the active user to specify which item they meant when they entered
- *   the shared sku.<br>
- * &nbsp;&nbsp;price - This array will be filled with both new and old items, with old
+ *   the shared sku.
+ * - price - This array will be filled with both new and old items, with old
  *   items at the index of their itemID, and new items at extremely high
- *   indexes.<br>
- * &nbsp;&nbsp;cost - This array will be filled with both new and old items.<br>
- * &nbsp;&nbsp;totalcost - This array may be filled as an alternative to filling the same
+ *   indexes.
+ * - cost - This array will be filled with both new and old items.
+ * - totalcost - This array may be filled as an alternative to filling the same
  *   index of cost[], the value that should fill cost will be calculated at
- *   runtime.<br>
- * &nbsp;&nbsp;newqty - This array is filled with the quantity that we are entering into
+ *   runtime.
+ * - newqty - This array is filled with the quantity that we are entering into
  *   the system for existing items only. These numbers will be added to 
- *   existing quantities when put into the database.<br>
- * &nbsp;&nbsp;description - This array of strings will populate the description field
- *   of new items.<br>
- * &nbsp;&nbsp;department - This array of department IDs will populate the department
- *   field of new items.<br>
- * &nbsp;&nbsp;manufacturer - This array of manufacturer IDs will populate the manufacturer
- *   field of new items.<br>
- * &nbsp;&nbsp;UPC - This is an array of skus to be set for new items.<br>
- * &nbsp;&nbsp;alternate1 - alternate1 and alternate2 are space for setting.<br>
- * &nbsp;&nbsp;alternate2 -   alternative skus for items with more than one sku.<br>
- * &nbsp;&nbsp;qty - This is an array of integers to be set as the quantities for new items.<br>
- * &nbsp;&nbsp;inv - This array of boolean values will set whether new items require
- *   tracking of inventory at all.<br>
- * GET:<br>
- * &nbsp;&nbsp;ID - The page's URL may provide an inventory event ID to be loaded, if
+ *   existing quantities when put into the database.
+ * - description - This array of strings will populate the description field
+ *   of new items.
+ * - department - This array of department IDs will populate the department
+ *   field of new items.
+ * - manufacturer - This array of manufacturer IDs will populate the manufacturer
+ *   field of new items.
+ * - UPC - This is an array of skus to be set for new items.
+ * - alternate1 - alternate1 and alternate2 are space for setting.
+ * - alternate2 -   alternative skus for items with more than one sku.
+ * - qty - This is an array of integers to be set as the quantities for new items.
+ * - inv - This array of boolean values will set whether new items require
+ *   tracking of inventory at all.
+ * 
+ * GET:
+ * - ID - The page's URL may provide an inventory event ID to be loaded, if
  *   one has already been started. This variable is immediately injected into
- *   POST['IEID'], for further processing.<br>
+ *   POST['IEID'], for further processing.
  * 
  * @link http://www.worldsapartgames.org/fc/receiveinvoice.php @endlink
  * 
@@ -482,6 +485,10 @@ if (($_POST['submit'] == 'submit') || ($_POST['submit'] == 'close')
                     value='somebody'> Set Up The Bomb (Delete this item)</td></tr>
                 </table><hr>";
         } else {
+            /**
+             * @todo When this triggers, it does not allow further updating of
+             *   the item in question. Find out why and fix.
+             */
             echo "<table><tr><td colspan=4><font color=RED>Entry Error, 
                 please fix errors</font></td></tr><tr>
                 <td>Description: <input type='text' name='description[$icount]' "

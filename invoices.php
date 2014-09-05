@@ -4,20 +4,21 @@
  * @brief invoices.php gives an active user with inventory privs the
  *   chance to put invoices into record for determining Purchase budget.
  * 
- * This file includes:<br>
- * funcs.inc:<br>
- * &nbsp;&nbsp;Used for the config.inc include<br>
- * <br>
- * Possible Arguments:<br>
- * SESSION:<br>
- * &nbsp;&nbsp;inv - Used to determine whether the active user has inventory
- *   privs.<br>
- * POST:<br>
- * &nbsp;&nbsp;vendor - The name of the vendor who sent the submitted invoice.<br>
- * &nbsp;&nbsp;amount - The total price on the submitted invoice.<br>
- * &nbsp;&nbsp;year - The year on the submitted invoice.<br>
- * &nbsp;&nbsp;month - The month on the submitted invoice.<br>
- * &nbsp;&nbsp;day - The day on the submitted invoice.<br>
+ * This file includes:
+ * funcs.inc:
+ * - Used for the config.inc include
+ * 
+ * Possible Arguments:
+ * SESSION:
+ * - inv - Used to determine whether the active user has inventory
+ *   privs.
+ * 
+ * POST:
+ * - vendor - The name of the vendor who sent the submitted invoice.
+ * - amount - The total price on the submitted invoice.
+ * - year - The year on the submitted invoice.
+ * - month - The month on the submitted invoice.
+ * - day - The day on the submitted invoice.
  * 
  * @link http://www.worldsapartgames.org/fc/invoices.php @endlink
  * 

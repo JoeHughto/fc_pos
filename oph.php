@@ -3,26 +3,28 @@
  * @file oph.php
  * @brief oph.php allows for the manipulation of hedons from arbitrary accounts.
  * 
- * This file includes:<br>
- * funcs.inc:<br>
- * &nbsp;&nbsp;selectMember()<br>
- * &nbsp;&nbsp;printMemberString()<br>
- * credits.inc:<br>
- * &nbsp;&nbsp;getCreditTotal()<br>
- * &nbsp;&nbsp;transferCredits()<br>
- * <br>
- * Possible Arguments:<br>
- * SESSION:<br>
- * &nbsp;&nbsp;adm - Used to determine whether the active user has admin
- *   privs.<br>
- * &nbsp;&nbsp;ID - The ID of the active user, required as this app incurs an
- *   automatic email to the GM for review.<br>
- * POST:<br>
- * &nbsp;&nbsp;to - The member ID of the member receiving the appropriated hedons.
- * &nbsp;&nbsp;from - The member ID of the member whose hedons are being appropriated.<br>
- * &nbsp;&nbsp;qty - The number of hedons being appropriated.<br>
- * &nbsp;&nbsp;reason - An explanation for why the transfer is happening. This is
- *   for review purposes.<br>
+ * This file includes:
+ * funcs.inc:
+ * - selectMember()
+ * - printMemberString()
+ * 
+ * credits.inc:
+ * - getCreditTotal()
+ * - transferCredits()
+ * 
+ * Possible Arguments:
+ * SESSION:
+ * - adm - Used to determine whether the active user has admin
+ *   privs.
+ * - ID - The ID of the active user, required as this app incurs an
+ *   automatic email to the GM for review.
+ * 
+ * POST:
+ * - to - The member ID of the member receiving the appropriated hedons.
+ * - from - The member ID of the member whose hedons are being appropriated.
+ * - qty - The number of hedons being appropriated.
+ * - reason - An explanation for why the transfer is happening. This is
+ *   for review purposes.
  * 
  * @link http://www.worldsapartgames.org/fc/oph.php @endlink
  * 

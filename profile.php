@@ -4,39 +4,40 @@
  * @brief profile.php is a page that allows the active user to modify the information
  *   on their account stored in the database.
  * 
- * This file includes:<br>
- * funcs.inc:<br>
- * &nbsp;&nbsp;Used for the config.inc include<br>
- * &nbsp;&nbsp;displayErrorDie()<br>
- * &nbsp;&nbsp;checkName()<br>
- * &nbsp;&nbsp;check_email_address()<br>
- * &nbsp;&nbsp;extractNums()<br>
- * &nbsp;&nbsp;checkDate()<br>
- * &nbsp;&nbsp;displayError()<br>
- * &nbsp;&nbsp;selectInputDate()<br>
- * <br>
- * Possible Arguments:<br>
- * SESSION:<br>
- * &nbsp;&nbsp;ID - The ID of the active user, required for loading the active user's
- *   profile.<br>
- * POST:<br>
- * &nbsp;&nbsp;submit - If this is set, we have work to do.<br>
- * &nbsp;&nbsp;newpwd1 - If newpwd1 != '' && newpwd1 == newpwd2 then<br>
- * &nbsp;&nbsp;newpwd2 -   change password to newpwd1!<br>
- * &nbsp;&nbsp;login - The member's username.<br>
- * &nbsp;&nbsp;fname - The member's first name.<br>
- * &nbsp;&nbsp;lname - The member's last name.<br>
- * &nbsp;&nbsp;street - The member's street address.<br>
- * &nbsp;&nbsp;city - The member's city.<br>
- * &nbsp;&nbsp;state - The member's state.<br>
- * &nbsp;&nbsp;ZIP - The member's zip code.<br>
- * &nbsp;&nbsp;email - The member's email address<br>
- * &nbsp;&nbsp;phone1 - The member's phone number.<br>
- * &nbsp;&nbsp;phone2 - The member's alternate phone number<br>
- * &nbsp;&nbsp;status - Presumably nothing. ???<br>
- * &nbsp;&nbsp;DOBDay - This is a day selection box, gets combined with<br>
- * &nbsp;&nbsp;DOBMonth - the month selection box and year selection  box<br>
- * &nbsp;&nbsp;DOBYear -    in order to build a composite date of birth.<br>
+ * This file includes:
+ * funcs.inc:
+ * - Used for the config.inc include
+ * - displayErrorDie()
+ * - checkName()
+ * - check_email_address()
+ * - extractNums()
+ * - checkDate()
+ * - displayError()
+ * - selectInputDate()
+ * 
+ * Possible Arguments:
+ * SESSION:
+ * - ID - The ID of the active user, required for loading the active user's
+ *   profile.
+ * 
+ * POST:
+ * - submit - If this is set, we have work to do.
+ * - newpwd1 - If newpwd1 != '' && newpwd1 == newpwd2 then
+ * - newpwd2 -   change password to newpwd1!
+ * - login - The member's username.
+ * - fname - The member's first name.
+ * - lname - The member's last name.
+ * - street - The member's street address.
+ * - city - The member's city.
+ * - state - The member's state.
+ * - ZIP - The member's zip code.
+ * - email - The member's email address
+ * - phone1 - The member's phone number.
+ * - phone2 - The member's alternate phone number
+ * - status - Presumably nothing. ???
+ * - DOBDay - This is a day selection box, gets combined with
+ * - DOBMonth - the month selection box and year selection  box
+ * - DOBYear -    in order to build a composite date of birth.
  * 
  * @link http://www.worldsapartgames.org/fc/profile.php @endlink
  * 

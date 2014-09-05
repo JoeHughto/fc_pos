@@ -4,37 +4,39 @@
  * @brief league.php is used for reporting league match results, and viewing the
  *   current league standings.
  * 
- * This file includes:<br>
- * funcs.inc:<br>
- * &nbsp;&nbsp;Used for the config.inc include<br>
- * &nbsp;&nbsp;printMemberString()<br>
- * &nbsp;&nbsp;displayError()<br>
- * &nbsp;&nbsp;selectMember()<br>
- * &nbsp;&nbsp;selectLeagueMember()<br>
- * <br>
- * Possible Arguments:<br>
- * SESSION:<br>
- * &nbsp;&nbsp;ID - This is the memberID of the active user, for use in recording the
- *   submitter of a given league result.<br>
- * POST:<br>
- * &nbsp;&nbsp;league - This is the leagueID for the league we should be reporting 
- *   matches for.<br>
- * &nbsp;&nbsp;BOMB - If this variable is set, it means we need to delete the last
- *   league result.<br>
- * &nbsp;&nbsp;sqlid - This variable stores the ID of the league results being
- *   "set up the bomb".<br>
- * &nbsp;&nbsp;oldDCL - This variable is used when reverting results with the bomb.<br>
- * &nbsp;&nbsp;submit - When this variable has any value, we need to do some work reporting
- *   a match.<br>
- * &nbsp;&nbsp;winner - This will hold the memberID of the winner of the match.<br>
- * &nbsp;&nbsp;loser - This will hold the memberID of the loser of the match.<br>
- * &nbsp;&nbsp;points - This variable is used to track point spreads in board game leagues.<br>
- * &nbsp;&nbsp;game - If set, this will hold the name of the game played in board game league.<br>
- * GET:<br>
- * &nbsp;&nbsp;playerID - If this variable is set, then we want to look at a single
- *   member's league results.<br>
- * &nbsp;&nbsp;league - The league number we're trying to modify.<br>
- * &nbsp;&nbsp;NewPlayer - This will be populated when we enter New Player Mode.<br>
+ * This file includes:
+ * funcs.inc:
+ * - Used for the config.inc include
+ * - printMemberString()
+ * - displayError()
+ * - selectMember()
+ * - selectLeagueMember()
+ * 
+ * Possible Arguments:
+ * SESSION:
+ * - ID - This is the memberID of the active user, for use in recording the
+ *   submitter of a given league result.
+ * 
+ * POST:
+ * - league - This is the leagueID for the league we should be reporting 
+ *   matches for.
+ * - BOMB - If this variable is set, it means we need to delete the last
+ *   league result.
+ * - sqlid - This variable stores the ID of the league results being
+ *   "set up the bomb".
+ * - oldDCL - This variable is used when reverting results with the bomb.
+ * - submit - When this variable has any value, we need to do some work reporting
+ *   a match.
+ * - winner - This will hold the memberID of the winner of the match.
+ * - loser - This will hold the memberID of the loser of the match.
+ * - points - This variable is used to track point spreads in board game leagues.
+ * - game - If set, this will hold the name of the game played in board game league.
+ * 
+ * GET:
+ * - playerID - If this variable is set, then we want to look at a single
+ *   member's league results.
+ * - league - The league number we're trying to modify.
+ * - NewPlayer - This will be populated when we enter New Player Mode.
  * 
  * @link http://www.worldsapartgames.org/fc/league.php @endlink
  * 

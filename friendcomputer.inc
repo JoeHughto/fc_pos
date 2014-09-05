@@ -3,9 +3,9 @@
  * @file friendcomputer.inc
  * @brief friendcomputer.inc provides an API for displaying an information box.
  * 
- * This file includes:<br>
- * funcs.inc:<br>
- * &nbsp;&nbsp;determineCurrentShift()<br>
+ * This file includes:
+ * funcs.inc:
+ * - determineCurrentShift()
  * 
  * @link http://www.worldsapartgames.org/fc/index.php @endlink
  * 

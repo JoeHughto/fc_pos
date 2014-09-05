@@ -3,17 +3,18 @@
  * @file bounties.php
  * @brief bounties.php is a page for posting and claiming Hedon Bounties
  *
- * This file includes:<br>
- * funcs.inc:<br>
- * &nbsp;&nbsp;Used for the config.inc include<br>
- * &nbsp;&nbsp;displayError()<br>
- * credits.inc:<br>
- * &nbsp;&nbsp;displayAllBounties()<br>
- * &nbsp;&nbsp;claimBounty()<br>
- * <br>
- * Possible Arguments:<br>
- * POST:<br>
- * &nbsp;&nbsp;submit - Indicates a button was pushed, and which one.<br>
+ * This file includes:
+ * funcs.inc:
+ * - Used for the config.inc include
+ * - displayError()
+ * 
+ * credits.inc:
+ * - displayAllBounties()
+ * - claimBounty()
+ * 
+ * Possible Arguments:
+ * POST:
+ * - submit - Indicates a button was pushed, and which one.
  * 
  * @link http://www.worldsapartgames.org/fc/bounties.php @endlink
  *

@@ -4,24 +4,26 @@
  * @brief mandepinv.php allows the addition of new manufacturers and departments,
  *   as well as showing the first 10 items with no manufacturer or department.
  * 
- * This file includes:<br>
- * funcs.inc:<br>
- * &nbsp;&nbsp;Used for the config.inc include<br>
- * &nbsp;&nbsp;checkName()<br>
- * inventory.inc:<br>
- * &nbsp;&nbsp;displayDepartmentList()<br>
- * &nbsp;&nbsp;displayManufacturerList()<br>
- * <br>
- * Possible Arguments:<br>
- * SESSION:<br>
- * &nbsp;&nbsp;inv - Used to determine whether the active user has inventory
- *   privs.<br>
- * POST:<br>
- * &nbsp;&nbsp;submit - If submit is initialized, we have work to do.<br>
- * &nbsp;&nbsp;manufacturer[] - Array of all Manufacturers.<br>
- * &nbsp;&nbsp;department[] - Array of all Departments.<br>
- * &nbsp;&nbsp;newDept[] - Array of to-be-added Departments.<br>
- * &nbsp;&nbsp;newMan[] - Array of to-be-added Manufacturers.<br>
+ * This file includes:
+ * funcs.inc:
+ * - Used for the config.inc include
+ * - checkName()
+ * 
+ * inventory.inc:
+ * - displayDepartmentList()
+ * - displayManufacturerList()
+ * 
+ * Possible Arguments:
+ * SESSION:
+ * - inv - Used to determine whether the active user has inventory
+ *   privs.
+ * 
+ * POST:
+ * - submit - If submit is initialized, we have work to do.
+ * - manufacturer[ ] - Array of all Manufacturers.
+ * - department[ ] - Array of all Departments.
+ * - newDept[ ] - Array of to-be-added Departments.
+ * - newMan[ ] - Array of to-be-added Manufacturers.
  * 
  * @link http://www.worldsapartgames.org/fc/mandepinv.php @endlink
  * 

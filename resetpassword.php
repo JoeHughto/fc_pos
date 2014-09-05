@@ -5,23 +5,24 @@
  * 
  * It requires a hashcode that is randomly generated when a user reports that 
  *   they've lost their password. That hashcode can only be found in the email 
- *   FriendComputer sends the member.<br>
- * <br>
- * This file includes:<br>
- * config.inc:<br>
- * &nbsp;&nbsp;Access to the db.<br>
- * <br>
- * Possible Arguments:<br>
- * POST:<br>
- * &nbsp;&nbsp;submit - Indicates the submit button was pushed, and we have work to do.<br>
- * &nbsp;&nbsp;hashcode - A pseudorandom hashcode which links a user to an email address,
- *   confirming their identity so we can let them reset their password.<br>
- * &nbsp;&nbsp;newpass - The desired new password.<br>
- * &nbsp;&nbsp;newpassconfirm - A copy of the new password, to make sure it's right.<br>
- * GET:<br>
- * &nbsp;&nbsp;reset - This is a hashcode, which will populate the hashcode textbox if
+ *   FriendComputer sends the member.
+ * 
+ * This file includes:
+ * config.inc:
+ * - Access to the db.
+ * 
+ * Possible Arguments:
+ * POST:
+ * - submit - Indicates the submit button was pushed, and we have work to do.
+ * - hashcode - A pseudorandom hashcode which links a user to an email address,
+ *   confirming their identity so we can let them reset their password.
+ * - newpass - The desired new password.
+ * - newpassconfirm - A copy of the new password, to make sure it's right.
+ * 
+ * GET:
+ * - reset - This is a hashcode, which will populate the hashcode textbox if
  *   initialized. This allows us to link users to the reset password page,
- *   and autofill the hard part, right from their reset email.<br>
+ *   and autofill the hard part, right from their reset email.
  * 
  * @link http://www.worldsapartgames.org/fc/resetpassword.php @endlink
  * 

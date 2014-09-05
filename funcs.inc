@@ -3,7 +3,7 @@
  * @file funcs.inc
  * @brief funcs.inc is the main function library of FriendComputer
  * 
- * This file includes:<br>
+ * This file includes:
  * @todo Document funcs.inc's includes, definitely config.inc, but also
  *   anything else.
  * 
@@ -1002,10 +1002,11 @@ function moneyND($float)
  *   member's name, formatted as indicated by the formatting code.
  * 
  * Formatting Codes:
- * 1: fname lname
- * 2: lname, fname
- * 3: fname
- * 4: lname, F
+ * - 1 - fname lname (memID)
+ * - 2 - lname, fname (memID)
+ * - 3 - fname
+ * - 4 - lname, F (memID)
+ * - 5 - fname, lname
  * 
  * @param int $num   is the selected member's ID
  * @param int $order is the formatting code, determining how to format
@@ -1024,14 +1025,25 @@ function printMember($num, $order)
     extract($row);
     switch($order)
     {
-    case 1: echo "$fname $lname ($num)";
+    case 1: 
+        echo "$fname $lname ($num)";
         break;
-    case 2: echo "$lname, $fname ($num)";
-        break;
-    case 3: echo "$fname";
-        break;
-    case 4: $fname = substr($fname, 0, 1);
+    case 2: 
         echo "$lname, $fname ($num)";
+        break;
+    case 3: 
+        echo "$fname";
+        break;
+    case 4: 
+        $fname = substr($fname, 0, 1);
+        echo "$lname, $fname ($num)";
+        break;
+    case 5: 
+        echo "$fname $lname";
+        break;
+    default:
+        echo "Invalid Display Type Requested";
+        return false;
         break;
     }
     return true;
@@ -1042,10 +1054,11 @@ function printMember($num, $order)
  *   member's name, as a string, formatted as indicated by the formatting code.
  * 
  * Formatting Codes:
- * 1: fname lname
- * 2: lname, fname
- * 3: fname
- * 4: lname, F
+ * - 1 - fname lname (memID)
+ * - 2 - lname, fname (memID)
+ * - 3 - fname
+ * - 4 - lname, F (memID)
+ * - 5 - fname, lname
  * 
  * @param int $num   is the selected member's ID
  * @param int $order is the formatting code, determining how to format

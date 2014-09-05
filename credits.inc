@@ -3,12 +3,12 @@
  * @file credits.inc
  * @brief credits.inc provides an API for interacting with member's hedons.
  * 
- * This file includes:<br>
- * funcs.inc:<br>
- * &nbsp;&nbsp;Used for the config.inc include<br>
- * &nbsp;&nbsp;printMember()<br>
- * &nbsp;&nbsp;displayError()<br>
- * &nbsp;&nbsp;printMemberString()<br>
+ * This file includes:
+ * funcs.inc:
+ * - Used for the config.inc include
+ * - printMember()
+ * - displayError()
+ * - printMemberString()
  * 
  * @link http://www.worldsapartgames.org/fc/index.php @endlink
  * 

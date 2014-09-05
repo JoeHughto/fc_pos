@@ -17,12 +17,12 @@
    $result = query($cxn, $sql);
    echo "<form method='get'><input type='text' name='search' value='".$_GET['search']."'><input type='submit' value='Member Search'></form>";
    printPaginator($page);
-   //echo "<a href='showmembers.php?sort=num'>Sort by member number</a><br>";
+   //echo "<a href='showmembers.php?sort=num'>Sort by member number</a>";
    echo "<table cellpadding=3 border><tr><td>Name</td><td>Login</td>";
    if($_SESSION['reg'] == 1) echo "<td>Phone</td>";
    if($_SESSION['mem'] == 1) echo "<td>Credits</td><td>Account</td><td>FG Disc</td>";
    echo "<td>Member?</td><td>Reg?</td><td>Inv?</td><td>Start</td>";
-   if($_SESSION['adm'] == 1) echo "<td>Active<br>Bio</td>";
+   if($_SESSION['adm'] == 1) echo "<td>ActiveBio</td>";
    echo "</tr>";
    while($row = mysqli_fetch_assoc($result))
    {
@@ -94,7 +94,7 @@ function printPaginator($page = 1)
     {
         echo "&search=".$_GET['search'];
     }
-    echo "'>Next</a><br>";
+    echo "'>Next</a>";
 }
 
 ?>

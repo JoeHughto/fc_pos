@@ -3,16 +3,18 @@
  * @file salesbox.inc
  * @brief salesbox.inc prints the quicksale boxes in the register.php page
  * 
- * It uses functions that were included in register.php<br>
- * <br>
- * This file uses, but does not include:<br>
- * funcs.inc:<br>
- * &nbsp;&nbsp;selectMember()<br>
- * giftcert.inc:<br>
- * &nbsp;&nbsp;GiftCert::displaySelectForm()<br>
- * &nbsp;&nbsp;GiftCert::displayForm()<br>
- * credits.inc:<br>
- * &nbsp;&nbsp;CreditSpending::displayCheckBoxes()<br>
+ * It uses functions that were included in register.php
+ * 
+ * This file uses, but does not include:
+ * funcs.inc:
+ * - selectMember()
+ * 
+ * giftcert.inc:
+ * - GiftCert::displaySelectForm()
+ * - GiftCert::displayForm()
+ * 
+ * credits.inc:
+ * - CreditSpending::displayCheckBoxes()
  * 
  * @link http://www.worldsapartgames.org/fc/register.php @endlink
  * 

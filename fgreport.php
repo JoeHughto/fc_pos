@@ -3,16 +3,17 @@
  * @file fgreport.php
  * @brief fgreport.php is a page displaying our highest ranked Frequent Gamers.
  * 
- * This file includes:<br>
- * funcs.inc:<br>
- * &nbsp;&nbsp;Used for the config.inc include<br>
- * &nbsp;&nbsp;printMemberString()<br>
- * member.inc:<br>
- * &nbsp;&nbsp;taxExempt()<br>
- * &nbsp;&nbsp;memberSalesThisMonth()<br>
- * &nbsp;&nbsp;memberSalesLastMonth()<br>
- * &nbsp;&nbsp;FG_discount()<br>
- * &nbsp;&nbsp;FG_discountNow()<br>
+ * This file includes:
+ * funcs.inc:
+ * - Used for the config.inc include
+ * - printMemberString()
+ * 
+ * member.inc:
+ * - taxExempt()
+ * - memberSalesThisMonth()
+ * - memberSalesLastMonth()
+ * - FG_discount()
+ * - FG_discountNow()
  * 
  * @link http://www.worldsapartgames.org/fc/fgreport.php @endlink
  * 

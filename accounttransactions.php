@@ -3,22 +3,22 @@
  * @file accounttransactions.php
  * @brief accounttransactions.php shows users their ledger of store credit transactions.
  * 
- * This file includes:<br>
- * funcs.inc:<br>
- * &nbsp;&nbsp;checkDateNum()<br>
- * &nbsp;&nbsp;displayRefs()<br>
- * &nbsp;&nbsp;getAccountBalance()<br>
- * &nbsp;&nbsp;getAvailBalance()<br>
- * &nbsp;&nbsp;displayAccount()<br>
- * <br>
- * Possible Arguments:<br>
- * GET:<br>
- * &nbsp;&nbsp;ID - If an ID is specified, the page will display that member's
- *   store credit ledger, not the active user's.<br>
- * &nbsp;&nbsp;qty - If a qty is specified, only the most block of that many 
- *   transactions will be shown.<br>
- * &nbsp;&nbsp;start - If a date is specified, only transactions and referals after that
- *   date will be included in the list.<br>
+ * This file includes:
+ * funcs.inc:
+ * - checkDateNum()
+ * - displayRefs()
+ * - getAccountBalance()
+ * - getAvailBalance()
+ * - displayAccount()
+ * 
+ * Possible Arguments:
+ * GET:
+ * - ID - If an ID is specified, the page will display that member's
+ *   store credit ledger, not the active user's.
+ * - qty - If a qty is specified, only the most block of that many 
+ *   transactions will be shown.
+ * - start - If a date is specified, only transactions and referals after that
+ *   date will be included in the list.
  * 
  * @link http://www.worldsapartgames.org/fc/accounttransactions.php @endlink
  * 

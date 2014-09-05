@@ -3,31 +3,35 @@
  * @file inventoryreport.php
  * @brief inventoryreport.php is a page for reporting on the state of inventory.
  *
- * This file includes:<br>
- * funcs.inc:<br>
- * &nbsp;&nbsp;Used for the config.inc include<br>
- * &nbsp;&nbsp;displayErrorDie()<br>
- * &nbsp;&nbsp;money()<br>
- * <br>
- * Possible Arguments:<br>
- * SESSION:<br>
- * &nbsp;&nbsp;ID - The ID of the active user, required for appending to
- *   some queries.<br>
- * &nbsp;&nbsp;inv - Used to determine whether the active user has inventory
- *   privs.<br>
- * POST:<br>
- * &nbsp;&nbsp;change - This value will be set to 1 when we need to do work.<br>
- * &nbsp;&nbsp;boardcard - If this value is set, it will set GET['boardcard'] to
+ * @todo This page fails silently on submit. Look into that.
+ * 
+ * This file includes:
+ * funcs.inc:
+ * - Used for the config.inc include
+ * - displayErrorDie()
+ * - money()
+ * 
+ * Possible Arguments:
+ * SESSION:
+ * - ID - The ID of the active user, required for appending to
+ *   some queries.
+ * - inv - Used to determine whether the active user has inventory
+ *   privs.
+ * 
+ * POST:
+ * - change - This value will be set to 1 when we need to do work.
+ * - boardcard - If this value is set, it will set GET['boardcard'] to
  *   the same value, which will restrict the items shown to only board
- *   games and card games.<br>
- * &nbsp;&nbsp;qty - Array of itemIDs and quantities for each. This array will update
- *   all given items to the new quantities.<br>
- * GET:<br>
- * &nbsp;&nbsp;boardcard - If this variable is set, it will restrict the items shown to 
- *   only board games and card games.<br>
- * &nbsp;&nbsp;noblank - If this variable is set, it will restrict the items shown to 
- *   only those with >0 quantity.<br>
- * &nbsp;&nbsp;sort - The name of the department the active user wants to sort by.<br>
+ *   games and card games.
+ * - qty - Array of itemIDs and quantities for each. This array will update
+ *   all given items to the new quantities.
+ * 
+ * GET:
+ * - boardcard - If this variable is set, it will restrict the items shown to 
+ *   only board games and card games.
+ * - noblank - If this variable is set, it will restrict the items shown to 
+ *   only those with >0 quantity.
+ * - sort - The name of the department the active user wants to sort by.
  * 
  * @link http://www.worldsapartgames.org/fc/inventoryreport.php @endlink
  * 

@@ -3,16 +3,16 @@
  * @file calculator.php
  * @brief calculator.php is a page that calculates percentage discounts as needed.
  * 
- * This file includes:<br>
- * Nothing!<br>
- * <br>
- * Possible Arguments:<br>
- * POST:<br>
- * &nbsp;&nbsp;submit - When this variable = 'Submit', the button has been pressed, so
- *   we should attend to the data, and ship some store credit.<br>
- * &nbsp;&nbsp;base - This is the original price of the item/order that we're trying
- *   to discount.<br>
- * &nbsp;&nbsp;target - This is the price we want to discount the item/order to.<br>
+ * This file includes:
+ * Nothing!
+ * 
+ * Possible Arguments:
+ * POST:
+ * - submit - When this variable = 'Submit', the button has been pressed, so
+ *   we should attend to the data, and ship some store credit.
+ * - base - This is the original price of the item/order that we're trying
+ *   to discount.
+ * - target - This is the price we want to discount the item/order to.
  * 
  * @link http://www.worldsapartgames.org/fc/calculator.php @endlink
  *

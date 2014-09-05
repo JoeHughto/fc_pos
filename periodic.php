@@ -5,31 +5,34 @@
  *
  * Currently, it gives $15, $10, and $5 credits to the highest raking frequent
  *   gamers, grants officers their monthly 15 hedons & $20 store credit, and
- *   gives Michael $50 store credit.<br>
- * <br>
- * This file includes:<br>
- * funcs.inc:<br>
- * &nbsp;&nbsp;Used for the config.inc include<br>
- * &nbsp;&nbsp;printMemberString()<br>
- * &nbsp;&nbsp;accountTransact()<br>
- * &nbsp;&nbsp;displayError()<br>
- * &nbsp;&nbsp;printMemberString()<br>
- * member.inc:<br>
- * &nbsp;&nbsp;taxExempt()<br>
- * &nbsp;&nbsp;memberSalesLastMonth()<br>
- * &nbsp;&nbsp;getMemberEmail()<br>
- * credits.inc:<br>
- * &nbsp;&nbsp;transferCredits()<br>
- * <br>
- * Possible Arguments:<br>
- * SESSION:<br>
- * &nbsp;&nbsp;adm - Used to determine whether the active user has admin
- *   privs.<br>
- * &nbsp;&nbsp;ID - The ID of the active user, required for appending to
- *   some queries.<br>
- * POST:<br>
- * &nbsp;&nbsp;monthly - If monthly is set to 1, we do some work, 
- *   running the monthly script.<br>
+ *   gives Michael $50 store credit.
+ * 
+ * This file includes:
+ * funcs.inc:
+ * - Used for the config.inc include
+ * - printMemberString()
+ * - accountTransact()
+ * - displayError()
+ * - printMemberString()
+ * 
+ * member.inc:
+ * - taxExempt()
+ * - memberSalesLastMonth()
+ * - getMemberEmail()
+ * 
+ * credits.inc:
+ * - transferCredits()
+ * 
+ * Possible Arguments:
+ * SESSION:
+ * - adm - Used to determine whether the active user has admin
+ *   privs.
+ * - ID - The ID of the active user, required for appending to
+ *   some queries.
+ * 
+ * POST:
+ * - monthly - If monthly is set to 1, we do some work, 
+ *   running the monthly script.
  * 
  * @link http://www.worldsapartgames.org/fc/periodic.php @endlink
  * 

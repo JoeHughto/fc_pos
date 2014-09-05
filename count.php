@@ -4,30 +4,32 @@
  * @brief count.php is used to track how much cash is in the register, in order
  *   to prevent loss due to volunteer mistakes or theft.
  *
- * This file includes:<br>
- * funcs.inc:<br>
- * &nbsp;&nbsp;Used for the config.inc include<br>
- * &nbsp;&nbsp;printMemberString()<br>
- * &nbsp;&nbsp;printMember()<br>
- * friendcomputer.inc:<br>
- * &nbsp;&nbsp;fcMessage()<br>
- * <br>
- * Possible Arguments:<br>
- * SESSION:<br>
- * &nbsp;&nbsp;ID - Used to track the volunteer who is doing the count.<br>
- * &nbsp;&nbsp;adm - Used to determine whether the current user has admin<br>
+ * This file includes:
+ * funcs.inc:
+ * - Used for the config.inc include
+ * - printMemberString()
+ * - printMember()
+ * 
+ * friendcomputer.inc:
+ * - fcMessage()
+ * 
+ * Possible Arguments:
+ * SESSION:
+ * - ID - Used to track the volunteer who is doing the count.
+ * - adm - Used to determine whether the current user has admin
  *   privledges. Any user with these will see the ledger for
- *   cash counts and deposits.<br>
- * &nbsp;&nbsp;mem - Used to determine whether the current user has membership
+ *   cash counts and deposits.
+ * - mem - Used to determine whether the current user has membership
  *   coordinator privledges. Any user with these will see the ledger for
- *   cash counts and deposits.<br>
- * POST:<br>
- * &nbsp;&nbsp;bill - A key=>value array of "bill value"=>"bill quantity"<br>
- * &nbsp;&nbsp;coin - A key=>value array of "coin value * 100"=>"coin quantity"<br>
- * &nbsp;&nbsp;count - Total of all money included in the current count.<br>
- * &nbsp;&nbsp;deposit - Total of the current deposit.<br>
- * &nbsp;&nbsp;confirmed - Cash counts require_once confirmation to add to the database.
- *   This variable allows us to check for that confirmation.<br>
+ *   cash counts and deposits.
+ * 
+ * POST:
+ * - bill - A key=>value array of "bill value"=>"bill quantity"
+ * - coin - A key=>value array of "coin value * 100"=>"coin quantity"
+ * - count - Total of all money included in the current count.
+ * - deposit - Total of the current deposit.
+ * - confirmed - Cash counts require_once confirmation to add to the database.
+ *   This variable allows us to check for that confirmation.
  * 
  * @link http://www.worldsapartgames.org/fc/changeprice.php @endlink
  * 

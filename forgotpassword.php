@@ -4,14 +4,15 @@
  * @brief forgotpassword.php is a page designed to allow members to reset their
  *   passwords easily via email.
  * 
- * This file includes:<br>
- * config.inc:<br>
- * &nbsp;&nbsp;MySQL Bindings<br>
- * &nbsp;&nbsp;displayError()<br>
- * Reimplements:<br>
- * &nbsp;&nbsp;funcs.query()<br>
- * &nbsp;&nbsp;funcs.printMemberString()<br>
- * &nbsp;&nbsp;funcs.check_email_address()<br>
+ * This file includes:
+ * config.inc:
+ * - MySQL Bindings
+ * - displayError()
+ * 
+ * Reimplements:
+ * - funcs.query()
+ * - funcs.printMemberString()
+ * - funcs.check_email_address()
  * 
  * @link http://www.worldsapartgames.org/fc/forgotpassword.php @endlink
  * 

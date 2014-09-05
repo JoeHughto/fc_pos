@@ -4,63 +4,68 @@
  * @brief index.php is the master page, presenting members with some easy info
  *   and tools, as well as links to other helpful features of FriendComputer.
  * 
- * This file includes:<br>
- * funcs.inc:<br>
- * &nbsp;&nbsp;Used for the config.inc include<br>
- * &nbsp;&nbsp;determineCurrentShift()<br>
- * &nbsp;&nbsp;getAvailBalance()<br>
- * &nbsp;&nbsp;accountTransact()<br>
- * &nbsp;&nbsp;money()<br>
- * &nbsp;&nbsp;printMemberString()<br>
- * &nbsp;&nbsp;check_email_address()<br>
- * &nbsp;&nbsp;selectMember()<br>
- * &nbsp;&nbsp;dayToNum()<br>
- * &nbsp;&nbsp;lateReg()<br>
- * &nbsp;&nbsp;getAccountBalance()<br>
- * &nbsp;&nbsp;getAccountPacks()<br>
- * friendcomputer.inc:<br>
- * &nbsp;&nbsp;fcMessage()<br>
- * member.inc:<br>
- * &nbsp;&nbsp;peopleReferred()<br>
- * &nbsp;&nbsp;FG_showInfoNoSale()<br>
- * credits.inc:<br>
- * &nbsp;&nbsp;requestCredits()<br>
- * &nbsp;&nbsp;transferCredits()<br>
- * &nbsp;&nbsp;getCreditTotal()<br>
- * &nbsp;&nbsp;displayHedonRequests()<br>
- * &nbsp;&nbsp;displayMembershipStatus()<br>
- * <br>
- * Possible Arguments:<br>
- * SESSION:<br>
- * &nbsp;&nbsp;ID - Several features require the active user's member ID to process.<br>
- * &nbsp;&nbsp;mem - Used to determine whether the current user has membership
- *   coordinator privledges.<br>
- * &nbsp;&nbsp;reg - Used to determine whether the current user has register
- *   privledges.<br>
- * POST:<br>
- * &nbsp;&nbsp;submit - When this variable is filled, we need to do work.
- *   &nbsp;&nbsp;&nbsp;&nbsp;The values this variable can have are:<br>
- *   &nbsp;&nbsp;&nbsp;&nbsp;'submit request',<br>
- *   &nbsp;&nbsp;&nbsp;&nbsp;'submit email',<br>
- *   &nbsp;&nbsp;&nbsp;&nbsp;'submit transfer'.<br>
- * &nbsp;&nbsp;hedonAmount - Used with a submit request to request a number of hedons.<br>
- * &nbsp;&nbsp;hedonNote -  Used with submit request to annotate a request.<br>
- * &nbsp;&nbsp;trashbutton - If this variable is filled, it means we need to give hedons.<br>
- * &nbsp;&nbsp;bottlebutton - If this variable is filled, it means we need to give hedons.<br>
- * &nbsp;&nbsp;paperbutton - If this variable is filled, it means we need to give hedons.<br>
- * &nbsp;&nbsp;humidifier - If this variable is filled, it means we need to give hedons.<br>
- * &nbsp;&nbsp;smallthing - If this variable is filled, it means we need to give hedons.<br>
- * &nbsp;&nbsp;account_submit - This is a submit button that should be merged into "submit".<br>
- * &nbsp;&nbsp;account_recip - The ID of the member you're transferring store credit to.<br>
- * &nbsp;&nbsp;account_amount - The amount of store credit you want to transfer.<br>
- * &nbsp;&nbsp;removeEmail - This variable is an email that should be removed from FC.<br>
- * &nbsp;&nbsp;credMem - This is the ID of the member you're transferring Hedons to.<br>
- * &nbsp;&nbsp;credAmount - This is the number of Hedons you're transferring.<br>
- * &nbsp;&nbsp;credNote - This is a note, for giving a reason for the transfer.<br>
- * &nbsp;&nbsp;credReason - This is an integer Reason Code, as defined in credits.inc<br>
- * &nbsp;&nbsp;checkin - This variable will be filled if active user is trying to check in.<br>
- * GET:<br>
- * &nbsp;&nbsp;logout - This variable will be filled if active user is trying to logout.<br>
+ * This file includes:
+ * funcs.inc:
+ * - Used for the config.inc include
+ * - determineCurrentShift()
+ * - getAvailBalance()
+ * - accountTransact()
+ * - money()
+ * - printMemberString()
+ * - check_email_address()
+ * - selectMember()
+ * - dayToNum()
+ * - lateReg()
+ * - getAccountBalance()
+ * - getAccountPacks()
+ * 
+ * friendcomputer.inc:
+ * - fcMessage()
+ * 
+ * member.inc:
+ * - peopleReferred()
+ * - FG_showInfoNoSale()
+ * 
+ * credits.inc:
+ * - requestCredits()
+ * - transferCredits()
+ * - getCreditTotal()
+ * - displayHedonRequests()
+ * - displayMembershipStatus()
+ * 
+ * Possible Arguments:
+ * SESSION:
+ * - ID - Several features require the active user's member ID to process.
+ * - mem - Used to determine whether the current user has membership
+ *   coordinator privledges.
+ * - reg - Used to determine whether the current user has register
+ *   privledges.
+ * 
+ * POST:
+ * - submit - When this variable is filled, we need to do work.
+ *     - The values this variable can have are:
+ *     - 'submit request',
+ *     - 'submit email',
+ *     - 'submit transfer'.
+ * - hedonAmount - Used with a submit request to request a number of hedons.
+ * - hedonNote -  Used with submit request to annotate a request.
+ * - trashbutton - If this variable is filled, it means we need to give hedons.
+ * - bottlebutton - If this variable is filled, it means we need to give hedons.
+ * - paperbutton - If this variable is filled, it means we need to give hedons.
+ * - humidifier - If this variable is filled, it means we need to give hedons.
+ * - smallthing - If this variable is filled, it means we need to give hedons.
+ * - account_submit - This is a submit button that should be merged into "submit".
+ * - account_recip - The ID of the member you're transferring store credit to.
+ * - account_amount - The amount of store credit you want to transfer.
+ * - removeEmail - This variable is an email that should be removed from FC.
+ * - credMem - This is the ID of the member you're transferring Hedons to.
+ * - credAmount - This is the number of Hedons you're transferring.
+ * - credNote - This is a note, for giving a reason for the transfer.
+ * - credReason - This is an integer Reason Code, as defined in credits.inc
+ * - checkin - This variable will be filled if active user is trying to check in.
+ * 
+ * GET:
+ * - logout - This variable will be filled if active user is trying to logout.
  * 
  * @link http://www.worldsapartgames.org/fc/index.php @endlink
  * 
@@ -86,7 +91,7 @@ if ($_POST['submit'] == 'submit request') {
 
     // process credit transactions if appropriate
     if ($hedonAmount > 0) {
-        $message .= "Requesting Hedons...<br>";
+        $message .= "Requesting Hedons...";
 
         $hedonNote = strip_tags($hedonNote);
         if (requestCredits($_SESSION['ID'], $hedonAmount, $hedonNote)) {

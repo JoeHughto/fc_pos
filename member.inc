@@ -4,8 +4,8 @@
  * @brief member.inc is a library containing most membership and frequent gamer
  *   functions.
  * 
- * This file includes:<br>
- * Nothing!<br>
+ * This file includes:
+ * Nothing!
  * 
  * @link http://www.worldsapartgames.org/fc/index.php @endlink
  * 

@@ -4,27 +4,28 @@
  * @brief buycards.php is used to give account balance to members who sell cards
  *   to the store for store credit.
  * 
- * This file includes:<br>
- * funcs.inc:<br>
- * &nbsp;&nbsp;Used for the config.inc include<br>
- * &nbsp;&nbsp;displayErrorDie()<br>
- * &nbsp;&nbsp;accountTransact()<br>
- * &nbsp;&nbsp;printMember()<br>
- * &nbsp;&nbsp;getAccountBalance()<br>
- * &nbsp;&nbsp;getAvailBalance()<br>
- * &nbsp;&nbsp;selectMember()<br>
- * <br>
- * Possible Arguments:<br>
- * SESSION:<br>
- * &nbsp;&nbsp;ID - Used to add the volunteer's ID to the transaction, as the member who
- *   authorized the transaction.<br>
- * POST:<br>
- * &nbsp;&nbsp;submit - When this variable = 'Submit', the button has been pressed, so
- *   we should attend to the data, and ship some store credit.<br>
- * &nbsp;&nbsp;member - The integer Member ID number, to whose account store credit
- *   should be applied.<br>
- * &nbsp;&nbsp;price - The amount of money that should be deducted from card sales,
- *   and put into the account of the member selling the cards to the store.<br>
+ * This file includes:
+ * funcs.inc:
+ * - Used for the config.inc include
+ * - displayErrorDie()
+ * - accountTransact()
+ * - printMember()
+ * - getAccountBalance()
+ * - getAvailBalance()
+ * - selectMember()
+ * 
+ * Possible Arguments:
+ * SESSION:
+ * - ID - Used to add the volunteer's ID to the transaction, as the member who
+ *   authorized the transaction.
+ * 
+ * POST:
+ * - submit - When this variable = 'Submit', the button has been pressed, so
+ *   we should attend to the data, and ship some store credit.
+ * - member - The integer Member ID number, to whose account store credit
+ *   should be applied.
+ * - price - The amount of money that should be deducted from card sales,
+ *   and put into the account of the member selling the cards to the store.
  *
  * @link http://www.worldsapartgames.org/fc/buycards.php @endlink
  * 

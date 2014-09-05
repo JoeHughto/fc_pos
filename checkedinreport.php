@@ -4,25 +4,25 @@
  * @brief checkedinreport.php is used to provide a view on the state of staffing
  *   over a given period.
  * 
- * This file includes:<br>
- * funcs.inc:<br>
- * &nbsp;&nbsp;Used for the config.inc include<br>
- * &nbsp;&nbsp;checkDateNum()<br>
- * &nbsp;&nbsp;selectInputDate()<br>
- * &nbsp;&nbsp;printMemberString()<br>
- * <br>
- * Possible Arguments:<br>
- * GET:<br>
- * &nbsp;&nbsp;startmonth - The month the report should start during.<br>
- * &nbsp;&nbsp; startday - The day the report should start on.<br>
- * &nbsp;&nbsp;startyear - The year the report should start during.<br>
- * &nbsp;&nbsp;start - Composite report start date, potentially built at runtime
- *   by combining its components.<br>
- * &nbsp;&nbsp;endmonth - The month the report should end during.<br>
- * &nbsp;&nbsp;endday - The day the report should end on.<br>
- * &nbsp;&nbsp;endyear - The year the report should end during.<br>
- * &nbsp;&nbsp;end - Composite report end date, potentially built at runtime
- *   by combining its components.<br>
+ * This file includes:
+ * funcs.inc:
+ * - Used for the config.inc include
+ * - checkDateNum()
+ * - selectInputDate()
+ * - printMemberString()
+ * 
+ * Possible Arguments:
+ * GET:
+ * - startmonth - The month the report should start during.
+ * - startday - The day the report should start on.
+ * - startyear - The year the report should start during.
+ * - start - Composite report start date, potentially built at runtime
+ *   by combining its components.
+ * - endmonth - The month the report should end during.
+ * - endday - The day the report should end on.
+ * - endyear - The year the report should end during.
+ * - end - Composite report end date, potentially built at runtime
+ *   by combining its components.
  * 
  * @link http://www.worldsapartgames.org/fc/checkedinreport.php @endlink
  * 

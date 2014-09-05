@@ -6,8 +6,8 @@
  * 
  * @todo This file uses config.inc, but doesn't import anything.
  * 
- * This file includes:<br>
- * Nothing!<br>
+ * This file includes:
+ * Nothing!
  * 
  * @link http://www.worldsapartgames.org/fc/index.php @endlink
  * 

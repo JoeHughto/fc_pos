@@ -4,23 +4,25 @@
  * @brief credittransactions.php is a page used to check on a given member's
  *   Hedon transactions.
  * 
- * This file includes:<br>
- * funcs.inc:<br>
- * &nbsp;&nbsp;Used for the config.inc include<br>
- * &nbsp;&nbsp;printMemberString()<br>
- * credits.inc:<br>
- * &nbsp;&nbsp;getCreditTotal()<br>
- * &nbsp;&nbsp;displayCreditTransactions()<br>
- * <br>
- * Possible Arguments:<br>
- * SESSION:<br>
- * &nbsp;&nbsp; mem - Used to determine whether the current user has membership
- *   coordinator privledges.<br>
- * &nbsp;&nbsp;ID - Used to show the current user their own Hedon transactions.<br>
- * GET:<br>
- * &nbsp;&nbsp;ID - If mem is set, ID may be sent as a GET variable to show any other
- *   member's ledger, otherwise the active user's account will be shown.<br>
- * &nbsp;&nbsp;qty - Number of records to display, or 'ALL' to display all records.<br>
+ * This file includes:
+ * funcs.inc:
+ * - Used for the config.inc include
+ * - printMemberString()
+ * 
+ * credits.inc:
+ * - getCreditTotal()
+ * - displayCreditTransactions()
+ * 
+ * Possible Arguments:
+ * SESSION:
+ * -  mem - Used to determine whether the current user has membership
+ *   coordinator privledges.
+ * - ID - Used to show the current user their own Hedon transactions.
+ * 
+ * GET:
+ * - ID - If mem is set, ID may be sent as a GET variable to show any other
+ *   member's ledger, otherwise the active user's account will be shown.
+ * - qty - Number of records to display, or 'ALL' to display all records.
  * 
  * @link http://www.worldsapartgames.org/fc/credittransactions.php @endlink
  * 

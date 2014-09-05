@@ -3,18 +3,19 @@
  * @file cashspend.php
  * @brief cashspend.php is used to track the removal of cash from the register.
  * 
- * This file includes:<br>
- * funcs.inc:<br>
- * &nbsp;&nbsp;Used for the config.inc include<br>
- * &nbsp;&nbsp;printMemberString()<br>
- * <br>
- * Possible Arguments:<br>
- * SESSION:<br>
- * &nbsp;&nbsp;ID - Used to add the volunteer's ID to the transaction, as the member who
- *   authorized the transaction.<br>
- * POST:<br>
- * &nbsp;&nbsp;amount - The total amount that was taken from the register.<br>
- * &nbsp;&nbsp;reason - An explanation for why that money was taken.<br>
+ * This file includes:
+ * funcs.inc:
+ * - Used for the config.inc include
+ * - printMemberString()
+ * 
+ * Possible Arguments:
+ * SESSION:
+ * - ID - Used to add the volunteer's ID to the transaction, as the member who
+ *   authorized the transaction.
+ * 
+ * POST:
+ * - amount - The total amount that was taken from the register.
+ * - reason - An explanation for why that money was taken.
  * 
  * @link http://www.worldsapartgames.org/fc/cashspend.php @endlink
  * 

@@ -4,11 +4,11 @@
  * @brief salesbymonth.php shows stats for every month since we opened, 
  *   including sales, cost and profit
  * 
- * This file includes:<br>
- * funcs.inc:<br>
- * &nbsp;&nbsp;Used for the config.inc include<br>
- * &nbsp;&nbsp;lastDayOfMonth()<br>
- * &nbsp;&nbsp;money()<br>
+ * This file includes:
+ * funcs.inc:
+ * - Used for the config.inc include
+ * - lastDayOfMonth()
+ * - money()
  * 
  * @link http://www.worldsapartgames.org/fc/salesbymonth.php @endlink
  * 

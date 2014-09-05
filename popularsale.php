@@ -5,9 +5,9 @@
  *   are out of stock, and have sold in the last 3 months, and one list of items
  *   which are in stock, but haven't sold in at least 6 months.
  * 
- * This file includes:<br>
- * funcs.inc:<br>
- * &nbsp;&nbsp;Used for the config.inc include<br>
+ * This file includes:
+ * funcs.inc:
+ * - Used for the config.inc include
  * 
  * @link http://www.worldsapartgames.org/fc/popularsale.php @endlink
  * 

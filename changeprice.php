@@ -5,23 +5,25 @@
  *   items in the system. If it is not provided with some GET arguments, it
  *   does nothing.
  * 
- * This file includes:<br>
- * funcs.inc:<br>
- * &nbsp;&nbsp;Used for the config.inc include<br>
- * <br>
- * Possible Arguments:<br>
- * SESSION:<br>
- * &nbsp;&nbsp;inv - Used to determine whether the current user has inventory
- *   privledges.<br>
- * POST:<br>
- * &nbsp;&nbsp;ID - The ID of the item we're attempting to change the price of.<br>
- * &nbsp;&nbsp;price - The price we want to assign the item.<br>
- * &nbsp;&nbsp;cost - The value we want to assign to the item's cost.<br>
- * &nbsp;&nbsp;desc - This is a hidden description from the database to ensure the
- *   correct description gets included in the SQL query.<br>
- * GET:<br>
- * &nbsp;&nbsp;ID - If ID is set, the page will display the UI to change the price of
- *   the given item.<br>
+ * This file includes:
+ * funcs.inc:
+ * - Used for the config.inc include
+ * 
+ * Possible Arguments:
+ * SESSION:
+ * - inv - Used to determine whether the current user has inventory
+ *   privledges.
+ * 
+ * POST:
+ * - ID - The ID of the item we're attempting to change the price of.
+ * - price - The price we want to assign the item.
+ * - cost - The value we want to assign to the item's cost.
+ * - desc - This is a hidden description from the database to ensure the
+ *   correct description gets included in the SQL query.
+ * 
+ * GET:
+ * - ID - If ID is set, the page will display the UI to change the price of
+ *   the given item.
  * 
  * @link http://www.worldsapartgames.org/fc/changeprice.php @endlink
  * 

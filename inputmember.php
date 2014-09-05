@@ -4,55 +4,57 @@
  * @brief inputmember.php is a page for adding new members to the database, or
  *   editing existing members' accounts.
  * 
- * This file includes:<br>
- * funcs.inc:<br>
- * &nbsp;&nbsp;Used for the config.inc include<br>
- * &nbsp;&nbsp;displayErrorDie()<br>
- * &nbsp;&nbsp;checkName()<br>
- * &nbsp;&nbsp;check_email_address()<br>
- * &nbsp;&nbsp;extractNums()<br>
- * &nbsp;&nbsp;displayError()<br>
- * &nbsp;&nbsp;selectInputDate()<br>
+ * This file includes:
+ * funcs.inc:
+ * - Used for the config.inc include
+ * - displayErrorDie()
+ * - checkName()
+ * - check_email_address()
+ * - extractNums()
+ * - displayError()
+ * - selectInputDate()
  * 
- * Possible Arguments:<br>
- * SESSION:<br>
- * &nbsp;&nbsp;mem - Used to determine whether the current user has membership
- *   privledges.<br>
- * POST:<br>
- * &nbsp;&nbsp;ID - This variable will only be filled if GET['ID'] is set, it is a
- *   hidden value equal to GET['ID'].<br>
- * &nbsp;&nbsp;sub - An integer value telling us what we'll be doing.<br>
- *   &nbsp;&nbsp;&nbsp;&nbsp;0 - Nothing<br>
- *   &nbsp;&nbsp;&nbsp;&nbsp;1 - Add New Member<br>
- *   &nbsp;&nbsp;&nbsp;&nbsp;2 - Edit Existing Member<br>
- * &nbsp;&nbsp;login - Login is the value the member's username will be set to.<br>
- * &nbsp;&nbsp;newpwd1 - If both newpwds are set to the same value, the member's<br>
- * &nbsp;&nbsp;newpwd2 - password will be changed to that value.<br>
- * &nbsp;&nbsp;fname - This is the value the member's first name will be set to.<br>
- * &nbsp;&nbsp;lname - This is the value the member's last name will be set to.<br>
- * &nbsp;&nbsp;street - This is the value the member's street address will be set to.<br>
- * &nbsp;&nbsp;city - This is the value the member's city will be set to.<br>
- * &nbsp;&nbsp;state - This is the value the member's state will be set to.<br>
- * &nbsp;&nbsp;ZIP - This is the value the member's zip code will be set to.<br>
- * &nbsp;&nbsp;email - This is the value the member's email will be set to.<br>
- * &nbsp;&nbsp;phone1 - This is the value the member's phone number will be set to.<br>
- * &nbsp;&nbsp;phone2 - This is the value the member's alternate phone number will be set to.<br>
- * &nbsp;&nbsp;DOBMonth - The three DOB variables are combined into a composite date,<br>
- * &nbsp;&nbsp;DOBDay -   and then that date is set as them member's date of birth.<br>
- * &nbsp;&nbsp;DOBYear -  (This one too)<br>
- * &nbsp;&nbsp;taxexempt - This is the value the member's tax exempt number will be set to.<br>
- * &nbsp;&nbsp;registerUse - This value represents whether the member should have register privs.<br>
- * &nbsp;&nbsp;inventoryUse - This value represents whether the member should have inventory privs.<br>
- * &nbsp;&nbsp;memberUse - This value represents whether the member should have membership privs.<br>
- * &nbsp;&nbsp;eventUse - This value represents whether the member should have event privs.<br>
- * &nbsp;&nbsp;adminUse - This value represents whether the member should have admin privs.<br>
- * &nbsp;&nbsp;optOut - This value represents whether the member has opted out of scavenger hunt.<br>
- * &nbsp;&nbsp;working - If this is checked, the member will be given 1 month working membership.<br>
- * &nbsp;&nbsp;contributing[] - If this is set, contributing member status will be added.<br>
- * &nbsp;&nbsp;submit - This will have a value when clicked, but we check sub for that.<br>
- * GET:<br>
- * &nbsp;&nbsp;ID - If ID is set, the page will set 'sub's value to 2, and pull the
- *   given member's info.<br>
+ * Possible Arguments:
+ * SESSION:
+ * - mem - Used to determine whether the current user has membership
+ *   privledges.
+ * 
+ * POST:
+ * - ID - This variable will only be filled if GET['ID'] is set, it is a
+ *   hidden value equal to GET['ID'].
+ * - sub - An integer value telling us what we'll be doing.
+ *   &nbsp;&nbsp;&nbsp;&nbsp;0 - Nothing
+ *   &nbsp;&nbsp;&nbsp;&nbsp;1 - Add New Member
+ *   &nbsp;&nbsp;&nbsp;&nbsp;2 - Edit Existing Member
+ * - login - Login is the value the member's username will be set to.
+ * - newpwd1 - If both newpwds are set to the same value, the member's
+ * - newpwd2 - password will be changed to that value.
+ * - fname - This is the value the member's first name will be set to.
+ * - lname - This is the value the member's last name will be set to.
+ * - street - This is the value the member's street address will be set to.
+ * - city - This is the value the member's city will be set to.
+ * - state - This is the value the member's state will be set to.
+ * - ZIP - This is the value the member's zip code will be set to.
+ * - email - This is the value the member's email will be set to.
+ * - phone1 - This is the value the member's phone number will be set to.
+ * - phone2 - This is the value the member's alternate phone number will be set to.
+ * - DOBMonth - The three DOB variables are combined into a composite date,
+ * - DOBDay -   and then that date is set as them member's date of birth.
+ * - DOBYear -  (This one too)
+ * - taxexempt - This is the value the member's tax exempt number will be set to.
+ * - registerUse - This value represents whether the member should have register privs.
+ * - inventoryUse - This value represents whether the member should have inventory privs.
+ * - memberUse - This value represents whether the member should have membership privs.
+ * - eventUse - This value represents whether the member should have event privs.
+ * - adminUse - This value represents whether the member should have admin privs.
+ * - optOut - This value represents whether the member has opted out of scavenger hunt.
+ * - working - If this is checked, the member will be given 1 month working membership.
+ * - contributing[ ] - If this is set, contributing member status will be added.
+ * - submit - This will have a value when clicked, but we check sub for that.
+ * 
+ * GET:
+ * - ID - If ID is set, the page will set 'sub's value to 2, and pull the
+ *   given member's info.
  * 
  * @link http://www.worldsapartgames.org/fc/inputmember.php @endlink
  * 
