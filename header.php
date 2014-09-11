@@ -97,7 +97,7 @@ echo "<b>Card Case</b><br>";
 if ($_SESSION['inv'] == 1) {
     echo "<a href='buycards.php'>Buy Cards</a><br>";
 }
-echo "<a href='http://joehughto.com/WAGPrices.html' target='_BLANK'>WAG Price Guide</a><br>";
+echo "<a href='http://joehughto.com/newerPrices.php' target='_BLANK'>WAG Price Guide</a><br>";
 echo "<a href='http://magic.tcgplayer.com/all_magic_sets.asp' target='_BLANK'>TCGPlayer Values</a><br>";
 echo "<a href='http://magiccards.info/' target='_BLANK'>Card Oracle Search</a>";
 echo "<hr>";

@@ -1235,8 +1235,8 @@ function safePost($approved)
     foreach ($_POST as $key => $value) {
         if (!in_array($key, $approved)) {
             unset($_POST[$key]);
-            echo (!$errors) ? "<font color=BLUE>Invalid POST entry: '$key'" : ", '$key'";
-            $errors = true;         
+            echo (!$errors) ? "<font color=BLUE>Invalid POST entry: '$key=$value" : ", '$key'";
+            $errors = true;    
         }
     }
    

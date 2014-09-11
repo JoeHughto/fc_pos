@@ -532,7 +532,7 @@ if ((isset($_POST['submit'])) || ($_POST['close'] == 1)) {
                 }
 
                 // no discount for Events
-                $eventIDs= array(2262, 1957, 780, 1123, 1938, 1160,  1356, 2030, 1957, 1958, 2435, 2436, 2437);
+                $eventIDs = array(2262, 1957, 780, 1123, 1938, 1160,  1356, 2030, 1957, 1958, 2435, 2436, 2437);
                 if (in_array($thisID, $eventIDs)) {
                     $discount = 0;
                     echo "Discount removed due to type of event<p>";
