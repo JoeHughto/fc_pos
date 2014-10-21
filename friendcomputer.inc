@@ -36,7 +36,7 @@ function fcMessage($message)
     echo "Greetings Citizen #$SID<br>
         Current Worlds Apart Time: $date ";
     if ($shiftNow > 0) {
-        echo " -- Shift: $shiftNow<p>";
+        echo " -- Current Shift: $shiftNow<p>";
     } else {
         echo "<br>Worlds Apart is currently officially closed";
     }
