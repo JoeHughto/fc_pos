@@ -90,6 +90,7 @@ echo "<b>My Account</b><br>";
 echo "<a href='profile.php'>Update Profile</a><br>";
 echo "<a href='accounttransactions.php?start=$lastmonth1'>Account Transactions</a><br>";
 echo "<a href='futurepacks.php'>Future Packs</a><br>";
+echo "<a href='snackcard/index.html' target='_BLANK'>Snack Card</a><br>";
 echo "<a href='credittransactions.php'>Hedon Transactions</a>";
 echo "<hr>";
 
