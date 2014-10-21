@@ -904,6 +904,7 @@ function login($username, $password)
             $_SESSION['mem'] = $row['memberUse'];
             $_SESSION['adm'] = $row['adminUse'];
             $_SESSION['eve'] = $row['eventUse'];
+            setcookie("userID", $_SESSION['ID'], 0);
             mysqli_free_result($result);
             mysqli_close($stream);
             unset($_POST['username']); // to make sure it does not trip up safePost

@@ -3,12 +3,12 @@
  * @file config.inc
  * @brief config.inc provides an interface between FriendComputer and our MySql
  *   database. It contains secret information that should not be shared.
- * 
+ *
  * This file includes:
  * @todo This file uses functions from funcs.inc, but doesn't include it.
- * 
+ *
  * @link http://www.worldsapartgames.org/fc/index.php @endlink
- * 
+ *
  * @author    Michael Whitehouse 
  * @author    Creidieki Crouch 
  * @author    Desmond Duval 
@@ -24,10 +24,10 @@
  */
 function open_stream()
 {
-    $dbname="db_name";
-    $host="host_name";
-    $user="db_user";
-    $pwd="db_password";
+    $dbname="worldsap_fc";
+    $host="localhost";
+    $user="worldsap_fc";
+    $pwd="37FUHupr";
 
     $access = new mysqli($host, $user, $pwd, $dbname);
 
