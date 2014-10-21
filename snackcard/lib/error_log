@@ -1,0 +1,1 @@
+[17-Oct-2014 08:37:59 America/Chicago] PHP Warning:  mysqli_fetch_row() expects parameter 1 to be mysqli_result, boolean given in /home3/worldsap/public_html/fc/snackcard/lib/ajaxConnect.php on line 21

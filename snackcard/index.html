@@ -1,0 +1,177 @@
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css" type="text/css"/>
+
+        <title>Snack Card</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="js/libs/jcookie/jquery.cookie.js"></script>
+        <script>
+        
+        var punches = 0;
+        var userid = $.cookie('userID');
+        var hedons = 0;
+        $( document ).ready(function() {
+            userid = getUserID();
+            getPunchesFromPHP();
+            setPunches();
+            $( "#Punch" ).bind("click", clickPunch);
+            $( "#NewCard" ).bind("click", clickNewCard);
+        });
+        
+        function getUserID()
+        {
+            return $.cookie('userID');
+        }
+        
+        function clickPunch()
+        {
+            
+            $.ajax({
+                url: 'lib/ajaxConnect.php',
+                data: {
+                    action: 'usePunch',
+                    user: userid
+                },
+                type: 'post',
+                success: function(output) {
+                    punches = 24 - output;
+                    setPunches();
+                }
+            });
+        }
+        
+        function clickNewCard()
+        {
+            $.ajax({
+                url: 'lib/ajaxConnect.php',
+                data: {
+                    action: 'addCard',
+                    user: userid
+                },
+                type: 'post',
+                success: function(output) {
+                    punches = 24 - output;
+                    setPunches();
+                }
+            });
+        }
+        
+        function getPunchesFromPHP()
+        {
+            $.ajax({
+                url: 'lib/ajaxConnect.php',
+                data: {
+                    action: 'getPunches',
+                    user: userid
+                },
+                type: 'post',
+                success: function(output) {
+                    punches = 24 - output;
+                    setPunches();
+                }
+            });
+        }
+        
+        function getCreditTotal() {
+            $.ajax({
+                url: 'lib/ajaxConnect.php',
+                data: {
+                    action: 'getCreditTotal',
+                    user: userid
+                },
+                type: 'post',
+                success: function(output) {
+                    hedons = output;
+                    $( "#hedonTotal" ).text("You currently have " + hedons + " Hedons.");
+                }
+            });
+        }
+        
+        function setPunches()
+        {
+            for (i = 1; i <= punches; i++)
+            {
+                var currCross = "#use" + i;
+                $(currCross).css("visibility", "visible");
+            }
+            
+            for (i = punches + 1; i <= 24; i++)
+            {
+                var currCross = "#use" + i;
+                $(currCross).css("visibility", "hidden");
+            }
+            
+            if(punches >= 24)
+            {
+                $("#NewCard").prop("disabled",false);
+            }
+            else
+            {
+                $("#NewCard").prop("disabled",true);
+            }
+            
+            if(punches < 24)
+            {
+                $("#Punch").prop("disabled",false);
+            }
+            else
+            {
+                $("#Punch").prop("disabled",true);
+            }
+            getCreditTotal();
+        }
+        
+        </script>
+        
+        <h1>Snack Card</h1>
+        <p>Clicking the "Buy Card" button will spend 12 Hedons on a new Snack Card.</p>
+        <p>Clicking the "Use Punch" button will spend a 50 cent punch.</p>
+        <p>This app will store your active card indefinitely.</p>
+        <p id="hedonTotal"></p>
+        <hr>
+        <div id="SnackDiv">
+            <img src="images/SnackCard.png" id="SnackCard" alt="Snack Card">
+            <img src="images/used.png" class="Cross Row1 Col1" id="use1" alt="Crossed Out">
+            <img src="images/used.png" class="Cross Row1 Col2" id="use2" alt="Crossed Out">
+            <img src="images/used.png" class="Cross Row1 Col3" id="use3" alt="Crossed Out">
+            <img src="images/used.png" class="Cross Row1 Col4" id="use4" alt="Crossed Out">
+            <img src="images/used.png" class="Cross Row1 Col5" id="use5" alt="Crossed Out">
+            
+            <img src="images/used.png" class="Cross Row2 Col1" id="use6" alt="Crossed Out">
+            <img src="images/used.png" class="Cross Row2 Col2" id="use7" alt="Crossed Out">
+            <img src="images/used.png" class="Cross Row2 Col3" id="use8" alt="Crossed Out">
+            <img src="images/used.png" class="Cross Row2 Col4" id="use9" alt="Crossed Out">
+            <img src="images/used.png" class="Cross Row2 Col5" id="use10" alt="Crossed Out">
+            
+            <img src="images/used.png" class="Cross Row3 Col1" id="use11" alt="Crossed Out">
+            <img src="images/used.png" class="Cross Row3 Col2" id="use12" alt="Crossed Out">
+            <img src="images/used.png" class="Cross Row3 Col3" id="use13" alt="Crossed Out">
+            <img src="images/used.png" class="Cross Row3 Col4" id="use14" alt="Crossed Out">
+            <img src="images/used.png" class="Cross Row3 Col5" id="use15" alt="Crossed Out">
+            
+            <img src="images/used.png" class="Cross Row4 Col1" id="use16" alt="Crossed Out">
+            <img src="images/used.png" class="Cross Row4 Col2" id="use17" alt="Crossed Out">
+            <img src="images/used.png" class="Cross Row4 Col3" id="use18" alt="Crossed Out">
+            <img src="images/used.png" class="Cross Row4 Col4" id="use19" alt="Crossed Out">
+            <img src="images/used.png" class="Cross Row4 Col5" id="use20" alt="Crossed Out">
+            
+            <img src="images/used.png" class="Cross Bonus B1" id="use21" alt="Crossed Out">
+            <img src="images/used.png" class="Cross Bonus B2" id="use22" alt="Crossed Out">
+            <img src="images/used.png" class="Cross Bonus B3" id="use23" alt="Crossed Out">
+            <img src="images/used.png" class="Cross Bonus B4" id="use24" alt="Crossed Out">
+        </div>
+        <div id="Btns">
+            <button id="Punch">Use Punch</button>
+            <button id="NewCard">Buy Card</button>
+        </div>
+    </body>
+</html>

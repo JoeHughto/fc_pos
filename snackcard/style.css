@@ -1,0 +1,82 @@
+#SnackDiv {
+    position: relative;
+}
+
+#Btns {
+    position: relative;
+    top: 325px;
+    z-index: 2;
+}
+
+#SnackCard {
+    position: absolute;
+    border-style: solid;
+    border-width: medium;
+    height: 300px;
+    left: 0px;
+    top: 0px;
+    z-index: -1;
+}
+
+img.Cross {
+    position: absolute;
+    height: 35px;
+    visibility: visible;
+    z-index: 1;
+}
+
+img.Row1 {
+    top: 88px;
+}
+
+img.Row2 {
+    top: 127px;
+}
+
+img.Row3 {
+    top: 174px;
+}
+
+img.Row4 {
+    top: 213px;
+}
+
+img.B1 {
+    top: 92px;
+}
+
+img.B2 {
+    top: 130px;
+}
+
+img.B3 {
+    top: 169px;
+}
+
+img.B4 {
+    top: 207px;
+}
+
+img.Col1 {
+    left: 273px;
+}
+
+img.Col2 {
+    left: 306px;
+}
+
+img.Col3 {
+    left: 339px;
+}
+
+img.Col4 {
+    left: 372px;
+}
+
+img.Col5 {
+    left: 405px;
+}
+
+img.Bonus {
+    left: 450px;
+}
