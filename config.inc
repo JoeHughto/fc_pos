@@ -24,10 +24,10 @@
  */
 function open_stream()
 {
-    $dbname="worldsap_fc";
-    $host="localhost";
-    $user="worldsap_fc";
-    $pwd="37FUHupr";
+    $dbname="db_name";
+    $host="host_name";
+    $user="db_user";
+    $pwd="db_password";
 
     $access = new mysqli($host, $user, $pwd, $dbname);
 
