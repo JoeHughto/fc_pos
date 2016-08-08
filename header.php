@@ -3,18 +3,18 @@
  * @file header.php
  * @brief header.php is a file that prints our menu and helpful information
  *   when imported.
- * 
+ *
  * @todo This file should have a function that echos this information, possibly
  *   several functions that echo some each, to split code up some, and make
  *   it more modular.
- * @todo This file uses external functions but does not import or require 
+ * @todo This file uses external functions but does not import or require
  *   any other files.
- * 
+ *
  * @link http://www.worldsapartgames.org/fc/index.php @endlink
- * 
- * @author    Michael Whitehouse 
- * @author    Creidieki Crouch 
- * @author    Desmond Duval 
+ *
+ * @author    Michael Whitehouse
+ * @author    Creidieki Crouch
+ * @author    Desmond Duval
  * @copyright 2009-2014 Pioneer Valley Gaming Collective
  * @version   1.8d
  * @since     Project has existed since time immemorial.
@@ -98,14 +98,14 @@ echo "<b>Card Case</b><br>";
 if ($_SESSION['inv'] == 1) {
     echo "<a href='buycards.php'>Buy Cards</a><br>";
 }
-echo "<a href='http://joehughto.com/newerPrices.php' target='_BLANK'>WAG Price Guide</a><br>";
 echo "<a href='http://magic.tcgplayer.com/all_magic_sets.asp' target='_BLANK'>TCGPlayer Values</a><br>";
 echo "<a href='http://magiccards.info/' target='_BLANK'>Card Oracle Search</a>";
 echo "<hr>";
 
-if ($_SESSION['reg'] == 1 || $_SESSION['mem'] == 1) {
+if ($_SESSION['reg'] == 1 || $_SESSION['mem'] == 1 || $_SESSION['eve'] == 1) {
     echo "<b>Members</b><br>";
     echo "<a href='showmembers.php'>Member Search</a><br>";
+    echo "<a href='fpreport.php'>Future Pack Report</a><br>";
     if ($_SESSION['mem'] == 1) {
         echo "<a href='viewhowfound.php'>How Found Report</a>";
     }
@@ -182,4 +182,3 @@ echo "</TD><TD width=800 valign=top>
     </TD></TR></TABLE><BR>
     <FONT SIZE=+2>$title</FONT>";
 ?>
-

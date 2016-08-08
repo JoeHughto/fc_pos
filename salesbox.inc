@@ -55,28 +55,28 @@ if ($payment == 5) {
 
 echo "Enter skus in this box: <a href='help/register.htm#skus' target='help'>(?)</a><br>
     <textarea cols=20 rows=7 name='sku'></textarea></td>
-    <td valign=top align=right width=220 rowspan=2>$0.25 snacks <input type='text' name='specqty[731]' maxlength=4 size=4><br>
-    $0.50 snacks <input type='text' name='specqty[732]' maxlength=4 size=4><br>
-    $0.75 snacks <input type='text' name='specqty[733]' maxlength=4 size=4><br>
-    $1.00 snacks <input type='text' name='specqty[734]' maxlength=4 size=4><br>
-    $1.25 snacks <input type='text' name='specqty[1655]' maxlength=4 size=4><br>
-    Water <input type='text' name='specqty[1035]' maxlength=4 size=4><br>
-    Polar $1.50 <input type='text' name='specqty[1031]' maxlength=4 size=4><br>
-    Izze $2.00 <input type='text' name='specqty[1033]' maxlength=4 size=4><br>
-    Nantucket$2 <input type='text' name='specqty[1030]' maxlength=4 size=4><br>
-    Energy $2.50 <input type='text' name='specqty[1034]' maxlength=4 size=4><br>
-    Snack Card <input type='text' name='specqty[784]' maxlength=4 size=4><p>         
+    <td valign=top align=right width=220 rowspan=2>$0.25 snacks <input type='text' name='specqty[731]' maxlength=3 size=3><br>
+    $0.50 snacks <input type='text' name='specqty[732]' maxlength=3 size=3><br>
+    $1.00 snacks <input type='text' name='specqty[734]' maxlength=3 size=3><br>
+    $1.50 snacks <input type='text' name='specqty[1655]' maxlength=3 size=3><p>
+    Water $1 <input type='text' name='specqty[1035]' maxlength=3 size=3><br>
+    Polar $1.50 <input type='text' name='specqty[1031]' maxlength=3 size=3><br>
+    Izze $2 <input type='text' name='specqty[1033]' maxlength=3 size=3><br>
+    Nantucket$2 <input type='text' name='specqty[1030]' maxlength=3 size=3><br>
+    Energy$2.50 <input type='text' name='specqty[1034]' maxlength=3 size=3><p>
+    Snack Card <input type='text' name='specqty[784]' maxlength=3 size=3><br>         
     </td><td valign=top align=right width=220>
-    50 Di(c)e <input type='text' name='specqty[741]' maxlength=4 size=4><br>
-    75 Di(c)e <input type='text' name='specqty[735]' maxlength=4 size=4><br>
-    1.00 Di(c)e <input type='text' name='specqty[736]' maxlength=4 size=4><br>
-    1.25 Di(c)e <input type='text' name='specqty[1157]' maxlength=4 size=4><p>
-    Draft: <input type='text' name='specqty[780]' maxlength=4 size=4><p>
-    Draft Card: <input type='text' name='specqty[1158]' maxlength=4 size=4><br>
-    Draft Punch: <input type=text' name='specqty[1159]' maxlength=4 size=4><p>
-    Magic League: <input type='text' name='specqty[1160]' maxlength=4 size=4><p>
-    Copies/Char Sheets <input type='text' name='specqty[1161]' maxlength=4 size=4><p>
-    Sign Donation: \$<input type='text' name='specqty[1162]' maxlength=6 size 6><p>
+    50 Di(c)e <input type='text' name='specqty[741]' maxlength=3 size=3><br>
+    75 Di(c)e <input type='text' name='specqty[735]' maxlength=3 size=3><br>
+    1.00 Di(c)e <input type='text' name='specqty[736]' maxlength=3 size=3><br>
+    1.25 Di(c)e <input type='text' name='specqty[1157]' maxlength=3 size=3><p>
+    Draft: <input type='text' name='specqty[780]' maxlength=3 size=3><br>
+    EDH: <input type='text' name='specqty[1223]' maxlength=3 size=3><br>
+    FNM: <input type='text' name='specqty[1356]' maxlength=3 size=3><br>
+    Prize Draft: <input type='text' name='specqty[1540]' maxlength=3 size=3><br>
+    Magic League: <input type='text' name='specqty[1160]' maxlength=3 size=3><p>
+    Copies/Char Sheets <input type='text' name='specqty[1161]' maxlength=3 size=3><p>
+    Donation: \$<input type='text' name='specqty[1162]' maxlength=6 size 6><p>
     </td>";
 
 // this will wipe out existing data, so we only want to show it if there is not already singles data
@@ -87,11 +87,11 @@ if (!isset($_POST['qty'][778])) {
         Common - $0.25ea<br>
         Uncommon - $0.50ea<br>
         Rare - $1.00+ea, Click Below!<br>
-        <a href="http://magic.tcgplayer.com/all_magic_sets.asp" target="_BLANK">TCGPlayer Values</a><br>
+        <a href="http://joehughto.com/newerPrices.php" target="_BLANK">Magic Price Lookup</a><br>
         <br>
         Case Cards: As Marked<br>
         Bulk Foils: $0.50ea<br>
-        Bulk Box:<br>1/$1.00, 10/$7.00, 20/$10.00<br>
+        Bulk Box:<br>1/$1, 5/$4 10/$7, 20/$12, 50/$25<br>
         </td>';
 }
 echo"</tr>";

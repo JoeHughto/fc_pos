@@ -53,7 +53,7 @@ if ($_POST['amount'] > 0) {
     }
 }
 
-$sql = "SELECT * FROM cashSpend";
+$sql = "SELECT * FROM cashSpend ORDER BY whenSub DESC";
 $result = query($cxn, $sql);
 
 echo "<h2>Previous Cash Spends</h2>

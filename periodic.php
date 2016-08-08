@@ -51,7 +51,7 @@ require_once 'member.inc';
 require_once 'credits.inc';
 require_once 'header.php';
 
-$officers = array(5, 39, 417, 17, 1044);
+$officers = array(43,1119,1152,1478,2405);
 if ($_SESSION['adm'] != 1) {
     echo "Restricted Page.";
     include 'footer.php';
@@ -124,7 +124,7 @@ if ($_POST['monthly'] == 1) {
         }
         // Give credits to officers and give $20
         foreach ($officers as $who) {
-            if (transferCredits(0, $who, 15, "$monthyear Officer", 1)) {
+            if (transferCredits(1, $who, 15, "$monthyear Officer", 1)) {
                 echo "Credits Given to ";
                 printMember($who, 1);
                 echo "<br>\n";

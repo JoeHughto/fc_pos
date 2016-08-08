@@ -193,7 +193,7 @@ echo "<h2>Recurring Schedule</h2><br>
     <td>Thursday</td>
     <td>Friday</td>
     <td>Saturday</td></tr>";
-for ($shift = 1; $shift <= 3; $shift++) {
+for ($shift = 1; $shift <= 2; $shift++) {
     echo "<tr><td>Shift #$shift</td>";
     for ($day = 1; $day <= 7; $day++) {
         echo "<td>";
@@ -253,15 +253,14 @@ if ($result = query($cxn, $sql)) {
     echo "<h2>Non-Recurring Daily Schedule</h2>
         From $startStr to $endStr<br>
         <table border><tr><td width=150>Day</td>
-        <td width=200>Shift #1<br>10 AM to 2 PM</td>
-        <td width=200>Shift #2<br>2 PM to 6 PM</td>
-        <td width=200>Shift #3<br>6 PM to 10 PM</td></tr>\n";
+        <td width=200>Shift #1<br>12 PM to 5 PM</td>
+        <td width=200>Shift #2<br>5 PM to 10 PM</td></tr>\n";
 
     // cycle through days
     for ($date = $start; $date <= $end; date_modify($date, "+1 day")) {
         // cycle through shifts
         echo "<tr>"; // start the row
-        for ($curShift = 1; $curShift <= 3; $curShift++) {
+        for ($curShift = 1; $curShift <= 2; $curShift++) {
             if ($curShift == 1) {
                 echo "<tr><td>" . date_format($date, "l") . "<br>"
                     . date_format($date, "M jS") . "</td>";

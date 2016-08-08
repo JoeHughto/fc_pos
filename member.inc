@@ -18,7 +18,7 @@
  */
 
 $FGDISCOUNT = array(0 => 0, 1 => 1, 5 => 1, 25, 50, 75, 100, 150, 200, 250, 
-    300, 350, 400, 450, 500, 550, 600, 700, 1000);
+    300, 400, 500, 600, 700, 800, 900, 1000, 2000);
 
 /**
  * FG_discount calculates and returns the discount for a given sales total.
@@ -27,21 +27,21 @@ $FGDISCOUNT = array(0 => 0, 1 => 1, 5 => 1, 25, 50, 75, 100, 150, 200, 250,
  */
 function FG_discount($sales)
 {
-    if ($sales > 1000) {
+    if ($sales > 2000) {
         return 21;
-    } elseif ($sales > 700) {
+    } elseif ($sales > 1000) {
         return 20;
-    } elseif ($sales > 600) {
+    } elseif ($sales > 900) {
         return 19;
-    } elseif ($sales > 550) {
+    } elseif ($sales > 800) {
         return 18;
-    } elseif ($sales > 500) {
+    } elseif ($sales > 700) {
         return 17;    
-    } elseif ($sales > 450) {
+    } elseif ($sales > 600) {
         return 16;        
-    } elseif ($sales > 400) {
+    } elseif ($sales > 500) {
         return 15;    
-    } elseif ($sales > 350) {
+    } elseif ($sales > 400) {
         return 14;   
     } elseif ($sales > 300) {
         return 13;   

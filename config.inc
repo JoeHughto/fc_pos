@@ -24,11 +24,10 @@
  */
 function open_stream()
 {
-    $dbname="db_name";
-    $host="host_name";
-    $user="db_user";
-    $pwd="db_password";
-
+    $dbname="worldsap_fc";
+    $host="localhost";
+    $user="worldsap_fc";
+    $pwd="37FUHupr";
     $access = new mysqli($host, $user, $pwd, $dbname);
 
     if ($err = mysqli_connect_errno()) {
@@ -42,7 +41,7 @@ function open_stream()
 $cxn = open_stream();
 
 // Magic League Info
-$mleagueID = 44;
+$mleagueID = 47;
 $sql = "SELECT * FROM league where leagueID='$mleagueID' ORDER BY player";
 $result = query($cxn, $sql);
 while ($row = mysqli_fetch_assoc($result)) {
@@ -80,7 +79,7 @@ $topinfo = "</HEAD>
 <TABLE><TR><TD valign=top>
 <a href='league.php?league=$mleagueID'>Magic League<BR>Quick Link</a></B>
 <TD>
-New League Runs 7-20-14 -> 8-16-14<br>
+New League Runs 1-25-15 -> 2-21-15<br>
 </TD></TR></TABLE><BR>" .
 (($securePage == true) ?
 "This is a high security clearance page.<br>

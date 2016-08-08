@@ -93,6 +93,12 @@ if (isset($_POST['body'])) {
     case 'eighth' :
         $sql = "SELECT ID, email, fname, lname FROM members WHERE ID<'2400' AND ID>'2099'";
         break;
+    case 'ninth' :
+        $sql = "SELECT ID, email, fname, lname FROM members WHERE ID<'2700' AND ID>'2399'";
+        break;
+    case 'tenth' :
+        $sql = "SELECT ID, email, fname, lname FROM members WHERE ID<'3000' AND ID>'2699'";
+        break;
     case 'all' : 
         $sql = "SELECT ID, email, fname, lname FROM members WHERE optout IS NULL";
         break;
@@ -180,6 +186,8 @@ if (isset($_POST['body'])) {
         <input type='radio' name='to' value='sixth'> Sixth <p>
         <input type='radio' name='to' value='seventh'> Seventh <p>
         <input type='radio' name='to' value='eighth'> Eighth <p>
+        <input type='radio' name='to' value='ninth'> Ninth <p>
+        <input type='radio' name='to' value='ninth'> Tenth <p>
         <input type='checkbox' name='all' value='1'> Yes, I really want to email the whole list<p>
         Subject: <input type='text' name='subject' size=60 maxlength=60><p>
         <textarea cols=60 rows=30 name='body'></textarea><br>

@@ -41,7 +41,7 @@ $ADMINEMAIL = "gm@pvgaming.org";
 
 $IMAGEROOT = "http://www.worldsapartgames.org/productimages/";
 
-$SHIFTCREDITS = 4; // credits for covering one standard shift
+$SHIFTCREDITS = 5; // credits for covering one standard shift
 
 /**
  * megaStrip is used to strip slashes from GET, POST, and COOKIE.
@@ -494,12 +494,10 @@ function determineCurrentShift()
     $time = localtime();
     $hour = $time[2];
    
-    if ($hour >= 10 && $hour < 14) {
+    if ($hour >= 12 && $hour < 17) {
         return 1;
-    } elseif ($hour >= 14 && $hour < 18) {
+    } elseif ($hour >= 17 && $hour < 22) {
         return 2;
-    } elseif ($hour >= 18 && $hour < 22) {
-        return 3;
     } else {
         return 0;
     }
@@ -851,22 +849,16 @@ function lateReg()
     $hour = $time[2];
     $min = $time[1];
    
-    if ($hour > 10 && $hour < 14) {
+    if ($hour > 12 && $hour < 19) {
         return true;
     }
-    if ($hour > 14 && $hour < 18) {
+    if ($hour > 19 && $hour < 22) {
         return true;
-    }
-    if ($hour > 18 && $hour < 22) {
-        return true;   
     }
     if ($hour == 10 && $min >= 30) {
         return true;
     }
-    if ($hour == 14 && $min >= 30) {
-        return true;
-    }
-    if ($hour == 18 && $min >= 30) {
+    if ($hour == 19 && $min >= 30) {
         return true;
     }
     return false;

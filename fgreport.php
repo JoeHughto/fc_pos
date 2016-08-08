@@ -31,6 +31,7 @@ require_once 'funcs.inc';
 require_once 'member.inc';
 require_once 'header.php';
 
+$startTime = microtime(true);
 $cxn = open_stream();
 $sql = "SELECT MAX(ID) FROM members WHERE taxexempt IS NULL OR taxexempt = 'NULL'";
 $result = query($cxn, $sql);
@@ -48,9 +49,10 @@ for ($member = 1; $member <= $count; $member++) {
     $salesa[$member] = $memberInfo['sales'][$member] = $sales;
     $memnum[$member] = $member;
 }
+$salesTime = microtime(true);
 
 array_multisort($salesa, SORT_DESC, $namea, SORT_DESC, $memnum, SORT_DESC);
-
+$sortTime = microTime(true);
 echo "<p>First, second and third place are the customers which shall recieve special benefits. First place gets a $15 credit,
     Second place gets $10 and Third gets $5.
     <p>Sales for the current month by customer/member<p>
@@ -68,6 +70,7 @@ foreach ($namea as $key => $name) {
 echo "</table><p>";
 
 unset ($namea, $salesa, $memnum);
+$firstLoopTime = microtime(true);
 
 echo "<hr><b>Last Month</b><p>";
 for ($member = 1; $member <= $count; $member++) {
@@ -78,9 +81,9 @@ for ($member = 1; $member <= $count; $member++) {
     $salesa[$member] = $memberInfo['sales'][$member] = $sales;
     $memnum[$member] = $member;
 }
-
+$secondLoopTime = microtime(true);
 array_multisort($salesa, SORT_DESC, $namea, SORT_DESC, $memnum, SORT_DESC);
-
+$secondSortTime = microtime(true);
 echo "<table border cellpadding=3><tr><td>Rank</td><td>Name</td><td>This Month</td><td>Discount</td></tr>\n";
 
 reset($memberInfo);
@@ -92,4 +95,12 @@ foreach ($namea as $key => $name) {
     }
 }
 echo "</table><p>";
+$finalTime = microtime(true);
+$time1 = ($salesTime - $startTime);
+$time2 = ($sortTime - $salesTime);
+$time3 = ($firstLoopTime - $sortTime);
+$time4 = ($secondLoopTime - $firstLoopTime);
+$time5 = ($secondSortTime - $secondLoopTime);
+$time6 = ($finalTime - $secondSortTime);
+echo "$time1 $time2 $time3 $time4 $time5 $time6";
 ?>

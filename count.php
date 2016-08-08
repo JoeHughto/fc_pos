@@ -117,9 +117,9 @@ if (($_POST['count'] > 0 || $_POST['deposit'] > 0) && $_POST['confirmed'] == "Co
             Today's Depost: $deposit
 
             Thank you for being an awesome High Programer.";
-        mail("gm@pvgaming.org, mc@pvgaming.org", "FC Deposit Count", $emessage); 
+        mail("gm@pvgaming.org, joe.hughto@gmail.com", "FC Deposit Count", $emessage); 
 
-        $sql = "INSERT INTO cashCounts (countTime, count, deposit, staffID) VALUES (NOW(), $count, 0, '$ID')";
+        $sql = "INSERT INTO cashCounts (countTime, count, deposit, staffID, difference) VALUES (NOW(), $count, 0, '$ID', $difference)";
         if (query($cxn, $sql)) {
             $message .= "Count of $count deposited correctly.<br>";
         } else {
@@ -226,7 +226,7 @@ if (($_POST['count'] > 0 || $_POST['deposit'] > 0) && $_POST['confirmed'] == "Co
 fcMessage($message);
 
 if ($_SESSION['adm'] == 1 || $_SESSION['mem'] == 1) {
-    echo "<table cellpadding=5><tr><td>Counter</td><td>Date</td><td>\$\$\$</td><td>Type</td></tr>\n";
+    echo "<table cellpadding=5><tr><td>Counter</td><td>Date</td><td>\$\$\$</td><td>Type</td><td>Difference</td></tr>\n";
 
     $sql = "SELECT * FROM cashCounts ORDER BY countTime DESC";
     $result = query($cxn, $sql);
@@ -237,13 +237,17 @@ if ($_SESSION['adm'] == 1 || $_SESSION['mem'] == 1) {
             printMember($staffID, 1);
             echo "</td><td>$countTime</td><td><font color=GREEN>\$";
             printf("%0.2f", $count);
-            echo "</font></td><td>Count</td></tr>";
+            echo "</font></td><td>Count</td><td>";
+            printf("%0.2f", $difference);
+            echo "</td></tr>";
         } else {
             echo "<tr><td>";
             printMember($staffID, 1);
             echo "</td><td>$countTime</td><td><font color=BLUE>\$";
             printf("%0.2f", $count);
-            echo "</font></td><td>Deposit</td></tr>";
+            echo "</font></td><td>Deposit</td><td>";
+            printf("%0.2f", $difference);
+            echo "</td></tr>";
         }
     }
 }

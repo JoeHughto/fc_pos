@@ -81,7 +81,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 
         echo "<tr><td>" . $showdate->format("D, M j, Y") . "</td><td>$nextshift</td><td><i>" . printMemberString($member, 1) . "</i></td><td bgcolor=RED>no</td></tr>\n";
         $nextshift++;
-        if ($nextshift > 3) {
+        if ($nextshift > 2) {
             echo "<tr><td colspan=4 bgcolor=BLACK> </td></tr>";
             $nextshift = 1;
             $showdate->modify("+1 day");
@@ -92,7 +92,7 @@ while ($row = mysqli_fetch_assoc($result)) {
     echo "<tr><td>" . $showdate->format("D, M j, Y") . "</td><td>$shift</td><td>" . printMemberString($staffID, 1) . "</td><td " .(($checkedIn == 1) ? "bgcolor=GREEN>yes" : "bgcolor=RED>no") . "</td></tr>\n";
    
     $nextshift = $shift + 1;
-    if ($nextshift > 3) {
+    if ($nextshift > 2) {
         echo "<tr><td colspan=4 bgcolor=BLACK> </td></tr>";
         $nextshift = 1;
         $showdate->modify("+1 day");
