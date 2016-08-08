@@ -218,6 +218,30 @@ function memberSalesThisMonth($member)
     return($row[0]);
 }
 
+function allMemberSalesLastMonth()
+{
+    $cxn = open_stream();
+    $sql = "SELECT customerID, (SUM(totalPrice)) FROM transactions 
+          where customerID is not NULL and 
+                customerID <> 0 and 
+                whensale between DATE_FORMAT(NOW() - INTERVAL 1 MONTH ,'%Y-%m-01') AND LAST_DAY(NOW() - INTERVAL 1 MONTH) 
+          group by customerID";
+    $result = query($cxn,$sql);
+    return $result;
+}
+
+function allMemberSalesThisMonth()
+{
+    $cxn = open_stream();
+    $sql = "SELECT customerID, (SUM(totalPrice)) FROM transactions 
+          where customerID is not NULL and 
+                customerID <> 0 and 
+                whensale between DATE_FORMAT(NOW() ,'%Y-%m-01') AND NOW() 
+          group by customerID";
+    $result = query($cxn,$sql);
+    return $result;
+}
+
 /**
  * peopleReferred takes a member's ID, and returns the number of other
  *   members who were referred by them.
