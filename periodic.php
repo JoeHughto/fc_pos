@@ -69,13 +69,11 @@ if ($_POST['monthly'] == 1) {
     $result = query($cxn, $sql);
     if (1) {
         // determine FG winners
-        $sql = "SELECT MAX(ID) FROM members";
-        $result = query($cxn, $sql);
-        $row = mysqli_fetch_row($result);
-        $count = $row[0];
+        $lastMonthResult = allMemberSalesLastMonth();
 
-        for ($member = 1; $member <= $count; $member++) {
-            $sales = (!taxExempt($member)) ? memberSalesLastMonth($member) : 0;
+        while($row = mysqli_fetch_row($lastMonthResult)){
+            $member = $row[0];
+            $sales = (!taxExempt($member)) ? $row[1] : 0;
 
             $namea[$member] = $memberInfo['name'][$member] = printMemberString($member, 5);
             $salesa[$member] = $memberInfo['sales'][$member] = $sales;
