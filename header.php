@@ -176,10 +176,5 @@ if ($_SESSION['reg'] == 1) {
 }
 
 echo "</TD><TD width=800 valign=top>
-    <TABLE><TR><TD valign=top>
-    <a href='league.php?league=$mleagueID'>Magic League<BR>Quick Link</a></B>
-    <TD>
-    New League Runs 5-4-14 -> 5-31-14<br>
-    </TD></TR></TABLE><BR>
     <FONT SIZE=+2>$title</FONT>";
 ?>
