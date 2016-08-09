@@ -359,8 +359,8 @@ if ((isset($_POST['submit'])) || ($_POST['close'] == 1)) {
         foreach ($skuList as $s) {
             $s = trim($s);
             $s = $cxn->real_escape_string($s);
-            $sql = "SELECT * FROM items WHERE UPC='$s' OR alternate1='$s' "
-                . "OR alternate2='$s' OR ID='$s' OR description LIKE '%$s%' "
+            $sql = "SELECT * FROM items WHERE (UPC='$s' OR alternate1='$s' "
+                . "OR alternate2='$s' OR ID='$s' OR description LIKE '%$s%') and  visible = 1 "
                 . "ORDER BY description";
             $result = query($cxn, $sql);
             $affected = mysqli_affected_rows($cxn);
