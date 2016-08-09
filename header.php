@@ -127,7 +127,8 @@ if ($_SESSION['inv'] == 1) {
     echo "<a href='receiveinvoice.php'>Receive Invoice</a><br>";
     echo "<a href='mandepinv.php'>Manufacturers/Departments</a><br>";
     echo "<a href='invoices.php'>Invoice Budget</a><br>";
-    echo "<a href='inventoryreport.php'>Inventory Report</a>";
+    echo "<a href='inventoryreport.php'>Inventory Report</a><br>";
+    echo "<a href='visibleitem.php'>Hide register entries</a>";
     echo "<hr>";
 }
 
