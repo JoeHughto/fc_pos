@@ -41,9 +41,9 @@ if($_POST['submit'] == 'submit' && is_array($_POST['ID']))
        foreach($_POST['ID'] as $i => $name)
        {
 //           echo "$i<br>";
-           $sql = "UPDATE items SET visible=0 WHERE ID='$i'";
+           $sql = "UPDATE items SET visible=if(visible=0,1,0) WHERE ID='$i'";
            if(query($cxn, $sql))
-               echo "$name set as hidden<br>";
+               echo "$name visibilty changed.<br>";
        }
    } // end if      
 if($_POST['search'] == 'search' && strlen($_POST['sku']) > 0) {
@@ -69,11 +69,10 @@ if($_POST['search'] == 'search' && strlen($_POST['sku']) > 0) {
             // companies screw up like that, so we can deal with it
             // this displays each of the items with that sku and lets the
             // user pick which one and enter the info at the same time
-            echo "<table border><tr><td><b>Title</b></td><td><b>Department</b></td><td><b>Manufacturer</b></td><td><b>Price</b></td><td><b>Visible</b></td><td><b>Hide?</b></td></tr>";
+            echo "<table border><tr><td><b>Title</b></td><td><b>Department</b></td><td><b>Manufacturer</b></td><td><b>Price</b></td><td><b>Visible</b></td><td><b>Change visibility?</b></td></tr>";
             while ($row = mysqli_fetch_row($result)) {
                 $visible=$row[4]?"Yes":"No";
                 echo "<tr><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td><td>$row[3]</td><td>$visible</td><td><input type='checkbox' name='ID[$row[5]]' ";
-                if ($visible == 'No') echo "checked='checked' ";
                 echo "value='$row[0]'>";
                 echo"</td></tr>";
 //                $onSale = salePrice($salePrice);
