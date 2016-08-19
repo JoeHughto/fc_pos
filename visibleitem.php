@@ -72,7 +72,9 @@ if($_POST['search'] == 'search' && strlen($_POST['sku']) > 0) {
             echo "<table border><tr><td><b>Title</b></td><td><b>Department</b></td><td><b>Manufacturer</b></td><td><b>Price</b></td><td><b>Visible</b></td><td><b>Change visibility?</b></td></tr>";
             while ($row = mysqli_fetch_row($result)) {
                 $visible=$row[4]?"Yes":"No";
-                echo "<tr><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td><td>$row[3]</td><td>$visible</td><td><input type='checkbox' name='ID[$row[5]]' ";
+                echo "<tr";
+                if($visible=="No") {echo " bgcolor=#D3D3D3";}
+                echo "><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td><td>$row[3]</td><td>$visible</td><td><input type='checkbox' name='ID[$row[5]]' ";
                 echo "value='$row[0]'>";
                 echo"</td></tr>";
 //                $onSale = salePrice($salePrice);
