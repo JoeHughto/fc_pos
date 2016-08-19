@@ -224,7 +224,7 @@ function allMemberSalesLastMonth()
     $sql = "SELECT customerID, (SUM(totalPrice)) FROM transactions 
           where customerID is not NULL and 
                 customerID <> 0 and 
-                whensale between DATE_FORMAT(NOW() - INTERVAL 1 MONTH ,'%Y-%m-01') AND LAST_DAY(NOW() - INTERVAL 1 MONTH) 
+                whensale between DATE_FORMAT(DATE_ADD(NOW(), INTERVAL 1 HOUR) - INTERVAL 1 MONTH ,'%Y-%m-01') AND LAST_DAY(DATE_ADD(NOW(), INTERVAL 1 HOUR) - INTERVAL 1 MONTH) 
           group by customerID";
     $result = query($cxn,$sql);
     return $result;
@@ -236,7 +236,7 @@ function allMemberSalesThisMonth()
     $sql = "SELECT customerID, (SUM(totalPrice)) FROM transactions 
           where customerID is not NULL and 
                 customerID <> 0 and 
-                whensale between DATE_FORMAT(NOW() ,'%Y-%m-01') AND NOW() 
+                whensale between DATE_FORMAT(DATE_ADD(NOW(), INTERVAL 1 HOUR) ,'%Y-%m-01') AND DATE_ADD(NOW(), INTERVAL 1 HOUR) 
           group by customerID";
     $result = query($cxn,$sql);
     return $result;
@@ -408,7 +408,7 @@ class newMember
                     "INSERT INTO members 
                     (login, password, fname, lname, phone1, email, 
                     memberSince, taxexempt)
-                    VALUES (?,?,?,?,?,?, NOW(),?)"
+                    VALUES (?,?,?,?,?,?, DATE_ADD(NOW(), INTERVAL 1 HOUR),?)"
                 );
                 $login = strtolower(substr($this->fname, 0, 1) . $this->lname);
                 $password = hash('sha256', '!@#$%^&*()1');
@@ -436,7 +436,7 @@ class newMember
                     "INSERT INTO members 
                     (login, password, fname, lname, phone1, email, 
                     memberSince, taxexempt)
-                    VALUES (?,?,?,?,?,?, NOW(), ?)"
+                    VALUES (?,?,?,?,?,?, DATE_ADD(NOW(), INTERVAL 1 HOUR), ?)"
                 );
                 $login = strtolower(substr($this->fname, 0, 1) . $this->lname);
                 $rawpass = substr($this->fname, 2, 2) . substr($this->email, 4, 2) . $_SESSION['lastActive'];
@@ -454,11 +454,11 @@ class newMember
                         $memberID = $row['ID'];
                         if ($this->refBy > 0) {
                             $this->howfound .= " REFBY: " . printMemberString($this->refBy, 1);
-                            $stmt = $cxn->prepare("INSERT INTO howFound (memberID, dt, howfound, refBy) VALUES (?, NOW(), ?, ?)");
+                            $stmt = $cxn->prepare("INSERT INTO howFound (memberID, dt, howfound, refBy) VALUES (?, DATE_ADD(NOW(), INTERVAL 1 HOUR), ?, ?)");
                             $stmt->bind_param('dsd', $memberID, $this->howfound, $this->refBy);
                             $this->message .= "New customer referred by " . printMemberString($this->refBy, 1) . "<br>\n";
                         } else {
-                            $stmt = $cxn->prepare("INSERT INTO howFound (memberID, dt, howfound) VALUES (?, NOW(), ?)");
+                            $stmt = $cxn->prepare("INSERT INTO howFound (memberID, dt, howfound) VALUES (?, DATE_ADD(NOW(), INTERVAL 1 HOUR), ?)");
                             $stmt->bind_param('ds', $memberID, $this->howfound);
                             $this->message .= "New customer not referred by existing member.<br>\n";
                         }

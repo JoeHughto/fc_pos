@@ -234,7 +234,7 @@ $days = array(1 => 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday',
     'Saturday', 'Sunday');
 
 if ($_GET['showall'] != 1) {
-    $datestring = "WHERE week > 0 OR evdate > NOW()";
+    $datestring = "WHERE week > 0 OR evdate > DATE_ADD(NOW(), INTERVAL 1 HOUR)";
 }
 
 $sql = "SELECT * FROM events $datestring ORDER BY evdate, week, start";

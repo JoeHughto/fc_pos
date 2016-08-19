@@ -42,7 +42,7 @@ if (isset($_POST['submit'])) {
                 "INSERT INTO bounties
                 (daytime, hedons, notes)
                 VALUES
-                (NOW(), ?, ?)"
+                (DATE_ADD(NOW(), INTERVAL 1 HOUR), ?, ?)"
             )
         ) {
             $stmt->bind_param("ds", $bountyAmount, $note);

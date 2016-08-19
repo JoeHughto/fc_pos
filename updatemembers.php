@@ -75,8 +75,8 @@
    
    $sql = "SELECT *
              FROM members
-            WHERE (contribExp < NOW()
-               OR workingExp < NOW())
+            WHERE (contribExp < DATE_ADD(NOW(), INTERVAL 1 HOUR)
+               OR workingExp < DATE_ADD(NOW(), INTERVAL 1 HOUR))
                AND registerUse=1";
    $result = query($cxn, $sql);
    echo "<form action='updatemembers.php' method='POST'>

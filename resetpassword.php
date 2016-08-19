@@ -109,7 +109,7 @@ echo"<hr>";
 
 if (isset($_POST['submit'])) {
     extract($_POST);
-    $sql = "SELECT * FROM passwordReset WHERE (hash='" . $_POST['hashcode'] . "' AND (NOW() < expires))";
+    $sql = "SELECT * FROM passwordReset WHERE (hash='" . $_POST['hashcode'] . "' AND (DATE_ADD(NOW(), INTERVAL 1 HOUR) < expires))";
     $result = query($cxn, $sql);
     if ($row = mysqli_fetch_assoc($result)) {
         if ($_POST['newpass'] == $_POST['newpassconfirm']) {
@@ -118,7 +118,7 @@ if (isset($_POST['submit'])) {
             $newpass = hash('sha256', $newpass);
             $sql = "UPDATE members SET password='$newpass' WHERE ID='$memID'";
             if ($result = query($cxn, $sql)) {
-                $sql = "DELETE FROM passwordReset WHERE (member='$memID' OR (NOW() > expires))";
+                $sql = "DELETE FROM passwordReset WHERE (member='$memID' OR (DATE_ADD(NOW(), INTERVAL 1 HOUR) > expires))";
                 $result = query($cxn, $sql);
                 echo "Password Reset Successful!<br>";
                 echo "<a href='index.php'>Click here to login!</a><br>";

@@ -51,7 +51,7 @@ function giftCertToAccount($giftCert, $member)
     if ($balance > 0) {
         $stmt = $cxn->prepare(
             "INSERT INTO giftCerts (giftCertID, transactionID, whenAcct, "
-            . "amount) VALUES (?, ?, NOW(), ?)"
+            . "amount) VALUES (?, ?, DATE_ADD(NOW(), INTERVAL 1 HOUR), ?)"
         );
         $amount = -$amount;
         $stmt->bind_param(
@@ -198,7 +198,7 @@ class giftCert
         if ($amount <= $balance) {
             $stmt = $cxn->prepare(
                 "INSERT INTO giftCerts (giftCertID, transactionID, whenAcct, amount)
-                VALUES (?, ?, NOW(), ?)"
+                VALUES (?, ?, DATE_ADD(NOW(), INTERVAL 1 HOUR), ?)"
             );
             $amount = -$amount;
             $stmt->bind_param("iid", $this->certNum, $_SESSION['transaction_ID'], $amount);
@@ -241,7 +241,7 @@ class giftCert
 
         $stmt = $cxn->prepare(
             "INSERT INTO giftCerts (name, giftCertID, transactionID, whenAcct, amount)
-            VALUES (?, ?, ?, NOW(), ?)"
+            VALUES (?, ?, ?, DATE_ADD(NOW(), INTERVAL 1 HOUR), ?)"
         );
         $stmt->bind_param("siid", $this->name, $max, $_SESSION['transaction_ID'], $this->newCert);
         if ($stmt->execute()) {

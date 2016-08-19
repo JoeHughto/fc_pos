@@ -860,7 +860,7 @@ if (!isset($invalidID)) {
 
                 if ($total <= ($avail + .01)) {
                     $sql = "INSERT INTO storeAccount (memberID, transactionID, whenAcct, amount)
-                        VALUES ('$member', '$TID', NOW(), '-$total')";
+                        VALUES ('$member', '$TID', DATE_ADD(NOW(), INTERVAL 1 HOUR), '-$total')";
                     if (!query($cxn, $sql)) {
                         $fail = true;
                         echo "Failure to insert store account transaction<br>";
@@ -936,7 +936,7 @@ if (!isset($invalidID)) {
             // MTG League - 1160
             if ((in_array(1160, $itemIDs)) || (in_array(1195, $itemIDs))) {
                 $sql = "INSERT INTO league (leagueID, whenplayed, submitter, player, points, game)
-                    VALUES ('$mleagueID', NOW(), '{$_SESSION['ID']}', $member, 0, 'NEW')";
+                    VALUES ('$mleagueID', DATE_ADD(NOW(), INTERVAL 1 HOUR), '{$_SESSION['ID']}', $member, 0, 'NEW')";
                 if (query($cxn, $sql)) {
                     echo "<table border><tr><td>" . printMemberString($member, 1) 
                         . " added to Magic League</td></tr></table><p>";
@@ -963,7 +963,7 @@ if (!isset($invalidID)) {
                 totalCost='$totalCost',
                 tax='$totalTax',
                 $paysql,
-                whensale=NOW(),
+                whensale=DATE_ADD(NOW(), INTERVAL 1 HOUR),
                 closed='1',
                 customerID='$member'
                 WHERE ID='$TID'";

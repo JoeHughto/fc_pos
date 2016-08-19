@@ -12,7 +12,7 @@
    {
       foreach($_POST['ID'] as $i => $name)
       {
-         $sql = "UPDATE specialOrders SET dateTaken=NOW() WHERE ID='$i'";
+         $sql = "UPDATE specialOrders SET dateTaken=DATE_ADD(NOW(), INTERVAL 1 HOUR) WHERE ID='$i'";
          if(query($cxn, $sql))
             echo "$name set as picked up<br>";
       }

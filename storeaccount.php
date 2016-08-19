@@ -48,7 +48,7 @@
             $notes .= (strlen($name) > 1) ? $name . ',' : '';
          }
 
-         $stmt = $cxn->prepare("INSERT INTO storeAccount (memberID, whenAcct, amount, notes) VALUES (?, NOW(), ?, ?)");
+         $stmt = $cxn->prepare("INSERT INTO storeAccount (memberID, whenAcct, amount, notes) VALUES (?, DATE_ADD(NOW(), INTERVAL 1 HOUR), ?, ?)");
          $stmt->bind_param("dds", $member, $a, $notes);
          if($stmt->execute())
          {
@@ -77,7 +77,7 @@
             if($a >= 0)
             {
 
-               $stmt = $cxn->prepare("INSERT INTO specialOrders (custID, dateMade, item, price) VALUES (?, NOW(), ?, ?)");
+               $stmt = $cxn->prepare("INSERT INTO specialOrders (custID, dateMade, item, price) VALUES (?, DATE_ADD(NOW(), INTERVAL 1 HOUR), ?, ?)");
                $stmt->bind_param("dsd", $member, $item[$num], $a);
                if($stmt->execute())
                {
@@ -95,7 +95,7 @@
    else if(isset($_POST['dominate']))
    {
       extract($_POST);
-      $stmt = $cxn->prepare("INSERT INTO storeAccount (memberID, whenAcct, amount, notes) VALUES (?, NOW(), ?, ?)");
+      $stmt = $cxn->prepare("INSERT INTO storeAccount (memberID, whenAcct, amount, notes) VALUES (?, DATE_ADD(NOW(), INTERVAL 1 HOUR), ?, ?)");
       $stmt->bind_param("dds", $member, $other, $notes);
       if($stmt->execute())
       {

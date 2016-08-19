@@ -43,7 +43,7 @@ function buyCard($user)
 {
     $cxn = open_stream();
     $sql = "INSERT INTO credits (daytime, memberID, credits, reason, senderID, notes) "
-        . "VALUES (NOW(), 0, 12, 0, $user, 'Purchasing a digital snack card.')";
+        . "VALUES (DATE_ADD(NOW(), INTERVAL 1 HOUR), 0, 12, 0, $user, 'Purchasing a digital snack card.')";
     
     $result = query($cxn, $sql);
     if ($result) {

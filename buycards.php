@@ -57,7 +57,7 @@ if ($_POST['submit'] == 'Submit') {
         echo "<font size=+3>Processing Transaction</font><p>";
       
         $sql = "INSERT INTO transactions (StaffID, totalPrice, totalCost, tax, payMethod, whensale, closed)
-                   VALUES ('" . $_SESSION['ID'] . "', '0', '$price', '0', '0', NOW(), '1')";
+                   VALUES ('" . $_SESSION['ID'] . "', '0', '$price', '0', '0', DATE_ADD(NOW(), INTERVAL 1 HOUR), '1')";
         if (query($cxn, $sql)) {
             echo "Transaction Added<br>\n";
         } else {

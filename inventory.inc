@@ -695,7 +695,7 @@ class specialOrder
             }
             $notes = "Spec Order " . $notes;
 
-            $stmt = $cxn->prepare("INSERT INTO storeAccount (transactionID, memberID, whenAcct, amount, notes) VALUES (?, ?, NOW(), ?, ?)");
+            $stmt = $cxn->prepare("INSERT INTO storeAccount (transactionID, memberID, whenAcct, amount, notes) VALUES (?, ?, DATE_ADD(NOW(), INTERVAL 1 HOUR), ?, ?)");
             $stmt->bind_param("ddds", $_SESSION['transaction_ID'], $member, $a, $notes);
             if ($stmt->execute()) {
                 $message .= $notes . " for $a put in Member's account<br>";
@@ -721,7 +721,7 @@ class specialOrder
 
                 if ($a >= 0) {
 
-                    $stmt = $cxn->prepare("INSERT INTO specialOrders (custID, dateMade, item, price) VALUES (?, NOW(), ?, ?)");
+                    $stmt = $cxn->prepare("INSERT INTO specialOrders (custID, dateMade, item, price) VALUES (?, DATE_ADD(NOW(), INTERVAL 1 HOUR), ?, ?)");
                     $stmt->bind_param("dsd", $member, $this->item[$num], $a);
                     if ($stmt->execute()) {
                         $message .= ($a > 0) ? "Special order for " . $this->item[$num] . " submitted<br>"
@@ -737,7 +737,7 @@ class specialOrder
                     if ($po > 0) {
                         $sql = "INSERT INTO specialOrders (custID, dateMade, item, price, qty)
                             VALUES ('$member',
-                            NOW(),
+                            DATE_ADD(NOW(), INTERVAL 1 HOUR),
                             '" . $cxn->escape_string(getPreorderName($po)) . "',
                             '" . getPreorderPrice($po, memberDiscount($_POST['member'])) . "',
                             '$po',
@@ -757,7 +757,7 @@ class specialOrder
 
         // if money is being submitted just to increase account
         if ($this->other > 0) {
-            $stmt = $cxn->prepare("INSERT INTO storeAccount (memberID, whenAcct, amount, notes) VALUES (?, NOW(), ?, ?)");
+            $stmt = $cxn->prepare("INSERT INTO storeAccount (memberID, whenAcct, amount, notes) VALUES (?, DATE_ADD(NOW(), INTERVAL 1 HOUR), ?, ?)");
             $stmt->bind_param("ids", $member, $this->other, $this->note);
             if ($stmt->execute()) {
                 $notes = strip_tags($this->note);
@@ -802,7 +802,7 @@ class specialOrder
 
             $cxn = open_stream();
             foreach ($this->intrans as $ID => $num) {
-                $sql = "UPDATE specialOrders SET dateTaken=NOW() WHERE ID=$ID";
+                $sql = "UPDATE specialOrders SET dateTaken=DATE_ADD(NOW(), INTERVAL 1 HOUR) WHERE ID=$ID";
                 if (query($cxn, $sql)) {
                     $sql = "SELECT item FROM specialOrders WHERE ID=$ID";
                     $row = queryAssoc($cxn, $sql);

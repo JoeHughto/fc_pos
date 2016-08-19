@@ -325,7 +325,7 @@ function renewMembership($ID, $months)
     $creditCost = $WORKINGMEMBERCREDITS * $months;
     $reason = "$months months of Membership";
     $sql = "INSERT INTO credits (daytime, memberID, credits, reason, senderID, notes)
-        VALUES (NOW(), '0', '$creditCost', '0', '$ID', '$reason')";
+        VALUES (DATE_ADD(NOW(), INTERVAL 1 HOUR), '0', '$creditCost', '0', '$ID', '$reason')";
     query($cxn, $sql);
 }
    
@@ -363,7 +363,7 @@ function transferCredits($sender, $recep, $amt, $note, $reason)
     if ($stmt = $cxn->prepare(
         "INSERT INTO credits
         (daytime, memberID, credits, reason, senderID, notes)
-        VALUES (NOW(), ?, ?, ?, ?, ?)"
+        VALUES (DATE_ADD(NOW(), INTERVAL 1 HOUR), ?, ?, ?, ?, ?)"
     )
     ) {
         $stmt->bind_param("idiis", $recep, $amt, $reason, $sender, $note);
@@ -393,7 +393,7 @@ function requestCredits($memID, $amt, $note)
     if ($stmt = $cxn->prepare(
         "INSERT INTO hedonReqs
         (daytime, memberID, hedons, notes)
-        VALUES (NOW(), ?, ?, ?)"
+        VALUES (DATE_ADD(NOW(), INTERVAL 1 HOUR), ?, ?, ?)"
     )
     ) {
         $stmt->bind_param("ids", $memID, $amt, $note);
@@ -609,7 +609,7 @@ class creditSpending
                     if ($key == 22) {
                         global $mleagueID;
                         $sql = "INSERT INTO league (leagueID, whenplayed, submitter, player, points, game)
-                            VALUES ('$mleagueID', NOW(), '{$_SESSION['ID']}', {$_POST['member']}, 0, 'NEW-HEDON')";
+                            VALUES ('$mleagueID', DATE_ADD(NOW(), INTERVAL 1 HOUR), '{$_SESSION['ID']}', {$_POST['member']}, 0, 'NEW-HEDON')";
                         if (query($cxn, $sql)) {
                             echo "<table border><tr><td>" . printMemberString($member, 1) . " added to Magic League</td></tr></table><p>";
                         }

@@ -95,7 +95,7 @@ function accountTransact($member, $amount, $transID, $reason)
    
     $stmt = $cxn->prepare(
         "INSERT INTO storeAccount (memberID, transactionID,
-        whenAcct, amount, notes) VALUES (?, ?, NOW(), ?, ?)"
+        whenAcct, amount, notes) VALUES (?, ?, DATE_ADD(NOW(), INTERVAL 1 HOUR), ?, ?)"
     );
     $stmt->bind_param("iids", $member, $transID, $amount, $reason);
     if ($stmt->execute()) {
@@ -127,7 +127,7 @@ function adjustPacksOnAcct($member, $qty, $note="")
     }
 
     $sql = "INSERT INTO futurepacks(memberID, timestamp, qty, notes)"
-        . " VALUES($member, NOW(), $qty, '$note')";
+        . " VALUES($member, DATE_ADD(NOW(), INTERVAL 1 HOUR), $qty, '$note')";
     if ($result = query($cxn, $sql)) {
         if ($qty > 0) {
             echo "$qty packs have been added to member's account.<br>";

@@ -208,7 +208,7 @@ if (!$cxn = open_stream()) {
                     ('$login', '$password', '$fname', '$lname', '$street', "
                         . "'$city', '$state', '$ZIP', '$email', '$phone1', "
                         . "'$phone2', '$DOB', '$registerUse', '$inventoryUse', "
-                        . "'$adminUse', '$memberUse', 'eventUse', NOW(), "
+                        . "'$adminUse', '$memberUse', 'eventUse', DATE_ADD(NOW(), INTERVAL 1 HOUR), "
                         . "'$workingExp', '$contribExp', '$taxexempt')";
                 if (!mysqli_query($cxn, $sql)) {
                     displayError(

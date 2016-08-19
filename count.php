@@ -119,7 +119,7 @@ if (($_POST['count'] > 0 || $_POST['deposit'] > 0) && $_POST['confirmed'] == "Co
             Thank you for being an awesome High Programer.";
         mail("gm@pvgaming.org, joe.hughto@gmail.com", "FC Deposit Count", $emessage); 
 
-        $sql = "INSERT INTO cashCounts (countTime, count, deposit, staffID, difference) VALUES (NOW(), $count, 0, '$ID', $difference)";
+        $sql = "INSERT INTO cashCounts (countTime, count, deposit, staffID, difference) VALUES (DATE_ADD(NOW(), INTERVAL 1 HOUR), $count, 0, '$ID', $difference)";
         if (query($cxn, $sql)) {
             $message .= "Count of $count deposited correctly.<br>";
         } else {
@@ -184,7 +184,7 @@ if (($_POST['count'] > 0 || $_POST['deposit'] > 0) && $_POST['confirmed'] == "Co
     }
 
     if ($deposit > 0) {
-        $sql = "INSERT INTO cashCounts (countTime, count, deposit, staffID) VALUES (NOW(), $deposit, 1, '$ID')";
+        $sql = "INSERT INTO cashCounts (countTime, count, deposit, staffID) VALUES (DATE_ADD(NOW(), INTERVAL 1 HOUR), $deposit, 1, '$ID')";
 
         if (query($cxn, $sql)) {
             $message .= "Deposit of $deposit deposited correctly.<br>";

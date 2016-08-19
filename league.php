@@ -244,7 +244,7 @@ if ($leagueType == 1 && isset($_POST['submit'])) {
     if ($winner > 0 && $loser > 0 && $league > 0) {
         $sql = "INSERT INTO league 
             (whenplayed, leagueID, submitter, player, points, game, win)
-            VALUES (NOW(), '$league', '{$_SESSION['ID']}', '$winner', "
+            VALUES (DATE_ADD(NOW(), INTERVAL 1 HOUR), '$league', '{$_SESSION['ID']}', '$winner', "
             . "'$pointsForWinner', '$loser', '1')";
         if (query($cxn, $sql)) {
             echo printMemberString($winner, 1) 
@@ -255,7 +255,7 @@ if ($leagueType == 1 && isset($_POST['submit'])) {
 
         $sql = "INSERT INTO league 
             (whenplayed, leagueID, submitter, player, points, game, win)
-            VALUES (NOW(), '$league', '{$_SESSION['ID']}', '$loser', "
+            VALUES (DATE_ADD(NOW(), INTERVAL 1 HOUR), '$league', '{$_SESSION['ID']}', '$loser', "
             . "'$pointsForLoser', '$winner', '0')";
         if (query($cxn, $sql)) {
             echo printMemberString($loser, 1) 
@@ -295,7 +295,7 @@ if ($leagueType == 1 && isset($_POST['submit'])) {
     if ($winner > 0 && $loser > 0 && $league > 0) {
         $sql = "INSERT INTO league 
             (whenplayed, leagueID, submitter, player, points, game, win)
-            VALUES (NOW(), '$league', '{$_SESSION['ID']}', '$winner', "
+            VALUES (DATE_ADD(NOW(), INTERVAL 1 HOUR), '$league', '{$_SESSION['ID']}', '$winner', "
             . "'$newWinnerPoints', '$loser', '1')";
         if (query($cxn, $sql)) {
             echo printMemberString($winner, 1) 
@@ -307,7 +307,7 @@ if ($leagueType == 1 && isset($_POST['submit'])) {
 
         $sql = "INSERT INTO league 
             (whenplayed, leagueID, submitter, player, points, game, win)
-            VALUES (NOW(), '$league', '{$_SESSION['ID']}', '$loser', "
+            VALUES (DATE_ADD(NOW(), INTERVAL 1 HOUR), '$league', '{$_SESSION['ID']}', '$loser', "
             . "'$newLoserPoints', '$winner', '0')";
         if (query($cxn, $sql)) {
             echo printMemberString($loser, 1) . " entered as loser with "
@@ -361,7 +361,7 @@ if ($leagueType == 1 && isset($_POST['submit'])) {
             $stmt = $cxn->prepare(
                 "INSERT INTO league(whenplayed, leagueID, 
                 submitter, player, points, game)
-                VALUE (NOW(), ?, ?, ?, ?, ?)"
+                VALUE (DATE_ADD(NOW(), INTERVAL 1 HOUR), ?, ?, ?, ?, ?)"
             );
             $stmt->bind_param(
                 "dddds", $league, $_SESSION['ID'], $player, 

@@ -159,11 +159,11 @@ if (isset($_POST['submit'])) {
             $emailhash = hash('sha256', $tmpstring);
 
             $sql = "SELECT * FROM passwordReset WHERE (member='" . $row['ID']
-                .  "' AND (NOW() < expires))";
+                .  "' AND (DATE_ADD(NOW(), INTERVAL 1 HOUR) < expires))";
             $result = query($cxn, $sql);
             if ($tmp = mysqli_fetch_assoc($result)) {
                 $sql = "UPDATE passwordReset SET hash='$emailhash', expires='"
-                    . "$expires' WHERE (member='" . $row['ID'] . "' AND (NOW()"
+                    . "$expires' WHERE (member='" . $row['ID'] . "' AND (DATE_ADD(NOW(), INTERVAL 1 HOUR)"
                     . " < expires))";
             } else {
                 $sql = "INSERT INTO passwordReset (member, hash, expires) VALUES ('" . $row['ID'] . "', '$emailhash', '$expires')";

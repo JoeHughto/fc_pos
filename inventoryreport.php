@@ -59,7 +59,7 @@ if ($_POST['change'] == 1) {
     echo "<hr><font size=+2>Adjusting Quantities</font><br>\n";
 
     $sql = "INSERT INTO invEvent (type, staffID, invDate, closed) "
-        . "VALUES (1, ". $_SESSION['ID'] . ", NOW(), 1)";
+        . "VALUES (1, ". $_SESSION['ID'] . ", DATE_ADD(NOW(), INTERVAL 1 HOUR), 1)";
     if (!query($cxn, $sql)) {
         displayErrorDie("Unable to set invEvent");
     }
@@ -114,10 +114,10 @@ if (isset($_GET['sort'])) {
 if ($_GET['noblank'] == 1) {
     $noblank = "WHERE qty > 0";
     if ($_GET['boardcard'] == 1) {
-        $boardcard = "AND (department LIKE 'Board Games' OR department LIKE 'Card Games')";
+        $boardcard = "AND (department LIKE 'Board Games')";
     }
 } elseif ($_GET['boardcard'] == 1) {
-    $boardcard = "WHERE (department LIKE 'Board Games' OR department LIKE 'Card Games')";
+    $boardcard = "WHERE (department LIKE 'Board Games')";
 }
 
 $sql = "SELECT * FROM items $noblank $boardcard $sort";

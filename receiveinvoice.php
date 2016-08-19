@@ -738,7 +738,7 @@ if ($_POST['close'] == 1) {
         }
         // close invoice
         if ($goodquery) {
-            $sql = "UPDATE invEvent SET closed='1', invDate=NOW() WHERE ID='$IEID'";
+            $sql = "UPDATE invEvent SET closed='1', invDate=DATE_ADD(NOW(), INTERVAL 1 HOUR) WHERE ID='$IEID'";
             query($cxn, $sql);
             $_SESSION['invEvent_ID'] = 0;
             echo "<b>Inventory Event #$IEID CLOSED</b>

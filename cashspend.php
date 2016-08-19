@@ -40,7 +40,7 @@ if ($_POST['amount'] > 0) {
    
     $stmt = $cxn->prepare(
         "INSERT INTO cashSpend (submitter, amount, reason, whenSub)
-        VALUES (?, ?, ?, NOW())"
+        VALUES (?, ?, ?, DATE_ADD(NOW(), INTERVAL 1 HOUR))"
     );
     $stmt->bind_param("ids", $_SESSION['ID'], $amount, $reason);
     if ($stmt->execute()) {
